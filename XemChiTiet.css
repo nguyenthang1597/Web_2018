@@ -21,4 +21,9 @@ img.img-responsive {
 
 .khoithongtinlon {
 	height: 100%;
+	margin-top: 27px;
 }
+	
+	.khoithongtinlon p h2{
+		text-align: justify;
+	}
