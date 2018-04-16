@@ -27,3 +27,41 @@ img.img-responsive {
 	.khoithongtinlon p h2{
 		text-align: justify;
 	}
+
+.dongia {
+	border: 1px solid red;
+	background-color: #e33737;
+	height: 65px;
+	margin-top: 92px;
+	color: white;
+	text-align: center;
+}
+.tradeinform {
+	border: 1px solid black;
+	background-color: #1b1b1b;
+	height: 65px;
+	margin-top: 10px;
+	color: white;
+	text-align: center;
+}
+
+.thongtin {
+	margin-top: 10px;
+	background-color: #eeeeee;
+}
+	.thongtin img {
+		width: 100%;
+	}
+
+	.thongtin td {
+		text-align: left;
+	}
+
+
+.xangtieuthu {
+	margin-top: 10px;
+}
+	.xangtieuthu div {
+		text-align: center;
+	}
+
