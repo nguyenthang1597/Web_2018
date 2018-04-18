@@ -4,48 +4,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CarNews</title>
+<title>Login</title>
 <link rel="shortcut icon" type="image/x-icon" href="favicon.png" />
 <link href="css/master.css" rel="stylesheet">
 
 </head>
 <body class="noIE home">
-
-<!-- Loader -->
-<div id="ip-container" class="ip-container"> 
-  <!-- initial header -->
-<!--   <header class="ip-header">
-    <div class="ip-loader"> 
-	<svg class="ip-inner" width="60px" height="60px" viewBox="0 0 80 80">
-      <path class="ip-loader-circlebg" d="M40,10C57.351,10,71,23.649,71,40.5S57.351,71,40.5,71 S10,57.351,10,40.5S23.649,10,39.3,10z"/>
-      <path id="ip-loader-circle" class="ip-loader-circle" d="M40,10C57.351,10,71,23.649,71,40.5S57.351,71,40.5,71 S10,57.351,10,40.5S23.649,10,40.5,10z"/>
-      </svg>
-      
-       </div>
-  </header> -->
-  <!-- Loader end --> 
-  
-</div>
-
 <!-- HEADER -->
-<header id="main-header">
-  <div id="cd-nav"> <a href="#0" class="cd-nav-trigger">Menu<span></span></a>
-    <nav id="cd-main-nav">
-      <ul>
-        <li class="active"><a href="index.html"><span>CARNews HOME</span> <small> LATEST REVIEWS OF CARS</small> </a></li>
-        <li><a href="blog.html"><span>NEWS & BLOG</span> <small>NEWS ABOUT UPCOMING</small></a></li>
-        <li ><a href="post.html"><span>CARS Post </span> <small>INFO ABOUT ALL CARS</small></a></li>
-        <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span>Car Shop<b class="caret"></b></span> <small>SEE ALL NEWEST MODELS</small></a>
-          <ul>
-              <li><a href="catalog.html">Catalog</a></li>
-                    <li><a href="product.html"  >Product</a></li>
-          </ul>
-        </li>
-        <li><a href="shop.html"><span>CAR Pages </span> <small>SHARE YOUR OPINION</small></a></li>
-      </ul>
-    </nav>
-  </div>
-
+<div id="main-header">
   <div class="container ">
     <div class="row">
       <div class="col-md-3 spacer"> </div>
@@ -56,40 +22,42 @@
             <ul class="nav navbar-nav nav-justified">
               <li ><a href="#"><span>HOME</span></a></li>
               <li><a href="#"><span>ABOUT</span></a></li>
-              <li class="current"><a href="#"><span>CONTACT</span></a></li>
-              <li><a href="#"><span>LOGIN</span></a></li>
+              <li><a href="#"><span>CONTACT</span></a></li>
+              <li  class="current"><a href="#"><span>LOGIN</span></a></li>
               <li><a href="#"><span>SIGNUP</span></a></li>
             </ul>
           </div>
         </div>
       </div>
   </div>
-
-</header>
+</div>
 <!-- HEADER END -->
 
 <!-- Login -->
+<div class="container myform">
+	<div class="row">
+		<div class="col-md-6 col-md-push-3">
+			<div class="card">
+				<form method="POST" role="form">
+					<img class="mylogo" src="./logo.png" alt="logo">
+					<div class="form-group">
+						<label for="">User Name</label>
+						<input type="text" class="form-control" id="" placeholder="Input field">
+					</div>
 
+					<div class="form-group">
+						<label for="">Password</label>
+						<input type="password" class="form-control" id="" placeholder="Input field">
+					</div>
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+</div>
 
 <!-- End Login -->
-
-<!-- ABSOLUTE FOOTER -->
-<div class="copyright-block">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 col-sm-12 col-xs-12 left">
-        <ul class="unstyled clearfix social-team">
-          <li><a href="http://fb.com/#" target="_blank"><i class="fa fa-facebook"></i></a></li>
-          <li><a href="http://twitter.com/#" target="_blank"><i class="fa fa-twitter"></i></a></li>
-          <li><a href="http://plus.google.com/#" target="_blank"><i class="fa fa-google"></i></a></li>
-          <li><a href="http://youtube.com/#" target="_blank"><i class="fa fa-youtube"></i></a></li>
-          <li><a href="http://rss.com/#" target="_blank"><i class="fa fa-rss"></i></a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- END --> 
 
 <!-- SCRIPTS --> 
 <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>  
