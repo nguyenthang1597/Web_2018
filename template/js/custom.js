@@ -178,18 +178,11 @@ $(document).ready(function() {
     if ($('.camera_slider').length > 0) {
         jQuery('.camera_slider').camera({
             fx: 'random',
-            playPause: true,
             random: false,
-            loader: 'bar',
             pagination: false,
-            thumbnails: true,
             hover: false,
-            opacityOnGrid: false,
             imagePath: '../media/'
         });
-
-
-
 
     }
 
@@ -203,13 +196,7 @@ $(document).ready(function() {
 
 
 
-    $('.scroll-top').click(function(event) {
-        event.preventDefault();
-
-        $('html, body').animate({
-            scrollTop: 0
-        }, 300);
-    });
+  
 
 
 
