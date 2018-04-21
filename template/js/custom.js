@@ -196,7 +196,13 @@ $(document).ready(function() {
 
 
 
-  
+  /*  $('.scroll-top').click(function(event) {
+        event.preventDefault();
+
+        $('html, body').animate({
+            scrollTop: 0
+        }, 300);
+    });*/
 
 
 
@@ -348,7 +354,7 @@ $(document).ready(function() {
             } else {
                 $('.carousel-1').bxSlider();
 
-                $('.bx-next').html(' <i class="fa fa-angle-right"></i>')
+               $('.bx-next').html(' <i class="fa fa-angle-right"></i>')
                 $('.bx-prev').html(' <i class="fa fa-angle-left"></i>')
 
 

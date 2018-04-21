@@ -195,8 +195,6 @@
 	transition: all .4s ease-in-out;
 }
 .carousel-1 li:hover .carousel-title, .carousel-1 li:hover .icon-transform {
-	background-color: #000;
-	border-bottom-color: #000;
 }
 .carousel-item-content .text-right {
 	padding-right: 20px;
