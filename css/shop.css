@@ -7,9 +7,6 @@
 3. Product
 
 -------------------------------------------------------------------*/
-
-
-
 /* Catalog */
 
 .page-title h3 {
@@ -385,7 +382,7 @@
 	vertical-align: top;
 }
 .featured-title {
-	font-family: 'Fjalla One', sans-serif;
+	/* font-family: 'Fjalla One', sans-serif; */
 	font-size: 16px;
 	text-transform: uppercase;
 	color: #000;
