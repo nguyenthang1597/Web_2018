@@ -507,3 +507,12 @@
 html .overlay-bot hr:before {
 	border-color: #f9f9f9;
 }
+
+/* Kq_tim kiem */
+.unstyled input[type="text"] {
+    width: 199px;
+}
+
+.unstyled button {
+	width: 100px;
+}
