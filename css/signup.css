@@ -20,6 +20,11 @@ body {
     opacity: 0.9;
 }
 
+.form-group.capcha {
+    width:  50%;
+    margin:  0 auto;
+}
+
 .myform {
     margin-top: 50px;
 }
@@ -43,3 +48,8 @@ body {
         height:  50px;
         font-size: 15px;
     }
+
+    div#mycaptcha {
+    width:  50%;
+    margin:  0 auto;
+}

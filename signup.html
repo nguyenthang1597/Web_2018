@@ -5,9 +5,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Signup</title>
+
+<style>
+   .g-recaptcha>div {margin: 0 auto;}
+ </style>
 <link rel="shortcut icon" type="image/x-icon" href="favicon.png" />
 <link href="css/master.css" rel="stylesheet">
-<link rel="stylesheet" href="./css/signup.css">
+<link rel="stylesheet" type="text/css" href="css/signup.css">
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 </head>
 <body class="noIE home">
@@ -40,27 +46,32 @@
 		<div class="col-md-8 col-md-push-2">
 			<div class="card">
 
-				<h2><i class="glyphicon glyphicon-lock"></i>Create User Account</h2>
+				<h2><i class="glyphicon glyphicon-lock"></i>Tạo Tài Khoản Của Bạn</h2>
 				<form method="POST" role="form">
 					<div class="form-group">
 						<label for="">User Name</label>
-						<input type="text" class="form-control" id="">
+						<input type="text" class="form-control">
 					</div>
 
 					<div class="form-group">
 						<label for="">Email Address</label>
-						<input type="text" class="form-control" id="">
+						<input type="text" class="form-control">
 					</div>
 
 					<div class="form-group">
 						<label for="">Password</label>
-						<input type="text" class="form-control" id="">
+						<input type="text" class="form-control" >
 					</div>
 
 					<div class="form-group">
 						<label for="">Confirm Password</label>
-						<input type="password" class="form-control" id="">
+						<input type="password" class="form-control">
 					</div>
+
+					<div class="form-group captcha text-xs-center" id="mycaptcha">
+						<div class="g-recaptcha" data-sitekey="6LefRFUUAAAAAL9KGclN9n3-3C5ySAGc--HfJtpo"></div>	
+					</div>
+						
 					<button type="submit" class="btn btn-primary">Submit</button>
 				</form>
 			</div>
@@ -79,7 +90,6 @@
 <script src="js/classie.js"></script> 
 <script src="js/pathLoader.js"></script> 
 <script src="js/waypoints.min.js"></script> 
-<script src="js/loader.js"></script> 
 <script src="js/jflickrfeed.min.js"></script> 
 <script src="plugins/selectbox/jquery.selectbox-0.2.js"></script> 
 <script src="plugins/backstretch/backstretch-2.0.4.min.js"></script> 
@@ -96,5 +106,6 @@
 <script src="plugins/nouislider/jquery.nouislider.min.js"></script> 
 <script src="plugins/flexslider/jquery.flexslider.js"></script> 
 <script src="js/custom.js"></script>
+
 </body>
 </html>
