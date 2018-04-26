@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Neon Admin Panel" />
+    <meta name="author" content="" />
+
+
+    <title>Admin Dashboard</title>
+
+    <link rel="stylesheet" href="../../assets/admin/js/jquery-ui/css/no-theme/jquery-ui-1.10.3.custom.min.css">
+    <link rel="stylesheet" href="../../assets/admin/css/font-icons/entypo/css/entypo.css">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic">
+    <link rel="stylesheet" href="../../assets/admin/css/bootstrap.css">
+    <link rel="stylesheet" href="../../assets/admin/css/neon-core.css">
+    <link rel="stylesheet" href="../../assets/admin/css/neon-theme.css">
+    <link rel="stylesheet" href="../../assets/admin/css/neon-forms.css">
+    <link rel="stylesheet" href="../../assets/admin/css/custom.css">
+    <link rel="stylesheet" href="../../assets/admin/js/datatables/datatables.css">
+    <link rel="stylesheet" href="../../assets/admin/js/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+
+    <script src="../../assets/admin/js/jquery-2.2.3.min.js"></script>
+
+
+    <!--[if lt IE 9]><script src="../assets/admin/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+
+</head>
+
+<body class="page-body" data-url="">
+    <div class="page-container">
+        <!-- add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always -->
+
+        <div class="sidebar-menu">
+
+            <div class="sidebar-menu-inner">
+
+                <header class="logo-env">
+
+                    <!-- logo -->
+                    <div class="logo">
+                        <a href="../dashboard.html">
+                            <img src="../../assets/admin/images/logo.png" width="150" alt="" />
+                        </a>
+                    </div>
+
+                    <!-- logo collapse icon -->
+                    <div class="sidebar-collapse">
+                        <a href="#" class="sidebar-collapse-icon">
+                            <!-- add class "with-animation" if you want sidebar to have animation during expanding/collapsing transition -->
+                            <i class="entypo-menu"></i>
+                        </a>
+                    </div>
+
+
+                    <!-- open/close menu icon (do not remove if you want to enable menu on mobile devices) -->
+                    <div class="sidebar-mobile-menu visible-xs">
+                        <a href="#" class="with-animation">
+                            <!-- add class "with-animation" to support animation -->
+                            <i class="entypo-menu"></i>
+                        </a>
+                    </div>
+
+                </header>
+
+
+                <ul id="main-menu" class="main-menu">
+                    <!-- add class "multiple-expanded" to allow multiple submenus to open -->
+                    <!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
+                    <li class="active opened active">
+                        <a href="../dashboard.html">
+                            <i class="entypo-gauge"></i>
+                            <span class="title">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="has-sub">
+                        <a href="#">
+                            <i class="entypo-layout"></i>
+                            <span class="title">Quản lý Hãng xe</span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="../catalog/list.html">
+                                    <span class="title">Danh sách Hãng xe</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../catalog/add.html">
+                                    <span class="title">Thêm Hãng xe mới</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="has-sub">
+                        <a href="#">
+                            <i class="entypo-layout"></i>
+                            <span class="title">Quản lý loại xe</span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="../category/list.html">
+                                    <span class="title">Danh sách loại xe</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../category/add.html">
+                                    <span class="title">Thêm loại xe mới</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="has-sub">
+                        <a href="#">
+                            <i class="entypo-layout"></i>
+                            <span class="title">Quản lý xe</span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="../car/list.html">
+                                    <span class="title">Danh sách xe</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../car/add.html">
+                                    <span class="title">Thêm xe mới</span>
+                                </a>
+                            </li>
+                            
+    
+                        </ul>
+                    </li>
+                    <li class="has-sub">
+                        <a href="#">
+                            <i class="entypo-layout"></i>
+                            <span class="title">Quản lý thành viên</span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="../user/list.html">
+                                    <span class="title">Danh sách thành viên</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="has-sub">
+                        <a href="#">
+                            <i class="entypo-layout"></i>
+                            <span class="title">Quản lý đơn hàng</span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="../bill/list.html">
+                                    <span class="title">Danh sách đơn hàng</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+
+        </div>
+        <div class="row">
+            <!-- Profile Info and Notifications -->
+            <div class="col-md-6 col-sm-8 clearfix">
+
+                <ul class="user-info pull-left pull-none-xsm">
+
+                    <!-- Profile Info -->
+                    <li class="profile-info dropdown">
+                        <!-- add class "pull-right" if you want to place this from right -->
+
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <img src="../../assets/admin/images/thumb-1@2x.png" alt="" class="img-circle" width="44" /> 
+                            Nguyen Thang
+                        </a>
+                       
+                    </li>
+                </ul>
+            </div>
+
+
+            <!-- Raw Links -->
+            <div class="col-md-6 col-sm-4 clearfix hidden-xs">
+
+                <ul class="list-inline links-list pull-right">
+
+                    <li class="sep"></li>
+
+                    <li>
+                        <a href="/logout">
+                            Log Out
+                            <i class="entypo-logout right"></i>
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+
+        <hr />
+        <ol class="breadcrumb bc-3">
+            <li>
+                <a href="../dashboard.html">
+                    <i class="fa-home"></i>Dashboard</a>
+            </li>
+            <li class="active">
+                <strong>Quản lí loại xe</strong>
+            </li>
+        </ol>
+        <h2>Quản lí xe</h2>
+
+
+        <form method="post" enctype="multipart/form-data" action="/admin/article/add" id="addcate" class="form-horizontal form-groups-bordered">
+            <div class="row">
+                <div class="col-md-12">
+
+                    <div class="panel panel-primary" data-collapsed="0">
+                        <div class="panel-heading">
+                            <div class="panel-title">
+                               Thêm xe mới
+                            </div>
+                        </div>
+
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Danh mục</label>
+
+                                <div class="col-sm-5">
+                                    <select class="form-control" name="cate">
+                                       
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Ảnh thumbnail</label>
+                                <div class="col-sm-5">
+                                    <input type="file" name="thumbnail" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Tên bài viết</label>
+
+                                <div class="col-sm-8">
+
+                                    <input type="text" name="title" id="title" class="form-control" placeholder="Tên bài viết" required>
+
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Mô tả ngắn</label>
+
+                                <div class="col-sm-8">
+                                    <textarea name="summary" id="summary" class="textarea" placeholder="Thông tin mô tả ngắn hiển thị trên trang chủ" style="width: 100%; height: 100px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Thông tin chi tiết</label>
+
+                                <div class="col-sm-8">
+                                    <textarea name="content" id="content" class="textarea" placeholder="Thông tin chi tiết" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Ẩn/hiện bài viết</label>
+
+                                <div class="col-sm-5">
+
+                                    <div class="bs-example">
+                                        <div class="make-switch" data-on="primary" data-off="info">
+                                            <input type="checkbox" name="ishide">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Nổi bật bài viết (đưa lên khung nổi bật)</label>
+
+                                <div class="col-sm-5">
+
+                                    <div class="bs-example">
+                                        <div class="make-switch" data-on="primary" data-off="info">
+                                            <input type="checkbox" name="ishighlight">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-8" style="text-align: center;">
+
+                        <div class="bs-example">
+                            <button type="submit" class="btn btn-green btn-icon">
+                                Thêm bài viết
+                                <i class="entypo-check"></i>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+        </form>
+        </div>
+        <br />
+
+
+
+    </div>
+
+
+    <!-- Imported styles on this page -->
+
+    <!-- Bottom scripts (common) -->
+    <script src="../../assets/admin/js/gsap/TweenMax.min.js"></script>
+    <script src="../../assets/admin/js/jquery-ui/js/jquery-ui-1.10.3.minimal.min.js"></script>
+    <script src="../../assets/admin/js/bootstrap.js"></script>
+    <script src="../../assets/admin/js/resizeable.js"></script>
+    <script src="../../assets/admin/js/neon-api.js"></script>
+    <script src="../../assets/admin/js/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+
+
+
+    <!-- Imported scripts on this page -->
+
+
+    <script src="../../assets/admin/js/datatables/datatables.js"></script>
+
+    <!-- JavaScripts initializations and stuff -->
+    <script src="../../assets/admin/js/neon-custom.js"></script>
+
+    <!-- Imported scripts on this page -->
+    <script src="../../assets/admin/js/bootstrap-switch.min.js"></script>
+
+    <!-- Demo Settings -->
+    <script src="../../assets/admin/js/neon-demo.js"></script>
+
+
+
+
+    <script>
+        $(document).ready(function () {
+            //bootstrap WYSIHTML5 - text editor
+            $('#table-1').DataTable();
+        });
+    </script>
+    </div>
+
+
+</body>
