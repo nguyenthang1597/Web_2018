@@ -14,7 +14,7 @@ html hr, .arrow-link .icon-transform, .carousel-item-content .carousel-title, .p
 .arrow-link:hover .icon-transform i, .box-transform i, .widget-title, .widget-title a, .list-group-item .price, .seller a, .featured-content i, .page-title h3 {
 	color: #d90000;
 }
-.themecolor1, #main-nav li.active, #main-nav li:hover, .navbar-top .navbar-nav:after, .navbar-top .navbar-nav li:hover, .bglogo4, .bglogo3 .bglogo2, .bglogo1, .navbar-top .current, .box-more-info .transform-revers:hover, .comment .comment-reply:hover {
+.themecolor1, #main-nav li:hover, .navbar-top .navbar-nav:after, .navbar-top .navbar-nav li:hover, .bglogo4, .bglogo3 .bglogo2, .navbar-top .current, .box-more-info .transform-revers:hover, .comment .comment-reply:hover {
 	background-color: rgba(217, 0, 0, 0.87);
 }
 .carousel-title {
