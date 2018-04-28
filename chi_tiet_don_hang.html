@@ -6,179 +6,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Chi tiết đơn hàng</title>
   <link href="./assets/user/css/master.css" rel="stylesheet">
-  <!--[if lt IE 9]>
-      <script src="js/html5shiv-3.7.0.js"></script>
-      <script src="js/respond-1.4.2.js"></script>
-    <![endif]-->
-  <script type="text/javascript" src="./assets/user/js/jquery-1.11.1.min.js"></script>
-  <script type="text/javascript" src="dialog.js"></script>
-  <style type="text/css">
-    #over {
-      display: none;
-      background: #000;
-      position: fixed;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0.8;
-      z-index: 999;
-    }
-
-    a,
-    a:visited,
-    a:active {
-      text-decoration: none;
-    }
-
-    .login {
-      background-color:rgba(217, 0, 0, 0.87);;
-      height: auto;
-      width: 581px;
-      border-radius: 10px;
-      font-family: Verdana, Arial, Helvetica, sans-serif;
-      font-size: 14px;
-      padding-bottom: 5px;
-      display: none;
-      overflow: hidden;
-      position: absolute;
-      z-index: 99999;
-      top: 10%;
-      /* left: 10%; */
-      margin: 0 auto;
-    }
-
-    .login .login_title {
-      color: white;
-      font-size: 16px;
-      padding: 8px 0 5px 8px;
-      text-align: left;
-    }
-
-    .login-content label {
-      display: block;
-      padding-bottom: 7px;
-    }
-
-    .login-content span {
-      display: block;
-    }
-
-    .login-content {
-      padding-left: 35px;
-      background-color: white;
-      margin-left: 5px;
-      margin-right: 5px;
-      height: auto;
-      padding-top: 15px;
-      overflow: hidden;
-    }
-
-    .img-close {
-      float: right;
-      margin-top: -43px;
-      margin-right: 5px
-    }
-
-    .button {
-      display: inline-block;
-      min-width: 46px;
-      text-align: center;
-      color: #444;
-      font-size: 14px;
-      font-weight: 700;
-      height: 36px;
-      padding: 0px 8px;
-      line-height: 36px;
-      border-radius: 4px;
-      transition: all 0.218s ease 0s;
-      border: 1px solid #DCDCDC;
-      background-color: #F5F5F5;
-      background-image: -moz-linear-gradient(center top, #F5F5F5, #F1F1F1);
-      cursor: pointer;
-    }
-
-    .button:hover {
-      border: 1px solid #DCDCDC;
-      text-decoration: none;
-      -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-      -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
-    }
-
-    .login input {
-      border: 1px solid #D5D5D5;
-      border-radius: 5px;
-      box-shadow: 1px 1px 5px rgba(0, 0, 0, .07) inset;
-      color: black;
-      font: 12px/25px "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-      height: 28px;
-      padding: 0px 8px;
-      word-spacing: 0.1em;
-      width: 300px;
-    }
-
-    .submit-button {
-      display: inline-block;
-      padding: auto;
-      margin: 15px 75px;
-      width: 150px;
-    }
-
-    h4.headpanel {
-      text-align: center;
-    }
-
-    input.form-control {
-      width: 100%;
-    }
-  </style>
 </head>
 
 <body class="noIE inner-page ">
+
   <!-- HEADER -->
   <header id="main-header">
-    <div id="cd-nav">
-      <nav id="cd-main-nav">
-        <ul>
-          <li class="active">
-            <a href="catalog.html">
-              <span>Sedan</span>
+
+      <div id="cd-nav" class="is-fixed">
+            <a href="#0" class="cd-nav-trigger">Menu
+                <span></span>
             </a>
-          </li>
-          <li>
-            <a href="catalog.html">
-              <span>Hatchback</span>
-            </a>
-          </li>
-          <li>
-            <a href="catalog.html">
-              <span>SUV</span>
-            </a>
-          </li>
-          <li>
-            <a href="catalog.html">
-              <span>MPV/Minivan</span>
-            </a>
-          </li>
-          <li>
-            <a href="catalog.html">
-              <span>Coupe</span>
-            </a>
-          </li>
-          <li>
-            <a href="catalog.html">
-              <span>Convertible</span>
-            </a>
-          </li>
-          <li>
-            <a href="catalog.html">
-              <span>Pickup</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </div>
+            <nav id="cd-main-nav">
+
+                <ul class="has-transitions">
+                    <h1 style="font-family: all;">Hello Jane Doe</h1>
+                    <li>
+                        <a href="thong_tin_ca_nhan.html">
+                            <span style="font-family: all;">Thông tin cá nhân</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="gio_hang.html">
+                            <span style="font-family: all;">Giỏ hàng</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="danh_sach_don_hang.html">
+                            <span style="font-family: all;">Lịch sử mua hàng</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="kq_tim_kiem.html">
+                            <span style="font-family: all;">Tìm kiếm</span>
+
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
     <div class="container ">
       <div class="row">
         <div class="col-md-3 spacer"> </div>
@@ -188,7 +55,7 @@
             <div class="navbar-collapse">
               <ul class="nav navbar-nav nav-justified">
                 <li>
-                  <a href="./index.html">
+                  <a href="./index-logined.html">
                     <span>HOME</span>
                   </a>
                 </li>
@@ -197,14 +64,14 @@
                     <span>ABOUT</span>
                   </a>
                 </li>
-                <li>
+                <li class="current">
                   <a href="#">
                     <span>CONTACT</span>
                   </a>
                 </li>
                 <li>
-                  <a href="./login.html">
-                    <span>LOGIN</span>
+                  <a href="./index.html">
+                    <span>LOGOUT</span>
                   </a>
                 </li>
                 <li>
@@ -237,26 +104,10 @@
               <div class="navbar-header"> </div>
               <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav nav-justified">
-                  <li class="active">
-                    <a href="catalog.html">
-                      <span>Sedan</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="catalog.html">
-                      <span>Hatchback</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="catalog.html">
-                      <span>MPV/Minivan</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="catalog.html">
-                      <span>Coupe</span>
-                    </a>
-                  </li>
+                  <li><a href="ds.html"><span>Sedan</span></a></li>
+                  <li ><a href="ds.html"><span>Hatchback</span></a></li>
+                  <li><a href="ds.html"><span>MPV/Minivan</span></a></li>
+                  <li ><a href="ds.html"><span>Coupe</span></a></li>
                 </ul>
               </div>
               <div class="mini-search-top">
@@ -270,51 +121,50 @@
       </nav>
     </div>
   </header>
-  <!-- HEADER END -->
-  <!-- SECTION -->
-  <div class="brandslider bg-overlay overlay-bot">
-    <div class="container">
-      <div class="row">
-        <ul>
-          <li>
-            <a href="catalog.html">
-              <img src="./assets/user/media/brand/1.png" alt="brand" />
-            </a>
-          </li>
-          <li>
-            <a href="catalog.html">
-              <img src="./assets/user/media/brand/2.png" alt="brand" />
-            </a>
-          </li>
-          <li>
-            <a href="catalog.html">
-              <img src="./assets/user/media/brand/3.png" alt="brand" />
-            </a>
-          </li>
-          <li>
-            <a href="catalog.html">
-              <img src="./assets/user/media/brand/4.png" alt="brand" />
-            </a>
-          </li>
-          <li>
-            <a href="catalog.html">
-              <img src="./assets/user/media/brand/5.png" alt="brand" />
-            </a>
-          </li>
-          <li>
-            <a href="catalog.html">
-              <img src="./assets/user/media/brand/6.png" alt="brand" />
-            </a>
-          </li>
-          <li>
-            <a href="catalog.html">
-              <img src="./assets/user/media/brand/7.png" alt="brand" />
-            </a>
-          </li>
-        </ul>
+   <!-- SECTION -->
+    <div class="brandslider bg-overlay overlay-bot">
+      <div class="container">
+        <div class="row">
+          <ul>
+            <li>
+              <a href="ds.html">
+                <img src="./assets/user/media/brand/1.png" alt="brand" />
+              </a>
+            </li>
+            <li>
+              <a href="ds.html">
+                <img src="./assets/user/media/brand/2.png" alt="brand" />
+              </a>
+            </li>
+            <li>
+              <a href="ds.html">
+                <img src="./assets/user/media/brand/3.png" alt="brand" />
+              </a>
+            </li>
+            <li>
+              <a href="ds.html">
+                <img src="./assets/user/media/brand/4.png" alt="brand" />
+              </a>
+            </li>
+            <li>
+              <a href="ds.html">
+                <img src="./assets/user/media/brand/5.png" alt="brand" />
+              </a>
+            </li>
+            <li>
+              <a href="ds.html">
+                <img src="./assets/user/media/brand/6.png" alt="brand" />
+              </a>
+            </li>
+            <li>
+              <a href="ds.html">
+                <img src="./assets/user/media/brand/7.png" alt="brand" />
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
   <!-- HEADER END -->
   <main id="main" class="section">
     <div class="container">
@@ -323,7 +173,7 @@
         <div class="col-xs-12 col-sm-12 col-md-9">
           <section class="main-content" role="main">
             <ul class="list-group catalog-product-list">
-              <li class="list-group-item    animated" data-animation="bounceInLeft">
+             <li class="list-group-item    animated" data-animation="bounceInLeft">
                 <div class="media col-md-5  col-sm-5 col-xs-12">
                   <figure class="pull-left">
                     <a href="#">
@@ -364,138 +214,37 @@
             <!-- ARCHIVE WIDGET -->
             <div class="widget widget-filter">
               <div class="block_content">
-                <div class="list-group-heading">
-                  <span class="list-group-heading-inner">
-                    <span style="font-family: all;">Địa chỉ giao hàng</span>
-                  </span>
-                </div>
-                <div class="list-content">
-                  <p>Giao hàng tới</p>
-                  <strong> Nguyễn Văn A</strong>
-                  <p> 442 Lê Quang Định,Phường 11, Bình Thạnh, Hồ Chí Minh</p>
-                  <p>09278672662</p>
-                  <a class="login-window button" href="#login-box">CHỈNH SỬA</a>
-                </div>
-                <div class="list-group-heading">
-                  <span class="list-group-heading-inner">
-                    <span style="font-family: all;">Thông tin đơn hàng</span>
-                  </span>
-                </div>
+
+                
+                  <div class="list-group-heading">
+                    <span class="list-group-heading-inner">
+                      <span style="font-family: all;">Thông tin đơn hàng</span>
+                    </span>
+                  </div>
 
 
-                <div class="list-content">
-                  <ul class="check-list">
-                    <li>
-                      <input type="text" placeholder="Nhập mã giảm giá" size="13">
-                      <button type="submit">Submit</button>
-                    </li>
-                    <li>
-                      <label>Phí giao hàng:
-                        <span style="display:inline-block; width: 15px;"></span>
-                        <input type="text" placeholder="$15" size="8">
-                      </label>
-                    </li>
+                  <div class="list-content">
+                    <ul class="check-list">
+                      <li>
+                        <label for="">Mã giao hàng: DH657165</label>
+                      </li>                      
+                      <li>
+                        <label>Ngày mua: 23/04/2018
+                        </label>
+                      </li>
 
-                    <li>
-                      <label>Tạm tính:
-                        <span style="display:inline-block; width: 46px;"></span>
-                        <input type="text" placeholder="$163.450" size="8">
-                      </label>
-                    </li>
-                  </ul>
-
-
+                      <li>
+                        <label>Tổng tiền: $1.000.000
+                        </label>
+                      </li>
+                      <li>
+                        <label>Trạng thái: Đang giao
+                        </label>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
 
-
-
-
-                <div class="list-group-heading">
-                  <span class="list-group-heading-inner">
-                    <span style="font-family: all;">Hình thức thanh toán</span>
-                  </span>
-                </div>
-                <div class="list-content">
-                  <ul class="check-list">
-                    <li>
-                      <div class="roundedOne">
-                        <input type="checkbox" name="check" id="roundedOne" value="None">
-                        <label for="roundedOne"></label>
-                      </div>
-                      <label>Giao hàng tận nhà, trả tiền</label>
-                    </li>
-
-                    <li>
-                      <div class="roundedOne">
-                        <input type="checkbox" name="check" id="roundedOne2" value="None">
-                        <label for="roundedOne2"></label>
-                      </div>
-                      <label>Đến đại lý nhận xe</label>
-                      <label> và thanh toán bằng tiền mặt</label>
-                    </li>
-
-                    <li>
-                      <div class="roundedOne">
-                        <input type="checkbox" name="check" id="roundedOne2" value="None">
-                        <label for="roundedOne2"></label>
-                      </div>
-                      <label>Thanh toán thông qua</label>
-                      <label> tài khoản Internet banking</label>
-                    </li>
-                    <li>
-                      <div class="roundedOne">
-                        <input type="checkbox" name="check" id="roundedOne3" value="None">
-                        <label for="roundedOne3"></label>
-                      </div>
-                      <label>Thanh toán bằng thẻ </label>
-                      <label> quốc tế (VISA, Master Card,...)</label>
-                    </li>
-
-                  </ul>
-                </div>
-
-
-                <h3 class="widget-sub-title">
-                  <span>Thanh toán</span>
-                </h3>
-              </div>
-            </div>
-
-            <div class="login" id="login-box">
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h4 class="headpanel">Thông tin giao hàng</h4>
-                </div>
-                <div class="panel-body">
-                  <form action="" method="POST" role="form">
-                    <div class="form-group">
-                      <label for="">Địa Chỉ Mail</label>
-                      <input type="text" class="form-control" id="" placeholder="Email của bạn">
-                    </div>
-
-                    <div class="form-group">
-                      <label for="">Tên</label>
-                      <input type="text" class="form-control" id="" placeholder="Họ và tên">
-                    </div>
-
-                    <div class="form-group">
-                      <label for="">Số điện thoại</label>
-                      <input type="text" class="form-control" id="" placeholder="Số điện thoại của bạn">
-                    </div>
-
-                    <div class="form-group">
-                      <label for="">Địa Chỉ</label>
-                      <input type="text" class="form-control" id="" placeholder="Vui lòng nhập địa chỉ nhận hàng">
-                    </div>
-
-                    <button type="button" class="login-window button center-block">Sửa Thông Tin</button>
-
-                  </form>
-                </div>
-              </div>
-            </div>
-
-            <!-- End dialog thông tin giao hàng -->
             <!-- OUR SOCIAL NETWORK WIDGET -->
             <div class="widget widget-social">
               <h3 class="widget-title">
@@ -533,6 +282,35 @@
 
           </aside>
         </div>
+        <!-- // SIDEBAR -->
+
+        <div class="row">
+          <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+            <ul class="pagination">
+              <li>
+                <a href="#">&laquo;</a>
+              </li>
+              <li>
+                <a href="#">1</a>
+              </li>
+              <li>
+                <a href="#">2</a>
+              </li>
+              <li>
+                <a href="#">3</a>
+              </li>
+              <li>
+                <a href="#">4</a>
+              </li>
+              <li>
+                <a href="#">5</a>
+              </li>
+              <li>
+                <a href="#">&raquo;</a>
+              </li>
+            </ul>
+          </div>
+        </div>
 
 
       </div>
@@ -555,7 +333,7 @@
       <div class="row">
         <ul class="nav-footer">
           <li>
-            <a href="./index.html">
+            <a href="./index-logined.html">
               <span>HOME</span>
             </a>
           </li>
@@ -570,8 +348,8 @@
             </a>
           </li>
           <li>
-            <a href="./login.html">
-              <span>LOGIN</span>
+            <a href="./index.html">
+              <span>LOGOUT</span>
             </a>
           </li>
           <li>
@@ -584,44 +362,44 @@
     </div>
   </div>
   <!-- END -->
-  <!-- ABSOLUTE FOOTER -->
-  <div class="copyright-block">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12 left">
-          <ul class="unstyled clearfix social-team">
-            <li>
-              <a href="http://fb.com/#" target="_blank">
-                <i class="fa fa-facebook"></i>
-              </a>
-            </li>
-            <li>
-              <a href="http://twitter.com/#" target="_blank">
-                <i class="fa fa-twitter"></i>
-              </a>
-            </li>
-            <li>
-              <a href="http://plus.google.com/#" target="_blank">
-                <i class="fa fa-google"></i>
-              </a>
-            </li>
-            <li>
-              <a href="http://youtube.com/#" target="_blank">
-                <i class="fa fa-youtube"></i>
-              </a>
-            </li>
-            <li>
-              <a href="http://rss.com/#" target="_blank">
-                <i class="fa fa-rss"></i>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- END -->
 
+          <!-- ABSOLUTE FOOTER -->
+          <div class="copyright-block">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12 left">
+                  <ul class="unstyled clearfix social-team">
+                    <li>
+                      <a href="http://fb.com/#" target="_blank">
+                        <i class="fa fa-facebook"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="http://twitter.com/#" target="_blank">
+                        <i class="fa fa-twitter"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="http://plus.google.com/#" target="_blank">
+                        <i class="fa fa-google"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="http://youtube.com/#" target="_blank">
+                        <i class="fa fa-youtube"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="http://rss.com/#" target="_blank">
+                        <i class="fa fa-rss"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- END -->
   <!-- SCRIPTS -->
   <script type="text/javascript" src="./assets/user/js/jquery-1.11.1.min.js"></script>
   <script src="./assets/user/js/jquery-migrate-1.2.1.js"></script>
