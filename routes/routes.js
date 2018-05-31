@@ -7,6 +7,5 @@ module.exports = (app) => {
             title: 'Express'
         })
     })
-
-    // app.use("/login",loginController);
+    app.use("/login",loginController);
 }
