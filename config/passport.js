@@ -1,8 +1,6 @@
 var LocalStrategy = require('passport-local');
 var db = require('./mysql');
 
-
-
 module.exports = (passport) => {
     passport.serializeUser(function (user, done) {
         done(null, user);
@@ -12,19 +10,21 @@ module.exports = (passport) => {
         done(null, user);
     });
 
-    passport.use('local-login',new LocalStrategy(
-        (username, password, done) => {
+    passport.use('local-login', new LocalStrategy({passReqToCallback:true},
+        (req, username, password, done) => {
             var sql = `select * from account where username = '${username}'`;
-            console.log(sql);
             db.load(sql).then(rows => {
                 if (rows.length > 0) {
-                    return done(null,rows[0]);
+                    pass = rows[0].password;
+                    if (pass === password) {
+                        return done(null, rows[0]);
+                    }
+                    else {
+                        done(null,false,req.flash('error','Mật khẩu không chính xác!'))
+                    }
                 }
-                else {
-                    return done(null,false);
-                }
+                return done(null, false,req.flash('error','Tài khoản không tồn tại!') );
             })
         }
     ))
-
 }

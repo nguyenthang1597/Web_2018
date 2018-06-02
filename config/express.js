@@ -12,7 +12,10 @@ module.exports = function (app, express, session, hbs, logger, cookieParser, bod
 	app.use(session({
 		secret: 'abcd',
 		resave: false,
-		saveUninitialized: true
+		saveUninitialized: true,
+		cookie: {
+			maxAge: 1000*60*10 //Tồn tại 10 phút
+		}
 	}));
 
 	app.use(passport.initialize());
