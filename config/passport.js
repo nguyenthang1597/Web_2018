@@ -1,5 +1,6 @@
 var LocalStrategy = require('passport-local');
 var db = require('./mysql');
+var SHA256 = require('sha256');
 
 module.exports = (passport) => {
     passport.serializeUser(function (user, done) {
@@ -15,8 +16,9 @@ module.exports = (passport) => {
             var sql = `select * from account where username = '${username}'`;
             db.load(sql).then(rows => {
                 if (rows.length > 0) {
-                    pass = rows[0].password;
-                    if (pass === password) {
+                    var p = SHA256(password).toString();
+                    pass = rows[0].password.toString();
+                    if (pass === p) {
                         return done(null, rows[0]);
                     }
                     else {

@@ -9,6 +9,5 @@ module.exports = (app) => {
         })
     })
     app.use("/login",loginController);
-    app.use('/signup',restrict,signupController);
-
+    app.use('/signup',signupController);
 }

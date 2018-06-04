@@ -13,9 +13,19 @@ router.get("/", (req, res) => {
 router.post('/',
 	passport.authenticate('local-login', {
 		failureRedirect: '/login',
-		successRedirect: '/',
 		failureFlash: true
-	})
+	}),(req,res) => {
+		var url = '/'
+		if(req.user.isAdmin === 0) {
+			if(req.query.retUrl) {
+				url = req.query.retUrl;
+			}
+		}
+		else {
+			url = '/admin'
+		}
+		res.redirect(url);
+	}
 );
 
 router.get('/loginOK', (req, res) => {
