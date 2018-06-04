@@ -1,13 +1,15 @@
-var express = require("express");
-
+var express = require('express');
+var SP = require('../Model/SanPham.js')
 var router = express.Router();
-
 router.get("/",(req,res)=> {
-	res.render("user/login")
+	SP.loadAll().then(rows => {
+		console.log(rows);
+        var vm = {
+            moinhat: rows[0],
+            phobien: rows[1],
+            xemnhieu:rows[2],
+        };
+        res.render('index', vm);
+    });
 });
-
-router.post("/" , (req,res) => {
-	
-});
-
-module.exports = router;
+module.exports=router;
