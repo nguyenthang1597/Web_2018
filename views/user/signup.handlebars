@@ -93,7 +93,7 @@
                             </div>
 
                             <div class="form-group captcha text-xs-center" id="mycaptcha">
-                                <div class="g-recaptcha" data-sitekey="6LefRFUUAAAAAL9KGclN9n3-3C5ySAGc--HfJtpo"></div>
+                                <div class="g-recaptcha" data-sitekey="6LefRFUUAAAAAL9KGclN9n3-3C5ySAGc--HfJtpo" data-callback="correctCaptcha"></div>
                             </div>
 
                             {{#if showError}}
@@ -103,14 +103,8 @@
                             </div>
                             {{/if}}
 
-                            <div id="tbLoiNhapDuLieu" class="alert alert-danger" style="margin-top: 15px;display:none">
-                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                <strong>Không được để trống thông tin.</strong>
-                            </div>
+                            <div id="tbLoi">
 
-                            <div id="tbLoiMatKhau" class="alert alert-danger" style="margin-top: 15px;display:none">
-                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                <strong>Mật khẩu không trùng với nhau.</strong>
                             </div>
 
                             <button type="submit" class="btn btn-primary">Submit</button>
@@ -146,21 +140,36 @@
         <script src="./assets/user/plugins/flexslider/jquery.flexslider.js"></script>
         <script src="./assets/user/js/custom.js"></script>
         <script> 
+
+            function ThongBaoLoi(Loi) {
+                return $(`<div class="alert alert-danger" style="margin-top: 15px">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                    <strong>${Loi}</strong>
+                                </div>`)
+            }
+
             function validateForm() {
                 var username = document.getElementById('username').value;
                 var email = document.getElementById('email').value;
                 var password = document.getElementById('password').value;
                 var confirmpassword = document.getElementById('confirmpassword').value;
                 if (username == "" || email == "" || password == "" || confirmpassword == "") {
-                    $('#tbLoiNhapDuLieu').show();
+                    $('#tbLoi').text('').append(ThongBaoLoi('Không được để trống thông tin'));
                     return false;
                 }
                 if (password.localeCompare(confirmpassword) != 0) {
-                    $('#tbLoiMatKhau').show();
+                    $('#tbLoi').text('').append(ThongBaoLoi('Mật khẩu không trùng khớp'));
+
+                    return false;
+                }
+
+                if ($('#g-recaptcha-response').val() == '') {
+                    $('#tbLoi').text('').append(ThongBaoLoi('Chưa xác minh Captcha'));
                     return false;
                 }
                 return true;
             }
+
         </script>
 
 </body>
