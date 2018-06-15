@@ -1,53 +1,35 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-const LocalStratgy = require('passport-local').Strategy;
+const LocalStrategy = require('passport-local').Strategy;
 const db = require('../config/mysql');
 const sha256 = require('sha256');
 module.exports = passport => {
-=======
-=======
->>>>>>> a2c5e9b0ca8f52cf3a1946ce1c61532b9634f33e
-var LocalStrategy = require('passport-local');
-var db = require('./mysql');
-var SHA256 = require('sha256');
-
-module.exports = (passport) => {
-<<<<<<< HEAD
->>>>>>> a2c5e9b0ca8f52cf3a1946ce1c61532b9634f33e
-=======
->>>>>>> a2c5e9b0ca8f52cf3a1946ce1c61532b9634f33e
     passport.serializeUser(function (user, done) {
         done(null, user);
     });
-
     passport.deserializeUser(function (user, done) {
         done(null, user);
     });
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-    passport.use('local-admin-login', new LocalStratgy({
+    passport.use('local-admin-login', new LocalStrategy({
         usernameField: 'username',
         passwordField: 'password',
         passReqToCallback: true
     }, (req, username, password, done) => {
-        var query = `select * from account where username = ${username}`;
+        var query = `select * from account where username = '${username}'`;
         db(query).then(result => {
-            if(err)
-                return done(err);
-            if(result.length == 0)
+            if (result.length == 0)
                 return done(null, false, req.flash('loginMessage', 'Tài khoản không tồn tại!'));
-            if(sha256(result[0].password).toString() === password){
-                done(null, result[0]);
+            if(result[0].isAdmin == 0)
+                return done(null,false, req.flash('loginMessage', 'Tài khoản không có quyền đăng nhập vào đây!'));
+            if (sha256(password).toString() == result[0].password) {
+                return done(null, result[0]);
+            } else {
+                return done(null, false, req.flash('loginMessage', 'Sai mk!'));
             }
         })
+        .catch(err => {
+            return done(err);
+        })
     }))
-
-}
-=======
-=======
->>>>>>> a2c5e9b0ca8f52cf3a1946ce1c61532b9634f33e
-    passport.use('local-login', new LocalStrategy({passReqToCallback:true},
+    passport.use('local-login', new LocalStrategy({ passReqToCallback: true },
         (req, username, password, done) => {
             var sql = `select * from account where username = '${username}'`;
             db.load(sql).then(rows => {
@@ -58,15 +40,11 @@ module.exports = (passport) => {
                         return done(null, rows[0]);
                     }
                     else {
-                        done(null,false,req.flash('error','Mật khẩu không chính xác!'))
+                        done(null, false, req.flash('error', 'Mật khẩu không chính xác!'))
                     }
                 }
-                return done(null, false,req.flash('error','Tài khoản không tồn tại!') );
+                return done(null, false, req.flash('error', 'Tài khoản không tồn tại!'));
             })
         }
     ))
 }
-<<<<<<< HEAD
->>>>>>> a2c5e9b0ca8f52cf3a1946ce1c61532b9634f33e
-=======
->>>>>>> a2c5e9b0ca8f52cf3a1946ce1c61532b9634f33e

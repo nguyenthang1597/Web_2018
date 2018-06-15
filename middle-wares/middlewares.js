@@ -1,7 +1,8 @@
 module.exports = {
     isLoggedInAdmin: (req, res, next) => {
         if (req.isAuthenticated()) {
-            return next();
+            if(req.user.isAdmin)
+                return next();
         }
         res.redirect('/admin');
     },
