@@ -10,7 +10,7 @@ router.post('/', mw.LoggedAdmin, LoginController.adminLogin);
 router.get('/dashboard',mw.isLoggedInAdmin, (req, res) => {
     res.render('admin/dashboard', {
         layout: 'main-admin',
-        user: req.user
+        user: req.session.user
     })
 })
 

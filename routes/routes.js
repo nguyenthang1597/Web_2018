@@ -4,6 +4,8 @@ const restrict = require('../middle-wares/restrict.js');
 const mw = require('../middle-wares/middlewares');
 const AdminController = require('../app/controllers/AdminController')
 const CatalogController = require('../app/controllers/CatalogController');
+const CategoryController = require('../app/controllers/CategoryController');
+
 module.exports = (app) => {
     app.get('/', (req, res) => {
         res.render('index', {
@@ -13,4 +15,5 @@ module.exports = (app) => {
 
     app.use('/admin', AdminController);
     app.use('/admin/catalog', mw.isLoggedInAdmin, CatalogController);
+    app.use('/admin/category', mw.isLoggedInAdmin, CategoryController);
 }
