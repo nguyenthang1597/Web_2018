@@ -3,7 +3,6 @@ var SP = require('../Model/SanPham.js')
 var router = express.Router();
 router.get("/",(req,res)=> {
 	SP.loadAll().then(rows => {
-		console.log(rows);
         var vm = {
             moinhat: rows[0],
             phobien: rows[1],
