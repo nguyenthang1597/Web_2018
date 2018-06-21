@@ -1,47 +1,41 @@
+$(document).ready(() => {
+	$('.deleteCatalog').on('click', function() {
+		if(window.confirm('Bạn có chắc chắn muốn xóa hãng xe này?')){
+			let target = $(this).parent().parent();
+			let Id = target.find('td#Id')[0].innerText;
+			let url = '/admin/catalog/delete';
+			$.ajax({
+				url: url,
+				type: 'POST',
+				data: {
+					Id: Id
+				},
+				success: function(data) {
+					if(data){
+						alert(data);
+						var $table1 = jQuery('#table-1').DataTable();
+						$table1.row(target).remove().draw();
+					}
+						
+					else
+						alert('Xóa không thành công!');
+				}
+			})
+		}
+	})
 
-		$(document).ready(function(){
-			$('.deleteCate').on('click',function(){
-				if(window.confirm("Bạn chắc chắn muốn xoá?")){
-					var id =$(this).parent().parent().find('input#id').val();
-					var url ='/admin/catalog/delete';
-					var target = $(this).parent().parent();
-					$.ajax({
-		                url: url,
-		                type: 'POST',
-		                cache: false,
-		                data:{id:id},
-		                success: function (data){
-		                    if(data){
-		                        target.remove();
-		                    }
-		                    else alert('Ajax không thành công!');
-		                 }
-		            });
-		        }
-		        else return false;
-			});
-			$('div.alert').delay(5000).slideUp();
-			$('input.hide').change(function() {
-				var id =$(this).parent().parent().find('input#id').val();
-				var hide;
-				var url ='/admin/catalog/update-visible';
- 				if(this.checked){
-				    hide='true';
-				}
-				else{
-				    hide='false';
-				}
-				$.ajax({
-	                url: url,
-	                type: 'POST',
-	                cache: false,
-	                data:{id:id,hide:hide},
-	                success: function (data){
-	                    if(data){
-	                        console.log(data);
-	                    }
-	                    else alert('Thay đổi trạng thái thất bại!');
-	                 }
-	            });
-			});
-		});	
+	$('input.hide').change(function() {
+		let url = '/admin/catalog/visible';
+		$.ajax({
+			url: url,
+			type: 'POST',
+			data: {
+				Id: Id,
+				isHide: this.checked ? 1 : 0
+			},
+			success: function(data) {
+				
+			}
+		})
+	})
+})

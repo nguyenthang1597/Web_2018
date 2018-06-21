@@ -1,50 +1,28 @@
 var mysql = require('mysql')
-require('dotenv').config();
 
-exports.load = sql => {
+module.exports = (sql) => {
 	return new Promise((resolve, reject) => {
-		var cn = mysql.createConnection({
+		const cn = mysql.createConnection({
 			host: 'localhost',
 			user: 'root',
-			password: '',
-			database: 'banoto',
-			multipleStatements: true
-		});
+			password: 'Hieu19091997',
+			database: 'banoto'
+		})
 
-		cn.connect();
-
-		cn.query(sql, function(error, rows, fields) {
-			if (error) {
-				reject(error);
-			} else {
-				resolve(rows);
+		cn.connect((err) => {
+			if(err)
+				reject(err);
+			else{
+				cn.query(sql, (err, result, fields) => {
+					if(err){
+						cn.end();
+						reject(err);
+					} else {
+						resolve(result);
+						cn.end();
+					}
+				})
 			}
-
-			cn.end();
-		});
-	});
-}
-
-exports.save = sql => {
-	return new Promise((resolve, reject) => {
-		var cn = mysql.createConnection({
-			host: 'localhost',
-			user: 'root',
-			password: '',
-			database: 'banoto',
-			multipleStatements: true
-		});
-
-		cn.connect();
-
-		cn.query(sql, function(error, value) {
-			if (error) {
-				reject(error);
-			} else {
-				resolve(value);
-			}
-
-			cn.end();
-		});
+		})
 	});
 }
