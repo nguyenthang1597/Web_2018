@@ -1,2 +1,45 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<!-- SECTION -->
+<div class="section-3" >
+  <div class="container">
+    <div class="row" >
+      <section class="carousel-3" >
+        <div class="carousel-title ">
+          <div class="transform-please-2 "> <span style="font-family: sans-serif; ">MỚI NHẤT</span> </div>
+        </div>
+        <ul>
+        	{{#each moinhat}}
+          <li><a href="xemchitiet.html"><img alt="alt" src="/img/{{HinhAnh}}" width="170" height="120"></a>
+            <h3>{{TenSP}}</h3>
+          </li>
+          {{/each}}
+        </ul>
+      </section>
+
+      <section class="carousel-3" style="margin-top: 35px">
+        <div class="carousel-title ">
+          <div class="transform-please-2 "> <span  style="font-family: sans-serif;" >PHỔ BIẾN</span> </div>
+        </div>
+        <ul>
+          {{#each phobien}}
+          <li><a href="xemchitiet.html"><img alt="alt" src="/img/{{HinhAnh}}" width="170" height="120"></a>
+            <h3>{{TenSP}}</h3>
+          </li>
+          {{/each}}
+        </ul>
+      </section>
+      <section class="carousel-3" style="margin-top: 35px">
+        <div class="carousel-title ">
+          <div class="transform-please-2 "> <span style="font-family: sans-serif;">XEM NHIỀU</span> </div>
+        </div>
+        <ul>
+          {{#each xemnhieu}}
+          <li><a href="xemchitiet.html"><img alt="alt" src="/img/{{HinhAnh}}" width="170" height="120"></a>
+            <h3>{{TenSP}}</h3>
+          </li>
+          {{/each}}
+        </ul>
+      </section>
+    </div>
+  </div>
+</div>
+<!--END--> 

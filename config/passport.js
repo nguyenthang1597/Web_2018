@@ -1,21 +1,21 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
+// <<<<<<< HEAD
+// <<<<<<< HEAD
 const LocalStratgy = require('passport-local').Strategy;
 const db = require('../config/mysql');
 const sha256 = require('sha256');
 module.exports = passport => {
-=======
-=======
->>>>>>> a2c5e9b0ca8f52cf3a1946ce1c61532b9634f33e
+// =======
+// =======
+// >>>>>>> a2c5e9b0ca8f52cf3a1946ce1c61532b9634f33e
 var LocalStrategy = require('passport-local');
 var db = require('./mysql');
 var SHA256 = require('sha256');
 
 module.exports = (passport) => {
-<<<<<<< HEAD
->>>>>>> a2c5e9b0ca8f52cf3a1946ce1c61532b9634f33e
-=======
->>>>>>> a2c5e9b0ca8f52cf3a1946ce1c61532b9634f33e
+// <<<<<<< HEAD
+// >>>>>>> a2c5e9b0ca8f52cf3a1946ce1c61532b9634f33e
+// =======
+// >>>>>>> a2c5e9b0ca8f52cf3a1946ce1c61532b9634f33e
     passport.serializeUser(function (user, done) {
         done(null, user);
     });
@@ -24,8 +24,8 @@ module.exports = (passport) => {
         done(null, user);
     });
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+// <<<<<<< HEAD
+// <<<<<<< HEAD
     passport.use('local-admin-login', new LocalStratgy({
         usernameField: 'username',
         passwordField: 'password',
@@ -44,13 +44,13 @@ module.exports = (passport) => {
     }))
 
 }
-=======
-=======
->>>>>>> a2c5e9b0ca8f52cf3a1946ce1c61532b9634f33e
+// =======
+// =======
+// >>>>>>> a2c5e9b0ca8f52cf3a1946ce1c61532b9634f33e
     passport.use('local-login', new LocalStrategy({passReqToCallback:true},
         (req, username, password, done) => {
             var sql = `select * from account where username = '${username}'`;
-            db.load(sql).then(rows => {
+            db(sql).then(rows => {
                 if (rows.length > 0) {
                     var p = SHA256(password).toString();
                     pass = rows[0].password.toString();
@@ -66,7 +66,7 @@ module.exports = (passport) => {
         }
     ))
 }
-<<<<<<< HEAD
->>>>>>> a2c5e9b0ca8f52cf3a1946ce1c61532b9634f33e
-=======
->>>>>>> a2c5e9b0ca8f52cf3a1946ce1c61532b9634f33e
+// <<<<<<< HEAD
+// >>>>>>> a2c5e9b0ca8f52cf3a1946ce1c61532b9634f33e
+// =======
+// >>>>>>> a2c5e9b0ca8f52cf3a1946ce1c61532b9634f33e
