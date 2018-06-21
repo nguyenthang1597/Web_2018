@@ -23,14 +23,43 @@ const LoginController = {
 	},
 	adminLogout: (req, res) => {
 		req.logout();
-        if (!req.session.cookie.expires)
-            req.session.destroy();
-        res.redirect('/admin');
+		if (!req.session.cookie.expires)
+			req.session.destroy();
+		res.redirect('/admin');
+	},
+	userLogin: (req, res,next) => {
+		passport.authenticate('local-login', (err, user, info) => {
+			if (err) return next(err);
+			if (!user) return res.redirect('/login');
+			req.logIn(user, (err) => {
+				if (err) return next(err);
+				req.session.user = user;
+				req.session.cookie.originalMaxAge = 1000 * 60;
+				var url = '/'
+				if (req.user.isAdmin === 0) {
+					if (req.query.retUrl) {
+						url = req.query.retUrl;
+					}
+				} else {
+					url = '/'
+				}
+				return res.redirect(url);
+			})
+		})(req, res, next)
+	},
+	loginForm: (req, res) => {
+		var vm = {
+			layout: false,
+			showError: req.flash('error')
+		}
+		res.render("user/login", vm)
 	}
 }
 
 
 module.exports = LoginController;
+
+
 
 
 // router.get("/", (req, res) => {
@@ -42,20 +71,7 @@ module.exports = LoginController;
 // });
 
 // router.post('/',
-// 	passport.authenticate('local-login', {
-// 		failureRedirect: '/login',
-// 		failureFlash: true
-// 	}), (req, res) => {
-// 		var url = '/'
-// 		if (req.user.isAdmin === 0) {
-// 			if (req.query.retUrl) {
-// 				url = req.query.retUrl;
-// 			}
-// 		} else {
-// 			url = '/admin'
-// 		}
-// 		res.redirect(url);
-// 	}
+
 // );
 
 // router.get('/loginOK', (req, res) => {
