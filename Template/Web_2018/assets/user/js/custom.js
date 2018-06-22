@@ -219,211 +219,211 @@ $(document).ready(function() {
 
 
 
-    function carouselBx() {
+    // function carouselBx() {
 
 
 
 
-        if (windowWidth > 800) {
+    //     if (windowWidth > 800) {
 
 
 
-            var brandslider = $('.brandslider ul li').length;
+    //         var brandslider = $('.brandslider ul li').length;
 
-            if (brandslider > 6) {
+    //         if (brandslider > 6) {
 
 
 
-                $('.brandslider ul').bxSlider({
-                    slideWidth: 180,
-                    minSlides: 5,
-                    maxSlides: 6,
-                    slideMargin: 20,
-                    auto: true
-                });
+    //             $('.brandslider ul').bxSlider({
+    //                 slideWidth: 180,
+    //                 minSlides: 5,
+    //                 maxSlides: 6,
+    //                 slideMargin: 20,
+    //                 auto: true
+    //             });
 
-                $('.bx-next').html(' <i class="fa fa-angle-right"></i>')
-                $('.bx-prev').html(' <i class="fa fa-angle-left"></i>')
+    //             $('.bx-next').html(' <i class="fa fa-angle-right"></i>')
+    //             $('.bx-prev').html(' <i class="fa fa-angle-left"></i>')
 
-            }
+    //         }
 
 
 
 
-            /////////////////////////////////////
-            //  CAROUSEL HOME PAGE
-            /////////////////////////////////////
+    //         /////////////////////////////////////
+    //         //  CAROUSEL HOME PAGE
+    //         /////////////////////////////////////
 
-            var carReviewlength = $('.carousel-1 li').length;
+    //         var carReviewlength = $('.carousel-1 li').length;
 
 
 
 
-            if (carReviewlength > 2) {
+    //         if (carReviewlength > 2) {
 
 
 
-                $('.carousel-1').bxSlider({
-                    slideWidth: 370,
-                    minSlides: 3,
-                    maxSlides: 3,
-                    slideMargin: 10
-                });
+    //             $('.carousel-1').bxSlider({
+    //                 slideWidth: 370,
+    //                 minSlides: 3,
+    //                 maxSlides: 3,
+    //                 slideMargin: 10
+    //             });
 
-                $('.bx-next').html(' <i class="fa fa-angle-right"></i>')
-                $('.bx-prev').html(' <i class="fa fa-angle-left"></i>')
+    //             $('.bx-next').html(' <i class="fa fa-angle-right"></i>')
+    //             $('.bx-prev').html(' <i class="fa fa-angle-left"></i>')
 
-            }
+    //         }
 
 
 
-            /////////////////////////////////////
-            //  CAROUSEL PRODUCT PAGE
-            /////////////////////////////////////
+    //         /////////////////////////////////////
+    //         //  CAROUSEL PRODUCT PAGE
+    //         /////////////////////////////////////
 
 
 
 
-            var car3length = $('.carousel-3 ul li').length;
+    //         var car3length = $('.carousel-3 ul li').length;
 
 
 
 
-            if (car3length > 6) {
+    //         if (car3length > 6) {
 
 
 
-                $('.carousel-3 ul').bxSlider({
-                    slideWidth: 180,
-                    minSlides: 5,
-                    maxSlides: 6,
-                    slideMargin: 20
-                });
+    //             $('.carousel-3 ul').bxSlider({
+    //                 slideWidth: 180,
+    //                 minSlides: 5,
+    //                 maxSlides: 6,
+    //                 slideMargin: 20
+    //             });
 
-                $('.bx-next').html(' <i class="fa fa-angle-right"></i>')
-                $('.bx-prev').html(' <i class="fa fa-angle-left"></i>')
+    //             $('.bx-next').html(' <i class="fa fa-angle-right"></i>')
+    //             $('.bx-prev').html(' <i class="fa fa-angle-left"></i>')
 
-            }
+    //         }
 
 
 
-        } else {
+    //     } else {
 
 
-            if (windowWidth > 600) {
+    //         if (windowWidth > 600) {
 
 
-                $('.brandslider ul').bxSlider({
-                    slideWidth: 180,
-                    minSlides: 4,
-                    maxSlides: 4,
-                    slideMargin: 20,
-                    auto: true
-                });
+    //             $('.brandslider ul').bxSlider({
+    //                 slideWidth: 180,
+    //                 minSlides: 4,
+    //                 maxSlides: 4,
+    //                 slideMargin: 20,
+    //                 auto: true
+    //             });
 
-                $('.bx-next').html(' <i class="fa fa-angle-right"></i>')
-                $('.bx-prev').html(' <i class="fa fa-angle-left"></i>')
+    //             $('.bx-next').html(' <i class="fa fa-angle-right"></i>')
+    //             $('.bx-prev').html(' <i class="fa fa-angle-left"></i>')
 
 
 
 
-                $('.carousel-1').bxSlider({
-                    slideWidth: 370,
-                    minSlides: 2,
-                    maxSlides: 2,
-                    slideMargin: 10
-                });
+    //             $('.carousel-1').bxSlider({
+    //                 slideWidth: 370,
+    //                 minSlides: 2,
+    //                 maxSlides: 2,
+    //                 slideMargin: 10
+    //             });
 
-                $('.bx-next').html(' <i class="fa fa-angle-right"></i>')
-                $('.bx-prev').html(' <i class="fa fa-angle-left"></i>')
+    //             $('.bx-next').html(' <i class="fa fa-angle-right"></i>')
+    //             $('.bx-prev').html(' <i class="fa fa-angle-left"></i>')
 
 
 
-                /////////////////////////////////////
-                //  CAROUSEL PRODUCT PAGE
-                /////////////////////////////////////
+    //             /////////////////////////////////////
+    //             //  CAROUSEL PRODUCT PAGE
+    //             /////////////////////////////////////
 
 
 
-                $('.carousel-3 ul').bxSlider({
-                    slideWidth: 180,
-                    minSlides: 3,
-                    maxSlides: 3,
-                    slideMargin: 20
-                });
+    //             $('.carousel-3 ul').bxSlider({
+    //                 slideWidth: 180,
+    //                 minSlides: 3,
+    //                 maxSlides: 3,
+    //                 slideMargin: 20
+    //             });
 
-                $('.bx-next').html(' <i class="fa fa-angle-right"></i>')
-                $('.bx-prev').html(' <i class="fa fa-angle-left"></i>')
+    //             $('.bx-next').html(' <i class="fa fa-angle-right"></i>')
+    //             $('.bx-prev').html(' <i class="fa fa-angle-left"></i>')
 
 
 
 
-            } else {
-                $('.carousel-1').bxSlider();
+    //         } else {
+    //             $('.carousel-1').bxSlider();
 
-                $('.bx-next').html(' <i class="fa fa-angle-right"></i>')
-                $('.bx-prev').html(' <i class="fa fa-angle-left"></i>')
+    //             $('.bx-next').html(' <i class="fa fa-angle-right"></i>')
+    //             $('.bx-prev').html(' <i class="fa fa-angle-left"></i>')
 
 
-                /////////////////////////////////////
-                //  CAROUSEL PRODUCT PAGE
-                /////////////////////////////////////
+    //             /////////////////////////////////////
+    //             //  CAROUSEL PRODUCT PAGE
+    //             /////////////////////////////////////
 
 
 
 
-                $('.carousel-3 ul').bxSlider();
+    //             $('.carousel-3 ul').bxSlider();
 
-                $('.bx-next').html(' <i class="fa fa-angle-right"></i>')
-                $('.bx-prev').html(' <i class="fa fa-angle-left"></i>')
+    //             $('.bx-next').html(' <i class="fa fa-angle-right"></i>')
+    //             $('.bx-prev').html(' <i class="fa fa-angle-left"></i>')
 
 
 
 
-            }
+    //         }
 
 
 
-            $('.brandslider ul').bxSlider({
-                slideWidth: 180,
-                minSlides: 4,
-                maxSlides: 4,
-                slideMargin: 20,
-                auto: true
-            });
+    //         $('.brandslider ul').bxSlider({
+    //             slideWidth: 180,
+    //             minSlides: 4,
+    //             maxSlides: 4,
+    //             slideMargin: 20,
+    //             auto: true
+    //         });
 
-            $('.bx-next').html(' <i class="fa fa-angle-right"></i>')
-            $('.bx-prev').html(' <i class="fa fa-angle-left"></i>')
+    //         $('.bx-next').html(' <i class="fa fa-angle-right"></i>')
+    //         $('.bx-prev').html(' <i class="fa fa-angle-left"></i>')
 
 
 
 
-        }
+    //     }
 
 
 
-    }
+    // }
 
 
 
-    carouselBx();
+    // carouselBx();
 
 
-    $(window).resize(function() {
-        carouselBx();
-    });
+    // $(window).resize(function() {
+    //     carouselBx();
+    // });
 
 
 
-    $('.carousel1').bxSlider({
-        mode: 'vertical',
-        auto: true,
-        nextText: '',
-        prevText: ''
-    });
+    // $('.carousel1').bxSlider({
+    //     mode: 'vertical',
+    //     auto: true,
+    //     nextText: '',
+    //     prevText: ''
+    // });
 
-    $('.bx-next').html(' <i class="fa fa-angle-right"></i>')
-    $('.bx-prev').html(' <i class="fa fa-angle-left"></i>')
+    // $('.bx-next').html(' <i class="fa fa-angle-right"></i>')
+    // $('.bx-prev').html(' <i class="fa fa-angle-left"></i>')
 
 
 
