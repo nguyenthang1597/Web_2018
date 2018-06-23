@@ -22,7 +22,7 @@ var server = http.createServer(app);
 require('./config/express')(app, express, session, hbs, logger, cookieParser, bodyParser, passport, flash,handleLayoutMDW);
 //config Route
 require('./routes/routes')(app);
-
+require('./config/passport')(passport);
 server.listen(3000, (err) => {
 	if (err)
 		console.log(err);

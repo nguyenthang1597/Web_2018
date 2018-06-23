@@ -1,7 +1,17 @@
-var express = require('express');
-var config = require('../../config/config');
+const express = require('express');
+const router = express.Router();
+const restrict = require('../../middle-wares/restrict.js');
+const LoginController = require('./LoginController');
+const mw = require('../../middle-wares/middlewares')
+const SignupControler = require('./SignupControler');
 var SP = require('../Model/SanPham.js');
-var router = express.Router();
+var config = require('../../config/config');
+router.get('/login',mw.LoggedUser,LoginController.loginForm);
+router.get('/signup',SignupControler.formSignUp);
+
+router.post('/login',mw.LoggedUser, LoginController.userLogin);
+router.post('/signup',SignupControler.userSignUp);
+router.get('/logout',LoginController.userLogout)
 router.get("/",(req,res)=> {
 	SP.loadAll().then(rows => {
 		var vm = {
@@ -94,4 +104,4 @@ router.get('/HangXe/:Id',(req,res)=>{
 		res.render('user/xemchitiet',vm);
 	})
 })
-module.exports=router;
+module.exports = router;
