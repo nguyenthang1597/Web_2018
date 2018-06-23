@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.7
+-- version 4.8.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 23, 2018 at 08:00 AM
--- Server version: 10.1.30-MariaDB
--- PHP Version: 7.2.2
+-- Generation Time: Jun 23, 2018 at 11:07 PM
+-- Server version: 10.1.32-MariaDB
+-- PHP Version: 7.2.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -68,6 +68,22 @@ INSERT INTO `loaixe` (`Id`, `TenLoai`) VALUES
 (3, 'MPV'),
 (4, 'COUPE');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `profile`
+--
+
+CREATE TABLE `profile` (
+  `id` int(11) NOT NULL,
+  `name` varchar(40) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `phone` int(11) DEFAULT NULL,
+  `id_number` int(9) NOT NULL,
+  `email` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `gender` tinyint(1) NOT NULL,
+  `birthday` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
+
 --
 -- Indexes for dumped tables
 --
@@ -83,6 +99,12 @@ ALTER TABLE `hangxe`
 --
 ALTER TABLE `loaixe`
   ADD PRIMARY KEY (`Id`);
+
+--
+-- Indexes for table `profile`
+--
+ALTER TABLE `profile`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
