@@ -1,6 +1,5 @@
 var express = require("express");
 var passport = require('passport');
-var router = express.Router();
 
 const LoginController = {
 	formAdminLogin: (req, res) => {
@@ -16,7 +15,6 @@ const LoginController = {
 			req.logIn(user, (err) => {
 				if (err) return next(err);
 				req.session.user = user;
-				req.session.cookie.originalMaxAge = 1000 * 60;
 				return res.redirect('/admin/dashboard');
 			})
 		})(req, res, next)
@@ -34,7 +32,6 @@ const LoginController = {
 			req.logIn(user, (err) => {
 				if (err) return next(err);
 				req.session.user = user;
-				req.session.cookie.originalMaxAge = 1000 * 60;
 				var url = '/'
 				if (req.user.isAdmin === 0) {
 					if (req.query.retUrl) {
@@ -58,27 +55,3 @@ const LoginController = {
 
 
 module.exports = LoginController;
-
-
-
-
-// router.get("/", (req, res) => {
-// 	var vm = {
-// 		layout: false,
-// 		showError: req.flash('error')
-// 	}
-// 	res.render("user/login", vm)
-// });
-
-// router.post('/',
-
-// );
-
-// router.get('/loginOK', (req, res) => {
-// 	if (req.isAuthenticated())
-// 		res.send("Dang nhap thanh cong");
-// 	else
-// 		res.send("Ban chua login");
-// })
-
-// module.exports = router;

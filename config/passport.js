@@ -14,7 +14,6 @@ module.exports = passport => {
         passReqToCallback: true
     }, (req, username, password, done) => {
         var query = `select * from account where username = '${username}'`;
-        console.log(query);
         db(query).then(result => {
                 if (result.length == 0)
                     return done(null, false, req.flash('loginMessage', 'Tài khoản không tồn tại!'));
@@ -36,8 +35,6 @@ module.exports = passport => {
             passReqToCallback: true
         },
         (req, username, password, done) => {
-            console.log('User: ' + username);
-            console.log(password);
             var sql = `select * from account where username = '${username}'`;
             db(sql).then(rows => {
                 if (rows.length > 0) {
