@@ -19,3 +19,7 @@ exports.countHangXe = (id)=>{
 	var sql = `select count(*) as total from sanpham where HangXe = ${id}`;
 	return db(sql);
 }
+exports.getById=id=>{
+	var sql = `select * from sanpham where Id = ${id};`;
+	return db(sql);
+}

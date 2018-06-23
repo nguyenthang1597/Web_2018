@@ -76,4 +76,22 @@ router.get('/HangXe/:Id',(req,res)=>{
 		res.render('user/sanpham', vm);
 	});
 })
+ router.get('/XemChiTiet/:Id',(req,res)=>{
+	var id = req.params.Id;
+	let CungLoai,CungHang,SanPham;
+	SP.getById(id).then(rows=>{
+		SanPham = rows[0];
+		return SP.LoadLoaiXe(SanPham.LoaiXe,0);
+	}).then(rows=>{
+		CungLoai = rows;
+		return SP.LoadHangXe(SanPham.HangXe,0)
+	}).then(rows=>{
+		var vm ={
+			sp:SanPham,
+			SPLoai:CungLoai,
+			SPNSX: rows,
+		}
+		res.render('user/xemchitiet',vm);
+	})
+})
 module.exports=router;

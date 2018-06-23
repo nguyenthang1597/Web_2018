@@ -1,0 +1,119 @@
+  <section class="main-content" role="main">
+    <div class="bg-overlay overlay-top">
+      <div class="container">
+        <div class="row">
+          <div class="page-title col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <!-- Tên xe hơi -->
+            <h3>{{sp.TenSP}}</h3>
+            <div class="line transform-please-2"></div>
+          </div>
+          <div class="pb-left-column col-xs-12 col-sm-12 col-md-7 col-lg-7">
+            <div class="clearfix" id="image-block">
+              <div id="slider-product" class="flexslider">
+                <ul class="slides">
+                  <li> <a  href="/img/{{sp.HinhAnh}}"> <img src="/img/{{sp.HinhAnh}}" alt="alt" /></a> </li>
+                  <li> <a  href="/img/{{sp.HinhAnh}}"> <img src="/img/{{sp.HinhAnh}}" alt="alt" /></a> </li>
+                  <li> <a  href="/img/{{sp.HinhAnh}}"> <img src="/img/{{sp.HinhAnh}}" alt="alt" /></a> </li>
+                  <li> <a  href="/img/{{sp.HinhAnh}}"> <img src="/img/{{sp.HinhAnh}}" alt="alt" /></a> </li>
+                  <li> <a  href="/img/{{sp.HinhAnh}}"> <img src="/img/{{sp.HinhAnh}}" alt="alt" /></a> </li>
+                  <li> <a  href="/img/{{sp.HinhAnh}}"> <img src="/img/{{sp.HinhAnh}}" alt="alt" /></a> </li>
+                  <li> <a  href="/img/{{sp.HinhAnh}}"> <img src="/img/{{sp.HinhAnh}}" alt="alt" /></a> </li>
+                  <li> <a  href="/img/{{sp.HinhAnh}}"> <img src="/img/{{sp.HinhAnh}}" alt="alt" /></a> </li>
+                </ul>
+              </div>
+              <div id="carousel" class="flexslider">
+                <ul class="slides">
+                  <li> <img src="/img/{{sp.HinhAnh}}" alt="alt" /> </li>
+                  <li> <img src="/img/{{sp.HinhAnh}}" alt="alt" /> </li>
+                  <li> <img src="/img/{{sp.HinhAnh}}" alt="alt" /> </li>
+                  <li> <img src="/img/{{sp.HinhAnh}}" alt="alt" /> </li>
+                  <li> <img src="/img/{{sp.HinhAnh}}" alt="alt" /> </li>
+                  <li> <img src="/img/{{sp.HinhAnh}}" alt="alt" /> </li>
+                  <li> <img src="/img/{{sp.HinhAnh}}" alt="alt" /> </li>
+                  <li> <img src="/img/{{sp.HinhAnh}}" alt="alt" /> </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="pb-center-column col-xs-12 col-sm-12 col-md-5 col-lg-5">
+            <div class="price-line">
+              <div class="price-box transform-please"><span>{{sp.GiaBan}} </span></div>
+            </div>
+            <div class="product-featured">
+              <div  class="featured-box">
+                <ul  class="featured-title">
+                  <li>Ngày Nhập</li>
+                </ul>
+                <div  class="featured-content">{{sp.NgayNhap}}</div>
+              </div>
+              <div  class="featured-box">
+                <ul  class="featured-title">
+                  <li>Chi Tiết</li>
+                </ul>
+                <div  class="featured-content">{{sp.ChiTiet}}</div>
+              </div>
+              <div class="desc">
+                <ul  class="featured-title">
+                  <li>Số lượt xem: <span>{{sp.LuotXem}}</span></li>
+                  <li>Số lượng còn lại: <span>{{sp.SoLuong}}-{{sp.SLBan}}</span> </li>
+                </ul>
+              </div>
+              <div class="offer_specification"> </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="product-tab">
+              <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#tab1" data-loading-text="Loading...">Thông tin chi tiết</a></li>
+              </ul>
+              <p>{{sp.MoTa}}</p>
+            </div>
+
+            <section class="btn-set-section">
+              <div class="btn-set-middle">
+                <hr>
+                <a href="gio_hang.html" class="btn-call"> <span> BUY THIS CAR </span></a> <a href="#" class="btn-email"> <span> MAIL US ABOUT THIS CAR </span></a>
+              </div>
+            </section>
+
+
+            <div class="cungLoai">
+             <section class="carousel-3">
+              <div class="carousel-title ">
+                <div class="transform-please-2 "> <span style="font-family: all;">CÙNG LOẠI</span> </div>
+              </div>
+              <ul>
+                {{#each SPLoai}}
+                <li><a href="/XemChiTiet/{{Id}}"><img alt="alt" src="/img/{{HinhAnh}}" width="170" height="120"></a>
+                  <h3>{{TenSP}}</h3>
+                </li>
+                {{/each}}
+              </ul>
+            </section> 
+          </div>
+          <!-- End cùng loại sp -->
+
+          <div class="cungHang">
+            <section class="carousel-3">
+              <div class="carousel-title ">
+                <div class="transform-please-2 "> <span style="font-family: all;">CÙNG NSX</span> </div>
+              </div>
+              <ul>
+                {{#each SPNSX}}
+                <li><a href="/XemChiTiet/{{Id}}"><img alt="alt" src="/img/{{HinhAnh}}" width="170" height="120"></a>
+                  <h3>{{TenSP}}</h3>
+                </li>
+                {{/each}}
+              </ul>
+            </section>
+          </div>
+          <!-- End cùng hãng sản xuất -->
+        </div>
+      </div>
+    </div>
+  </section>
+
