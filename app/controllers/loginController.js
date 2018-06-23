@@ -50,6 +50,12 @@ const LoginController = {
 			showError: req.flash('error')
 		}
 		res.render("user/login", vm)
+	},
+	userLogout: (req,res,next) => {
+		req.logout();
+		if (!req.session.cookie.expires)
+			req.session.destroy();
+		res.redirect('/');
 	}
 }
 
