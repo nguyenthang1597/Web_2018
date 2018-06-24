@@ -15,10 +15,7 @@
                   </figure>
                 </div>
                 <div class="col-md-7 col-xs-12  col-sm-7 list-group-item-content">
-                  <h4 class="list-group-item-heading">{{TenSp}}
-                    <span class="seller">By:
-                      <a href="#">{{HangXe}}</a>
-                    </span>
+                  <h4 class="list-group-item-heading">{{TenSP}}
                   </h4>
                   <div class="price">
                     <h2>{{GiaBan}}</h2>
@@ -37,6 +34,20 @@
               {{/each}}
             </ul>
           </section>
+           <ul class="pagination">
+        <li class="disabled">
+          <a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a>
+        </li>
+        {{#each page_numbers}}
+        {{#if isCurPage}}
+        <li class="active"><a href="javascript:;">{{value}}</a></li>
+        {{else}}
+        <li><a href="?page={{value}}">{{value}}</a></li>
+        {{/if}}
+        {{/each}}
+        <li>
+          <a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+        </ul>
         </div>
         <!-- // MAIN CONTENT -->
         <div class="space40 visible-xs"></div>
@@ -51,38 +62,48 @@
                   <span>TÌM THEO</span>
                 </h3>
                 <div class="list-group">
-                  <div class="list-group-heading">
-                    <span class="list-group-heading-inner">
-                      <span style="font-family: all;">Loại Xe</span>
-                    </span>
-                  </div>
-                  <div class="list-content">
-                    <select>
-                      {{#each layoutVM.LoaiXe}}
-                      <option value="">{{TenLoai}}</option>
-                      {{/each}}
-                    </select>
-                  </div>
-                  <div class="list-group-heading">
-                    <span class="list-group-heading-inner">
-                      <span style="font-family: all;">Hãng xe</span>
-                    </span>
-                  </div>
-                  <div class="list-content">
-                    <select>
-                      {{#each layoutVM.HangXe}}
-                      <option value="">{{TenHang}}</option>
-                      {{/each}}
-                    </select>
-                  </div>
-                  <div class="list-group-heading">
-                    <span class="list-group-heading-inner">
-                      <span style="font-family: all;">Giá bán</span>
-                    </span>
-                  </div><br><br>
-                  <input type="number" min="0" placeholder="Tối thiểu" value pattern="[0-9]*"></input><br><br>
-                  <input type="number" min="0" placeholder="Tối đa" value pattern="[0-9]*"></input><br><br>
-                  <button type="button" class="btn btn-primary center-block">Tìm</button>
+                  <form action="timkiem" method="get" accept-charset="utf-8">
+                    <div class="list-group-heading">
+                      <span class="list-group-heading-inner">
+                        <span style="font-family: all;">Tên Xe</span>
+                      </span>
+                    </div>
+                    <div class="list-content">
+                      <input placeholder="Tên xe" name="tenxe"></input>
+                    </div>
+                    <div class="list-group-heading">
+                      <span class="list-group-heading-inner">
+                        <span style="font-family: all;">Loại Xe</span>
+                      </span>
+                    </div>
+                    <div class="list-content">
+                      <select name="tenloai">
+                        {{#each layoutVM.LoaiXe}}
+                        <option value="{{{Id}}}" >{{TenLoai}}</option>
+                        {{/each}}
+                      </select>
+                    </div>
+                    <div class="list-group-heading">
+                      <span class="list-group-heading-inner">
+                        <span style="font-family: all;">Hãng xe</span>
+                      </span>
+                    </div>
+                    <div class="list-content">
+                      <select name ="hangxe">
+                        {{#each layoutVM.HangXe}}
+                        <option value="{{Id}}">{{TenHang}}</option>
+                        {{/each}}
+                      </select>
+                    </div>
+                    <div class="list-group-heading">
+                      <span class="list-group-heading-inner">
+                        <span style="font-family: all;">Giá bán</span>
+                      </span>
+                    </div><br><br>
+                    <input type="number" min="0" placeholder="Tối thiểu" value pattern="[0-9]*" name="min"></input><br><br>
+                    <input type="number" min="0" placeholder="Tối đa" value pattern="[0-9]*" name = "max"></input><br><br>
+                    <button type="summit" class="btn btn-primary center-block">Tìm</button>
+                  </form>
                 </div>
               </div>
             </div>
