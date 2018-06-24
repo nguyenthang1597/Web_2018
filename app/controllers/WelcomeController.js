@@ -6,6 +6,7 @@ const mw = require('../../middle-wares/middlewares')
 const SignupControler = require('./SignupControler');
 var SP = require('../Model/SanPham.js');
 var config = require('../../config/config');
+var url = require('url');
 router.get('/login',mw.LoggedUser,LoginController.loginForm);
 router.get('/signup',SignupControler.formSignUp);
 
@@ -52,7 +53,6 @@ router.get('/timkiem',(req,res)=>{
 	var p1 = SP.timkiem(tenloai,tenxe,hangxe,min,max,offset);
 	var p2 = SP.counttimkiem(tenloai,tenxe,hangxe,min,max);
 	Promise.all([p1, p2]).then(([pRows, countRows]) => {
-		console.log(pRows);
 		var total = countRows[0].total;
 		var numbers = phantrang(total,5,page);
 		var vm={
