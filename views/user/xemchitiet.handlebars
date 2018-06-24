@@ -1,4 +1,4 @@
-  <section class="main-content" role="main">
+  <section class="main-content " role="main">
     <div class="bg-overlay overlay-top">
       <div class="container">
         <div class="row">
@@ -48,6 +48,24 @@
               </div>
               <div  class="featured-box">
                 <ul  class="featured-title">
+                  <li>Xuất xứ</li>
+                </ul>
+                <div  class="featured-content" style="font-family: all;">{{sp.XuatXu}}</div>
+              </div>
+              <div  class="featured-box">
+                <ul  class="featured-title">
+                  <li>Loại Xe</li>
+                </ul>
+                <div  class="featured-content" style="font-family: all;">{{sp.TenLoai}}</div>
+              </div>
+              <div  class="featured-box">
+                <ul  class="featured-title">
+                  <li>NSX</li>
+                </ul>
+                <div  class="featured-content" style="font-family: all;">{{sp.TenHang}}</div>
+              </div>
+              <div  class="featured-box">
+                <ul  class="featured-title">
                   <li>Chi Tiết</li>
                 </ul>
                 <div  class="featured-content" style="font-family: all;">{{sp.ChiTiet}}</div>
@@ -55,7 +73,7 @@
               <div class="desc">
                 <ul  class="featured-title">
                   <li>Số lượt xem: <span>{{sp.LuotXem}}</span></li>
-                  <li>Số lượng còn lại: <span>{{sp.SoLuong}}-{{sp.SLBan}}</span> </li>
+                  <li>Số lượng bán: <span>{{sp.SLBan}}</span> </li>
                 </ul>
               </div>
               <div class="offer_specification"> </div>
@@ -73,12 +91,12 @@
               <p>{{sp.MoTa}}</p>
             </div>
             <section class="btn-set-section">
-            {{#if user}}
+              {{#if user}}
               <div class="btn-set-middle">
                 <hr>
                 <a href="gio_hang.html" class="btn-call"> <span> BUY THIS CAR </span></a> <a href="#" class="btn-email"> <span> MAIL US ABOUT THIS CAR </span></a>
               </div>
-            {{/if}}
+              {{/if}}
             </section>
 
             <div class="cungLoai">
@@ -116,4 +134,3 @@
       </div>
     </div>
   </section>
-

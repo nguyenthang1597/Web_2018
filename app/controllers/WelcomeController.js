@@ -12,6 +12,9 @@ router.get('/signup',SignupControler.formSignUp);
 router.post('/login',mw.LoggedUser, LoginController.userLogin);
 router.post('/signup',SignupControler.userSignUp);
 router.get('/logout',LoginController.userLogout)
+router.get('/timkiem',(req,res)=>{
+	res.render('user/timkiem');
+})
 router.get("/",(req,res)=> {
 	SP.loadAll().then(rows => {
 		var vm = {

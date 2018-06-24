@@ -20,6 +20,6 @@ exports.countHangXe = (id)=>{
 	return db(sql);
 }
 exports.getById=id=>{
-	var sql = `select * from sanpham where Id = ${id};`;
+	var sql = `select * from sanpham,loaixe,hangxe where sanpham.Id = ${id} and sanpham.LoaiXe = loaixe.Id and sanpham.HangXe=hangxe.Id;`;
 	return db(sql);
 }
