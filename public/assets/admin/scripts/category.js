@@ -26,6 +26,7 @@ $(document).ready(() => {
 
 	$('input.hide').change(function() {
 		let url = '/admin/catalog/visible';
+		let Id = $(this).parent().parent().find('td#Id')[0].innerText;
 		$.ajax({
 			url: url,
 			type: 'POST',
