@@ -11,30 +11,12 @@ router.get('/signup',SignupControler.formSignUp);
 
 router.post('/login',mw.LoggedUser, LoginController.userLogin);
 router.post('/signup',SignupControler.userSignUp);
-router.get('/logout',LoginController.userLogout)
-router.get('/timkiem',(req,res)=>{
-	var Id = req.query.tenloai;
-	var tenxe = req.query.tenxe;
-	var hangxe = req.query.hangxe;
-	var min = req.query.min;
-	var max = req.query.max;
-	if(!Id){
-		return res.render('user/timkiem');
-	}
-	var page = req.query.page;
-	if (!page) {
-		page = 1;
-	}
-	var offset = (page - 1) * config.PER_PAGE;
-	var p1 = SP.LoadLoaiXe(Id,offset);
-	var p2 = SP.countLoaiXe(Id);
-	Promise.all([p1, p2]).then(([pRows, countRows]) => {
-		var total = countRows[0].total;
-		var nPages = total / config.PER_PAGE;
-		if (total % config.PER_PAGE > 0) {
+router.get('/logout',LoginController.userLogout);
+function  phantrang(total,perpage,page){
+	var nPages = total / perpage;
+		if (total % perpage > 0) {
 			nPages++;
 		}
-
 		var numbers = [];
 		for (i = 1; i <= nPages; i++) {
 			numbers.push({
@@ -42,7 +24,37 @@ router.get('/timkiem',(req,res)=>{
 				isCurPage: i === +page
 			});
 		}
-
+		return numbers;
+}
+router.get('/timkiem',(req,res)=>{
+	var tenloai = req.query.tenloai;
+	var tenxe = req.query.tenxe;
+	var hangxe = req.query.hangxe;
+	var min = req.query.min;
+	var max = req.query.max;
+	if (!min){
+		min = 0;
+	}
+	if (!tenxe){
+		tenxe = null;
+	}
+	if (!max){
+		max = 0;
+	}
+	if(!tenloai ||!hangxe ){
+		return res.render('user/timkiem',{noProducts: true});
+	}
+	var page = req.query.page;
+	if (!page) {
+		page = 1;
+	}
+	var offset = (page - 1) * 5;
+	var p1 = SP.timkiem(tenloai,tenxe,hangxe,min,max,offset);
+	var p2 = SP.counttimkiem(tenloai,tenxe,hangxe,min,max);
+	Promise.all([p1, p2]).then(([pRows, countRows]) => {
+		console.log(pRows);
+		var total = countRows[0].total;
+		var numbers = phantrang(total,5,page);
 		var vm={
 			sp:pRows,
 			noProducts: pRows.length === 0,
@@ -72,19 +84,7 @@ router.get('/LoaiXe/:Id',(req,res)=>{
 	var p2 = SP.countLoaiXe(Id);
 	Promise.all([p1, p2]).then(([pRows, countRows]) => {
 		var total = countRows[0].total;
-		var nPages = total / config.PER_PAGE;
-		if (total % config.PER_PAGE > 0) {
-			nPages++;
-		}
-
-		var numbers = [];
-		for (i = 1; i <= nPages; i++) {
-			numbers.push({
-				value: i,
-				isCurPage: i === +page
-			});
-		}
-
+		var numbers = phantrang(total,config.PER_PAGE,page);
 		var vm = {
 			sanpham: pRows,
 			noProducts: pRows.length === 0,
@@ -104,19 +104,7 @@ router.get('/HangXe/:Id',(req,res)=>{
 	var p2 = SP.countHangXe(Id);
 	Promise.all([p1, p2]).then(([pRows, countRows]) => {
 		var total = countRows[0].total;
-		var nPages = total / config.PER_PAGE;
-		if (total % config.PER_PAGE > 0) {
-			nPages++;
-		}
-
-		var numbers = [];
-		for (i = 1; i <= nPages; i++) {
-			numbers.push({
-				value: i,
-				isCurPage: i === +page
-			});
-		}
-
+		var numbers = phantrang(total,config.PER_PAGE,page);
 		var vm = {
 			sanpham: pRows,
 			noProducts: pRows.length === 0,

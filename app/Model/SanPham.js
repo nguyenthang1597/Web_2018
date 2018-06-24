@@ -23,7 +23,11 @@ exports.getById=id=>{
 	var sql = `select * from sanpham,loaixe,hangxe where sanpham.Id = ${id} and sanpham.LoaiXe = loaixe.Id and sanpham.HangXe=hangxe.Id;`;
 	return db(sql);
 }
-exports.timkiem=id=>{
-	var sql = `select * from sanpham,loaixe,hangxe where sanpham.Id = ${id} and sanpham.LoaiXe = loaixe.Id and sanpham.HangXe=hangxe.Id;`;
+exports.timkiem=(tenloai,tenxe,hangxe,min,max,offset)=>{
+	var sql = `select *  from sanpham where (LoaiXe = ${tenloai} or TenSP like "%${tenxe}%" or HangXe=${hangxe} or (GiaBan >= ${min} and GiaBan <=${max})) limit 5 offset ${offset}`;
+	return db(sql);
+}
+exports.counttimkiem=(tenloai,tenxe,hangxe,min,max)=>{
+	var sql = `select count(*) as total from sanpham where LoaiXe = ${tenloai} or TenSP like "%${tenxe}%" or HangXe=${hangxe} or (GiaBan >= ${min} and GiaBan <=${max})`;
 	return db(sql);
 }
