@@ -12,11 +12,11 @@ $(document).ready(() => {
 				},
 				success: function(data) {
 					if(data){
-						alert(data);
 						var $table1 = jQuery('#table-1').DataTable();
 						$table1.row(target).remove().draw();
-					}
+						alert(data);
 						
+					}
 					else
 						alert('Xóa không thành công!');
 				}

@@ -144,4 +144,15 @@ router.post('/visible', (req, res) => {
     })
 })
 
+router.get('/getAll', (req, res) => {
+    Catalog.getAll()
+    .then(result => {
+        let a = JSON.stringify(result);
+        res.end(a);
+    })
+    .catch(err => {
+        console.log(err);
+    })
+})
+
 module.exports = router;
