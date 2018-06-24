@@ -1,0 +1,65 @@
+<div class="section-3" >
+  <div class="container">
+    <div class="row" >
+      <section class="carousel carousel-reviews">
+        {{#if noProducts}}
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            Không có sản phẩm thoả yêu cầu.
+          </div>
+        </div>
+        {{else}}
+        <div class="carousel-title ">
+          <div class="transform-please-2 ">
+           <span style="font-family: all;">DANH SÁCH SẢN PHẨM</span>
+         </div>
+       </div>
+       <ul class="carousel-1">
+        {{#each sanpham}}
+        <li>
+              <div class="media">
+                <a href="/XemChiTiet/{{Id}}">
+                  <img src="/img/{{HinhAnh}}" width="369" height="200" alt="alt" />
+                </a>
+                <div class="carousel-item-content">
+                  <div class="text-right">
+                    <a class="arrow-link" href="#"></a>
+                  </div>
+                  <a class="transform-please-2 carousel-title">
+                    <span>{{TenSP}}</span>
+                  </a>
+                </div>
+              </div>
+              <div class="carousel-text"></div>
+              <div class="product-box">
+                <a style="font-size: 28px; color:black">
+                  <span>{{GiaBan}}</span>
+                </a>
+                <a href="gio_hang.html" class="btn btn-danger ">
+                  <i class="fa fa-shopping-cart"></i>
+                  <span>Add to cart</span>
+                </a>
+              </div>
+            </li>
+        {{/each}}
+      </ul>
+      <ul class="pagination">
+        <li class="disabled">
+          <a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a>
+        </li>
+        {{#each page_numbers}}
+        {{#if isCurPage}}
+        <li class="active"><a href="javascript:;">{{value}}</a></li>
+        {{else}}
+        <li><a href="?page={{value}}">{{value}}</a></li>
+        {{/if}}
+        {{/each}}
+        <li>
+          <a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+        </ul>
+        {{/if}}
+      </section>
+
+    </div>
+  </div>
+</div>

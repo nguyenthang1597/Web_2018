@@ -1,0 +1,96 @@
+  <main id="main" class="section">
+    <div class="container">
+      <div class="row">
+        <!-- MAIN CONTENT -->
+        <div class="col-xs-12 col-sm-12 col-md-9">
+          <section class="main-content" role="main">
+            <ul class="list-group catalog-product-list">
+              {{#each sp}}
+              <li class="list-group-item    animated" data-animation="bounceInLeft">
+                <div class="media col-md-5  col-sm-5 col-xs-12">
+                  <figure class="pull-left">
+                    <a href="#">
+                      <img width="369" height="200" src="./assets/user/media/section3/1.jpg" alt="alt">
+                    </a>
+                  </figure>
+                </div>
+                <div class="col-md-7 col-xs-12  col-sm-7 list-group-item-content">
+                  <h4 class="list-group-item-heading">{{TenSp}}
+                    <span class="seller">By:
+                      <a href="#">{{HangXe}}</a>
+                    </span>
+                  </h4>
+                  <div class="price">
+                    <h2>{{GiaBan}}</h2>
+                  </div>
+                  <p class="list-group-item-text">{{ChiTiet}}</p>
+                  <div class="product-box">
+                    <div class="btn-group">
+                      <a href="/XemChiTiet/{{Id}}" class="btn btn-default btn-black ">
+                        <i class="fa fa-car"></i>
+                        <span>View more</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              {{/each}}
+            </ul>
+          </section>
+        </div>
+        <!-- // MAIN CONTENT -->
+        <div class="space40 visible-xs"></div>
+        <!-- SIDEBAR -->
+        <div class="col-xs-12 col-sm-12 col-md-3">
+          <aside class="sidebar">
+
+            <!-- ARCHIVE WIDGET -->
+            <div class="widget widget-filter">
+              <div class="block_content">
+                <h3 class="widget-sub-title">
+                  <span>TÌM THEO</span>
+                </h3>
+                <div class="list-group">
+                  <div class="list-group-heading">
+                    <span class="list-group-heading-inner">
+                      <span style="font-family: all;">Loại Xe</span>
+                    </span>
+                  </div>
+                  <div class="list-content">
+                    <select>
+                      {{#each layoutVM.LoaiXe}}
+                      <option value="">{{TenLoai}}</option>
+                      {{/each}}
+                    </select>
+                  </div>
+                  <div class="list-group-heading">
+                    <span class="list-group-heading-inner">
+                      <span style="font-family: all;">Hãng xe</span>
+                    </span>
+                  </div>
+                  <div class="list-content">
+                    <select>
+                      {{#each layoutVM.HangXe}}
+                      <option value="">{{TenHang}}</option>
+                      {{/each}}
+                    </select>
+                  </div>
+                  <div class="list-group-heading">
+                    <span class="list-group-heading-inner">
+                      <span style="font-family: all;">Giá bán</span>
+                    </span>
+                  </div><br><br>
+                  <input type="number" min="0" placeholder="Tối thiểu" value pattern="[0-9]*"></input><br><br>
+                  <input type="number" min="0" placeholder="Tối đa" value pattern="[0-9]*"></input><br><br>
+                  <button type="button" class="btn btn-primary center-block">Tìm</button>
+                </div>
+              </div>
+            </div>
+
+          </aside>
+        </div>
+        <!-- // SIDEBAR -->
+
+      </div>
+    </div>
+  </main>

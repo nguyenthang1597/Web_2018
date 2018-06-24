@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thông tin cá nhân</title>
+  <link href="./assets/user/css/master.css" rel="stylesheet">
+  <!--[if lt IE 9]>
+      <script src="js/html5shiv-3.7.0.js"></script>
+      <script src="js/respond-1.4.2.js"></script>
+    <![endif]-->
+
+  <script type="text/javascript" src="./assets/user/js/jquery-1.11.1.min.js"></script>
+  <script type="text/javascript" src="dialog.js"></script>
+  <style type="text/css">
+    #over {
+      display: none;
+      background: #000;
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.8;
+      z-index: 999;
+    }
+
+    a,
+    a:visited,
+    a:active {
+      text-decoration: none;
+    }
+
+    .login {
+      background-color: #85B561;
+      height: auto;
+      width: 450px;
+      font-family: Verdana, Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      padding-bottom: 5px;
+      display: none;
+      overflow: hidden;
+      position: absolute;
+      z-index: 99999;
+      top: 10%;
+      left: 50%;
+      margin-left: -300px;
+    }
+
+    .login .login_title {
+      color: white;
+      font-size: 16px;
+      padding: 8px 0 5px 8px;
+      text-align: left;
+    }
+
+    .login-content label {
+      display: block;
+      padding-bottom: 7px;
+    }
+
+    .login-content span {
+      display: block;
+    }
+
+    .login-content {
+      padding-left: 35px;
+      background-color: white;
+      margin-left: 5px;
+      margin-right: 5px;
+      height: auto;
+      padding-top: 15px;
+      overflow: hidden;
+    }
+
+    .img-close {
+      float: right;
+      margin-top: -43px;
+      margin-right: 5px
+    }
+
+    .button {
+      display: inline-block;
+      min-width: 46px;
+      text-align: center;
+      color: #444;
+      font-size: 14px;
+      font-weight: 700;
+      height: 36px;
+      padding: 0px 8px;
+      line-height: 36px;
+      border-radius: 4px;
+      transition: all 0.218s ease 0s;
+      border: 1px solid #DCDCDC;
+      background-color: #F5F5F5;
+      background-image: -moz-linear-gradient(center top, #F5F5F5, #F1F1F1);
+      cursor: pointer;
+    }
+
+    .button:hover {
+      border: 1px solid #DCDCDC;
+      text-decoration: none;
+      -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+      -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    .login input {
+      border: 1px solid #D5D5D5;
+      border-radius: 5px;
+      box-shadow: 1px 1px 5px rgba(0, 0, 0, .07) inset;
+      color: black;
+      font: 12px/25px "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      height: 28px;
+      padding: 0px 8px;
+      word-spacing: 0.1em;
+      width: 300px;
+    }
+
+    .submit-button {
+      display: inline-block;
+      padding: auto;
+      margin: 15px 75px;
+      width: 150px;
+    }
+  </style>
+</head>
+
+<body class="noIE inner-page ">
+  <!-- HEADER -->
+  <header id="main-header">
+      <div id="cd-nav" class="is-fixed">
+          <a href="#0" class="cd-nav-trigger">Menu
+              <span></span>
+          </a>
+          <nav id="cd-main-nav">
+
+              <ul class="has-transitions">
+                  <h1 style="font-family: all;">Hello Jane Doe</h1>
+                  <li>
+                      <a href="thong_tin_ca_nhan.html">
+                          <span style="font-family: all;">Thông tin cá nhân</span>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="gio_hang.html">
+                          <span style="font-family: all;">Giỏ hàng</span>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="danh_sach_don_hang.html">
+                          <span style="font-family: all;">Lịch sử mua hàng</span>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="kq_tim_kiem.html">
+                          <span style="font-family: all;">Tìm kiếm</span>
+                      </a>
+                  </li>
+              </ul>
+          </nav>
+      </div>
+
+
+    <div id="cd-nav">
+      <nav id="cd-main-nav">
+        <ul>
+          <li class="active">
+            <a href="ds.html">
+              <span>Sedan</span>
+            </a>
+          </li>
+          <li>
+            <a href="ds.html">
+              <span>Hatchback</span>
+            </a>
+          </li>
+          <li>
+            <a href="ds.html">
+              <span>SUV</span>
+            </a>
+          </li>
+          <li>
+            <a href="ds.html">
+              <span>MPV/Minivan</span>
+            </a>
+          </li>
+          <li>
+            <a href="ds.html">
+              <span>Coupe</span>
+            </a>
+          </li>
+          <li>
+            <a href="ds.html">
+              <span>Convertible</span>
+            </a>
+          </li>
+          <li>
+            <a href="ds.html">
+              <span>Pickup</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="container ">
+      <div class="row">
+        <div class="col-md-3 spacer"> </div>
+        <div class="col-md-6">
+          <!-- NAVIGATION -->
+          <div class="navbar navbar-default navbar-top ">
+            <div class="navbar-collapse">
+              <ul class="nav navbar-nav nav-justified">
+                <li>
+                  <a href="./index-logined.html">
+                    <span>HOME</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <span>ABOUT</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <span>CONTACT</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="./index.html">
+                    <span>LOGOUT</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="./signup.html">
+                    <span>SIGNUP</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <!-- LOGO -->
+          <div id="logo">
+            <span class="bglogo1 transform-please-2">
+              <a href="index.html">
+                <img src="./assets/user/img/logo.png" alt="logo" />
+              </a>
+            </span>
+            <span class="bglogo2 transform-please-2"></span>
+            <span class="bglogo3 transform-please-2"></span>
+            <span class="bglogo4 transform-please-2"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <nav id="main-nav">
+        <div class="row">
+          <div class="col-md-12">
+            <!-- NAVIGATION -->
+            <div class="navbar navbar-default" role="navigation">
+              <div class="navbar-header"> </div>
+              <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav nav-justified">
+                  <li class="active">
+                    <a href="ds.html">
+                      <span>Sedan</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="ds.html">
+                      <span>Hatchback</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="ds.html">
+                      <span>MPV/Minivan</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="ds.html">
+                      <span>Coupe</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="mini-search-top">
+                  <form class="form-mini-search" >
+                    <a href="./kq_tim_kiem.html" class="arrow-link submit-link"> <span class="icon-transform transform-please"><i class="fa fa-search"></i></span></a>
+                  </form>
+                </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <!-- HEADER END -->
+  <!-- SECTION -->
+  <div class="brandslider bg-overlay overlay-bot">
+    <div class="container">
+      <div class="row">
+        <ul>
+          <li>
+            <a href="ds.html">
+              <img src="./assets/user/media/brand/1.png" alt="brand" />
+            </a>
+          </li>
+          <li>
+            <a href="ds.html">
+              <img src="./assets/user/media/brand/2.png" alt="brand" />
+            </a>
+          </li>
+          <li>
+            <a href="ds.html">
+              <img src="./assets/user/media/brand/3.png" alt="brand" />
+            </a>
+          </li>
+          <li>
+            <a href="ds.html">
+              <img src="./assets/user/media/brand/4.png" alt="brand" />
+            </a>
+          </li>
+          <li>
+            <a href="ds.html">
+              <img src="./assets/user/media/brand/5.png" alt="brand" />
+            </a>
+          </li>
+          <li>
+            <a href="ds.html">
+              <img src="./assets/user/media/brand/6.png" alt="brand" />
+            </a>
+          </li>
+          <li>
+            <a href="ds.html">
+              <img src="./assets/user/media/brand/7.png" alt="brand" />
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- HEADER END -->
+  <main id="main" class="section">
+    <div class="container">
+      <div class="row">
+        <!-- MAIN CONTENT -->
+        <div class="col-xs-12 col-sm-12 col-md-9">
+          <section class="main-content" role="main">
+            <!-- <div class="row">
+              <div class="col-xs-4">
+                <label for="name"><strong style="color:black">Họ tên</strong></label>
+              </div>
+              <div class="col-xs-8">
+                <input type="text" name="name" id="name">
+              </div>
+            </div> -->
+            <form class="form-inline">
+              <div class="form-group">
+                <label for="inputName">Họ tên</label>
+                <span style="display:inline-block; width: 111px;"></span>
+                <input type="text" class="form-control" id="inputName" value="Jane Doe">
+              </div>
+            </form>
+            <br>
+            <form class="form-inline">
+              <div class="form-group">
+                <label for="inputPhoneNumber">Số điện thoại</label>
+                <span style="display:inline-block; width: 70px;"></span>
+                <input type="text" class="form-control" id="inputPhoneNumber" value="0125 682 496">
+              </div>
+            </form>
+
+            <br>
+            <form class="form-inline">
+              <div class="form-group">
+                <label for="inputName">Địa chỉ</label>
+                <span style="display:inline-block; width: 111px;"></span>
+                <input type="text" class="form-control" id="inputName" value="HCM">
+              </div>
+            </form>
+            <br>
+            <form class="form-inline">
+              <div class="form-group">
+                <label for="inputIDCardNumber">Số CMND/Hộ chiếu</label>
+                <span style="display:inline-block; width: 30px;"></span>
+                <input type="text" class="form-control" id="inputIDCardNumber" value="305498677">
+              </div>
+            </form>
+
+            <br>
+
+            <form class="form-inline">
+              <div class="form-group">
+                <label for="inputEmail">Email</label>
+                <span style="display:inline-block; width: 120px;"></span>
+                <input class="form-control" type="text" value="ngtritham@gmail.com" style="color:black;" disabled>
+              </div>
+            </form>
+
+            <br>
+
+            <form class="form-inline">
+              <div class="form-group">
+                <label for="inputGender">Giới tính</label>
+                <span style="display:inline-block; width: 102px;"></span>
+                <select class="form-control">
+                  <option>Nam</option>
+                  <option>Nữ</option>
+                  <option>Khó nói</option>
+                </select>
+
+              </div>
+            </form>
+
+
+            <br>
+            <form class="form-inline">
+              <div class="form-group">
+                <label for="inputBirthday">Ngày sinh</label>
+                <span style="display:inline-block; width: 93px;"></span>
+                <select id="day" class="form-control">
+                  <option >Ngày</option>
+                </select>
+
+                <select id="month" class="form-control">
+                  <option>Tháng</option>
+                </select>
+
+                <select id="year" class="form-control">
+                  <option>Năm</option>
+                </select>
+            </form>
+
+          </section>
+
+<br><br><br>
+          <div style="text-align:center;">
+            <button type="submit" class="btn btn-primary">Cập nhật</button>
+          </div>
+          
+          
+        </div>
+        <!-- // MAIN CONTENT -->
+        <div class="space40 visible-xs"></div>
+        <!-- SIDEBAR -->
+        <div class="col-xs-12 col-sm-12 col-md-3">
+          <aside class="sidebar">
+
+            <!-- ARCHIVE WIDGET -->
+            <div class="widget widget-filter">
+              <div class="block_content">
+                <div class="list-group-heading">
+                  <span class="list-group-heading-inner">
+                    <span style="font-family: all;">Quản lý tài khoản</span>
+                  </span>
+                </div>
+                <div class="list-content">
+                  <ul>
+                    <li>Thông tin cá nhân</li>
+                    <li>Đổi mật khẩu</li>
+                    <li>Sổ địa chỉ</li>
+                  </ul>
+                </div>
+
+
+
+
+              </div>
+            </div>
+
+            <!-- OUR SOCIAL NETWORK WIDGET -->
+            <div class="widget widget-social">
+              <h3 class="widget-title">
+                <span>OUR SOCIAL NETWORK</span>
+              </h3>
+              <ul class="unstyled clearfix social-team">
+                <li>
+                  <a target="_blank" href="http://fb.com/#">
+                    <i class="fa fa-facebook"></i>
+                  </a>
+                </li>
+                <li>
+                  <a target="_blank" href="http://twitter.com/#">
+                    <i class="fa fa-twitter"></i>
+                  </a>
+                </li>
+                <li>
+                  <a target="_blank" href="http://plus.google.com/#">
+                    <i class="fa fa-google"></i>
+                  </a>
+                </li>
+                <li>
+                  <a target="_blank" href="http://youtube.com/#">
+                    <i class="fa fa-youtube"></i>
+                  </a>
+                </li>
+                <li>
+                  <a target="_blank" href="http://rss.com/#">
+                    <i class="fa fa-rss"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <!-- // TAGS WIDGET -->
+
+          </aside>
+        </div>
+
+
+      </div>
+    </div>
+  </main>
+
+
+  <!-- FOOTER -->
+  <div class="footer-block">
+    <div class="container">
+      <div class="row">
+        <div class="foot-top-line"></div>
+        <div class="foot-bot-line"></div>
+        <a class="scroll-top" href="#">
+          <i class="fa fa-angle-up"></i>
+        </a>
+      </div>
+    </div>
+    <div class="container fot-container">
+      <div class="row">
+        <ul class="nav-footer">
+          <li>
+            <a href="./index-logined.html">
+              <span>HOME</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span>ABOUT</span>
+            </a>
+          </li>
+          <li class="current">
+            <a href="#">
+              <span>CONTACT</span>
+            </a>
+          </li>
+          <li>
+            <a href="./index.html">
+              <span>LOGOUT</span>
+            </a>
+          </li>
+          <li>
+            <a href="./signup.html">
+              <span>SIGNUP</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- END -->
+  <!-- ABSOLUTE FOOTER -->
+  <div class="copyright-block">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12 left">
+          <ul class="unstyled clearfix social-team">
+            <li>
+              <a href="http://fb.com/#" target="_blank">
+                <i class="fa fa-facebook"></i>
+              </a>
+            </li>
+            <li>
+              <a href="http://twitter.com/#" target="_blank">
+                <i class="fa fa-twitter"></i>
+              </a>
+            </li>
+            <li>
+              <a href="http://plus.google.com/#" target="_blank">
+                <i class="fa fa-google"></i>
+              </a>
+            </li>
+            <li>
+              <a href="http://youtube.com/#" target="_blank">
+                <i class="fa fa-youtube"></i>
+              </a>
+            </li>
+            <li>
+              <a href="http://rss.com/#" target="_blank">
+                <i class="fa fa-rss"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- END -->
+
+  <!-- Script tạo ngày -->
+  <script>
+    var select = document.getElementById('day');
+    var maxDay = 32,
+        maxMonth = 13,
+        minYear = 1900,
+        maxYear = 2018;
+
+    for (var i = 1; i < maxDay; i++){
+      var opt = document.createElement('option');
+      opt.value = i;
+      opt.innerHTML = i;
+      select.appendChild(opt);
+    }
+    
+    select = document.getElementById('month');
+    for (var i = 1; i < maxMonth; i++){
+      var opt = document.createElement('option');
+      opt.value = i;
+      opt.innerHTML = i;
+      select.appendChild(opt);
+    }
+
+    select = document.getElementById('year');
+    for (var i = minYear; i < maxYear; i++){
+      var opt = document.createElement('option');
+      opt.value = i;
+      opt.innerHTML = i;
+      select.appendChild(opt);
+    }
+  </script>
+<!-- END Script tạo ngày -->
+  <script type="text/javascript" src="./assets/user/js/jquery-1.11.1.min.js"></script>
+  <script src="./assets/user/js/jquery-migrate-1.2.1.js"></script>
+  <script src="./assets/user/js/bootstrap-3.1.1.min.js"></script>
+  <script src="./assets/user/js/modernizr.custom.js"></script>
+  <script src="./assets/user/js/classie.js"></script>
+  <script src="./assets/user/js/pathLoader.js"></script>
+  <script src="./assets/user/js/waypoints.min.js"></script>
+  <script src="./assets/user/js/loader.js"></script>
+  <script src="./assets/user/js/jflickrfeed.min.js"></script>
+  <script src="./assets/user/plugins/selectbox/jquery.selectbox-0.2.js"></script>
+  <script src="./assets/user/plugins/backstretch/backstretch-2.0.4.min.js"></script>
+  <script src="./assets/user/plugins/camera-slider/camera-slider-1.3.4.min.js"></script>
+  <script src="./assets/user/plugins/camera-slider/easing-1.3.min.js"></script>
+  <script src="./assets/user/plugins/fancybox/fancybox-1.3.4.pack.js"></script>
+  <script src="./assets/user/plugins/fancybox/klass-1.0.min.js"></script>
+  <script src="./assets/user/plugins/fancybox/photoswipe-3.0.5.min.js"></script>
+  <script src="./assets/user/plugins/hover-animations/transform2d.min.js"></script>
+  <script src="./assets/user/plugins/hover-animations/hover-animations-1.0.min.js"></script>
+  <script src="./assets/user/js/smart-menu.js"></script>
+  <script src="./assets/user/js/cssua.min.js"></script>
+  <script src="./assets/user/plugins/bxslider/jquery.bxslider.min.js"></script>
+  <script src="./assets/user/plugins/nouislider/jquery.nouislider.min.js"></script>
+  <script src="./assets/user/plugins/flexslider/jquery.flexslider.js"></script>
+  <script src="./assets/user/js/custom.js"></script>
+</body>
+
+</html>
