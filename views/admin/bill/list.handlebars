@@ -28,44 +28,38 @@
                         <thead>
                             <tr>
                                 <th data-hide="phone">ID</th>
-                                <th>Tên hãng xe</th>
-                                <th>Ảnh</th>
-                                <th data-hide="phone,tablet">Ẩn</th>
+                                <th>Tên khách hàng</th>
+                                <th>Số lượng</th>
+                                <th>Sản phẩm</th>
+                                <th>Tổng tiền</th>
+                                <th>Tình trạng</th>
                                 <th>Thao tác</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {{#each catalogs}}
+                            {{#each bills}}
                             <tr class="odd gradeX">
                                 <td id="Id">{{Id}}</td>
-                                <td>{{TenHang}}</td>
+                                <td>{{TenKhachHang}}</td>
                                 <td>
-                                    {{#if Pic}}
-                                        <img src="/upload/catalog/{{Pic}}" width="100dp">
-                                    {{else}}
-                                        No image
-                                    {{/if}}
+                                    {{SoLuong}}
                                 </td>
-                                <td class="center">
-                                    {{#ifCond isHide '==' 1}}
-                                    <div class="make-switch" data-on="primary" data-off="info">
-                                        <input type="hidden" id="id" value="{{id}}">
-                                        <input type="checkbox" class="hide" name="hide" checked>
-                                    </div>
+                                <td>{{TenSP}}</td>
+                                <td>{{TongTien}} VND</td>
+                                <td>
+                                    {{#ifCond TinhTrang '==' 1}}
+                                        Đã Giao Hàng
                                     {{else}}
-                                    <div class="make-switch" data-on="primary" data-off="info">
-                                        <input type="hidden" id="id" value="{{id}}">
-                                        <input type="checkbox" class="hide" name="hide">
-                                    </div>
+                                        Chưa giao 
                                     {{/ifCond}}
                                 </td>
                                 <td class="center">
-                                    <a href="/admin/catalog/edit/{{Id}}" class="btn btn-primary btn-sm btn-icon icon-left">
+                                    <a href="/admin/bill/info/{{Id}}" class="btn btn-primary btn-sm btn-icon icon-left">
                                         <i class="entypo-pencil"></i>
-                                        Sửa
+                                        Chi tiết
                                     </a>
 
-                                    <a href="javascript:void(0)" class="btn btn-danger btn-sm btn-icon icon-left deleteCatalog">
+                                    <a href="javascript:void(0)" class="btn btn-danger btn-sm btn-icon icon-left deleteBill">
                                         <i class="entypo-cancel"></i>
                                         Xoá
                                     </a>
@@ -110,7 +104,7 @@
 <!-- Demo Settings -->
 <script src="/assets/admin/js/neon-demo.js"></script>
 
-<script src="/assets/admin/scripts/catalog.js"></script>
+<script src="/assets/admin/scripts/bill.js"></script>
 
 
 <script>

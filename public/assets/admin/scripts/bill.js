@@ -1,9 +1,9 @@
 $(document).ready(() => {
-	$('.deleteUser').on('click', function() {
-		if(window.confirm('Bạn có chắc chắn muốn xóa tài khoản này?')){
+	$('.deleteBill').on('click', function() {
+		if(window.confirm('Bạn có chắc chắn muốn xóa hóa đơn này?')){
 			let target = $(this).parent().parent();
 			let Id = target.find('td#Id')[0].innerText;
-			let url = '/admin/user-account/delete';
+			let url = '/admin/bill/delete';
 			$.ajax({
 				url: url,
 				type: 'POST',
