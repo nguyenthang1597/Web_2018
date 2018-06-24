@@ -16,7 +16,7 @@ router.get('/list', (req,res)=> {
 })
 
 router.post('/delete',(req,res) => {
-    Bill.deleteById(res.body.Id)
+    Bill.deleteById(req.body.Id)
     .then(result => {
         res.end('Xóa thành công');
     })
