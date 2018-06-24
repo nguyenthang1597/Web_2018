@@ -17,4 +17,14 @@ router.get('/list', (req, res) => {
         })
 })
 
+router.post('/delete', (req, res) => {
+    Account.deleteById(req.body.Id)
+        .then(result => {
+            res.end('Xóa thành công');
+        })
+        .catch(err => {
+            res.end()
+        })
+})
+
 module.exports = router;
