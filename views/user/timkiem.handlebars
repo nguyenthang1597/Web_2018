@@ -25,7 +25,7 @@
                   <h4 class="list-group-item-heading">{{TenSP}}
                   </h4>
                   <div class="price">
-                    <h2>{{GiaBan}}</h2>
+                    <h2> ${{GiaBan}}</h2>
                   </div>
                   <p class="list-group-item-text">{{ChiTiet}}</p>
                   <div class="product-box">
@@ -34,9 +34,9 @@
                         <i class="fa fa-car"></i>
                         <span>View more</span>
                       </a>
-                     {{#if user}}
-                      <a href="/XemChiTiet/{{Id}}" class="btn btn-default btn-black ">
-                        <i class="fa fa-car"></i>
+                     {{#if ../user}}
+                      <a href="#" class="btn btn-danger ">
+                        <i class="fa fa-shopping-cart"></i>
                         <span>Buy</span>
                       </a>
                       {{/if}}

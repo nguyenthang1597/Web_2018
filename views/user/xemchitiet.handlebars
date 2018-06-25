@@ -12,32 +12,23 @@
               <div id="slider-product" class="flexslider">
                 <ul class="slides">
                   <li> <a  href="/img/{{sp.HinhAnh}}"> <img src="/img/{{sp.HinhAnh}}" alt="alt" /></a> </li>
-                  <li> <a  href="/img/{{sp.HinhAnh}}"> <img src="/img/{{sp.HinhAnh}}" alt="alt" /></a> </li>
-                  <li> <a  href="/img/{{sp.HinhAnh}}"> <img src="/img/{{sp.HinhAnh}}" alt="alt" /></a> </li>
-                  <li> <a  href="/img/{{sp.HinhAnh}}"> <img src="/img/{{sp.HinhAnh}}" alt="alt" /></a> </li>
-                  <li> <a  href="/img/{{sp.HinhAnh}}"> <img src="/img/{{sp.HinhAnh}}" alt="alt" /></a> </li>
-                  <li> <a  href="/img/{{sp.HinhAnh}}"> <img src="/img/{{sp.HinhAnh}}" alt="alt" /></a> </li>
-                  <li> <a  href="/img/{{sp.HinhAnh}}"> <img src="/img/{{sp.HinhAnh}}" alt="alt" /></a> </li>
-                  <li> <a  href="/img/{{sp.HinhAnh}}"> <img src="/img/{{sp.HinhAnh}}" alt="alt" /></a> </li>
+                  {{#each img}}
+                  <li> <a  href="/img/{{picture}}"> <img src="/img/{{picture}}" alt="alt" /></a> </li>
+                  {{/each}}
                 </ul>
               </div>
               <div id="carousel" class="flexslider">
                 <ul class="slides">
-                  <li> <img src="/img/{{sp.HinhAnh}}" alt="alt" /> </li>
-                  <li> <img src="/img/{{sp.HinhAnh}}" alt="alt" /> </li>
-                  <li> <img src="/img/{{sp.HinhAnh}}" alt="alt" /> </li>
-                  <li> <img src="/img/{{sp.HinhAnh}}" alt="alt" /> </li>
-                  <li> <img src="/img/{{sp.HinhAnh}}" alt="alt" /> </li>
-                  <li> <img src="/img/{{sp.HinhAnh}}" alt="alt" /> </li>
-                  <li> <img src="/img/{{sp.HinhAnh}}" alt="alt" /> </li>
-                  <li> <img src="/img/{{sp.HinhAnh}}" alt="alt" /> </li>
+                  {{#each img}}
+                  <li> <img src="/img/{{picture}}" alt="alt" /> </li>
+                  {{/each}}
                 </ul>
               </div>
             </div>
           </div>
           <div class="pb-center-column col-xs-12 col-sm-12 col-md-5 col-lg-5">
             <div class="price-line">
-              <div class="price-box transform-please"><span>{{sp.GiaBan}} </span></div>
+              <div class="price-box transform-please"><span>$ {{sp.GiaBan}} </span></div>
             </div>
             <div class="product-featured" style="font-family: all;">
               <div  class="featured-box">
@@ -94,7 +85,7 @@
               {{#if user}}
               <div class="btn-set-middle">
                 <hr>
-                <a href="gio_hang.html" class="btn-call"> <span> BUY THIS CAR </span></a> <a href="#" class="btn-email"> <span> MAIL US ABOUT THIS CAR </span></a>
+                <a href="" class="btn-call"> <span> BUY THIS CAR </span></a> <a href="#" class="btn-email"> <span> MAIL US ABOUT THIS CAR </span></a>
               </div>
               {{/if}}
             </section>

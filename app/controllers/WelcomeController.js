@@ -115,9 +115,12 @@ router.get('/HangXe/:Id',(req,res)=>{
 })
  router.get('/XemChiTiet/:Id',(req,res)=>{
 	var id = req.params.Id;
-	let CungLoai,CungHang,SanPham;
+	let CungLoai,CungHang,SanPham,pic;
 	SP.getById(id).then(rows=>{
 		SanPham = rows[0];
+		return SP.loadpic(SanPham.Id)
+	}).then(rows=>{
+		pic = rows;
 		return SP.LoadLoaiXe(SanPham.LoaiXe,0);
 	}).then(rows=>{
 		CungLoai = rows;
@@ -127,13 +130,14 @@ router.get('/HangXe/:Id',(req,res)=>{
 			sp:SanPham,
 			SPLoai:CungLoai,
 			SPNSX: rows,
+			img: pic,
 		}
 		res.render('user/xemchitiet',vm);
 	}).then(rows=>{
 		return SP.updateLuotXem(id);
 	})
 })
- router.get('/lichsu',(req,res)=>{
+ router.get('/lichsu',mw.isLoggedInUser,(req,res)=>{
  	SP.loadhoadon(req.user.id).then(rows=>{
  		var vm={
  			hoadon:rows,
@@ -141,13 +145,16 @@ router.get('/HangXe/:Id',(req,res)=>{
  		res.render('user/lichsu',vm);
  	})
  })
- router.get('/chitietdonhang/:id',(req,res)=>{
+ router.get('/chitietdonhang/:id',mw.isLoggedInUser,(req,res)=>{
  	var id = req.params.id;
- 	SP.chitiethoadon(id).then(rows=>{
- 		var vm={
- 			sp:rows,
- 		}
- 		res.render('user/chitietdonhang',vm);
- 	})
+ 	var p1 = SP.chitiethoadon(id);
+ 	var p2 = SP.loadhoadon(req.user.id);
+ 	Promise.all([p1, p2]).then(([row1, row2]) => {
+		var vm = {
+			sp: row1,
+			hoadon:row2[0],
+		};
+		res.render('user/chitietdonhang', vm);
+	});
  })
 module.exports = router;

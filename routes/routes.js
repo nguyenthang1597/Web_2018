@@ -12,4 +12,5 @@ module.exports = (app) => {
     app.use('/admin/catalog', mw.isLoggedInAdmin, CatalogController);
     app.use('/admin/category', mw.isLoggedInAdmin, CategoryController);
     app.use('/',WelcomeController);
+
 }

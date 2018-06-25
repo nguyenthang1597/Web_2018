@@ -14,37 +14,40 @@
            <span style="font-family: all;">DANH SÁCH SẢN PHẨM</span>
          </div>
        </div>
-       <ul class="carousel-1">
-        {{#each sanpham}}
-        <li>
-              <div class="media">
-                <a href="/XemChiTiet/{{Id}}">
-                  <img src="/img/{{HinhAnh}}" width="369" height="200" alt="alt" />
-                </a>
-                <div class="carousel-item-content">
-                  <div class="text-right">
-                    <a class="arrow-link" href="#"></a>
-                  </div>
-                  <a class="transform-please-2 carousel-title">
-                    <span>{{TenSP}}</span>
-                  </a>
+       <div class ="container carousel-1">
+        <div class="row">
+          {{#each sanpham }}
+          <div class = "col-md-4 li">
+            <div class ="media">
+              <a href="/XemChiTiet/{{Id}}">
+                <img src="/img/{{HinhAnh}}" width="369" height="200" alt="alt" />
+              </a>
+              <div class="carousel-item-content">
+                <div class="text-right">
+                  <a class="arrow-link" href="#"></a>
                 </div>
-              </div>
-              <div class="carousel-text"></div>
-              <div class="product-box">
-                <a style="font-size: 28px; color:black">
-                  <span>{{GiaBan}}</span>
+                <a class="transform-please-2 carousel-title">
+                  <span>{{TenSP}}</span>
                 </a>
-                {{#if user}}
-                <a href="gio_hang.html" class="btn btn-danger ">
-                  <i class="fa fa-shopping-cart"></i>
-                  <span>Add to cart</span>
-                </a>
-                {{/if}}
               </div>
-            </li>
-        {{/each}}
-      </ul>
+            </div>
+            <div class="carousel-text"></div>
+            <div class="product-box">
+              <a class="btn btn-default btn-black ">
+                <i class="fa fa-money"></i>
+                <span>{{GiaBan}}</span>
+              </a>
+              {{#if ../user}}
+              <a href="" class="btn btn-danger ">
+                <i class="fa fa-shopping-cart"></i>
+                <span>Add to cart</span>
+              </a>
+              {{/if}}
+            </div>
+          </div>
+          {{/each}}
+        </div>
+      </div>
       <ul class="pagination">
         <li class="disabled">
           <a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a>
