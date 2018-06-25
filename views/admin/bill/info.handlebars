@@ -12,77 +12,38 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label">ID Hóa Đơn</label>
                             <div class="col-sm-5">
-                                <input type="text" class="form-control" value="" disabled>
+                                <input type="text" class="form-control" value="{{info.ID}}" disabled>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Tên Khách Hàng</label>
                             <div class="col-sm-5">
-                                <input type="text" class="form-control" value="" disabled>
+                                <input type="text" class="form-control" value="{{info.TenKhachHang}}" disabled>
                             </div>
                             <label class="col-sm-2 control-label">Id Khách hàng</label>
                             <div class="col-sm-2">
-                                <input type="text" class="form-control" value="" disabled>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">Tên Xe</label>
-                            <div class="col-sm-5">
-                                <input type="text" class="form-control" value="" disabled>
-                            </div>
-                            <label class="col-sm-2 control-label">Id Xe</label>
-                            <div class="col-sm-2">
-                                <input type="text" class="form-control" value="" disabled>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">Loại xe</label>
-                            <div class="col-sm-5">
-                                <input type="text" class="form-control" value="" disabled>
-                            </div>
-                            <label class="col-sm-2 control-label">Số lượng</label>
-                            <div class="col-sm-2">
-                                <input type="text" class="form-control" value="" disabled>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">Hãng xe</label>
-                            <div class="col-sm-5">
-                                <input type="text" class="form-control" value="" disabled>
-                            </div>
-                               <label class="col-sm-2 control-label">Giá bán</label>
-                            <div class="col-sm-2">
-                                <input type="text" class="form-control" value="" disabled>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">Mô tả</label>
-                            <div class="col-sm-9">
-                                <textarea style="width:100%" rows="5" disabled></textarea>
+                                <input type="text" class="form-control" value="{{info.IdKH}}" disabled>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Địa chỉ giao hàng</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" value="">
+                                <input type="text" class="form-control" value="{{info.DiaChiGiao}}" disabled>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Số điện thoại người nhận</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" value="">
+                                <input type="text" class="form-control" value="" disabled>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Email người nhận</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" value="">
+                                <input type="text" class="form-control" value="" disabled>
                             </div>
                         </div>
 
@@ -96,8 +57,37 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Tình trạng đơn hàng</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" value="" disabled>
+                                <input type="text" class="form-control" value="" >
                             </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Danh sách sản phẩm: </label>
+                        </div>
+
+                        <div class="form-group">
+                            <table class="table table-bordered datatable" id="table-1">
+                                <thead>
+                                    <tr>
+                                        <th data-hide="phone">Mã Sản Phẩm</th>
+                                        <th>Tên Sản Phẩm</th>
+                                        <th>Số lượng</th>
+                                        <th>Giá Bán</th>
+                                        <th>Xuất xứ</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{#each bills}}
+                                    <tr class="odd gradeX">
+                                        <td id="Id">áda</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    {{/each}}
+                                </tbody>
+                            </table>
                         </div>
 
                         <div class="form-group">
@@ -120,26 +110,29 @@
 
 {{#section 'scripts'}}
 <!-- Bottom scripts (common) -->
-<script src="../../assets/admin/js/gsap/TweenMax.min.js"></script>
-<script src="../../assets/admin/js/jquery-ui/js/jquery-ui-1.10.3.minimal.min.js"></script>
-<script src="../../assets/admin/js/bootstrap.js"></script>
-<script src="../../assets/admin/js/resizeable.js"></script>
-<script src="../../assets/admin/js/neon-api.js"></script>
-<script src="../../assets/admin/js/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
-
-
+<script src="/assets/admin/js/gsap/TweenMax.min.js"></script>
+<script src="/assets/admin/js/jquery-ui/js/jquery-ui-1.10.3.minimal.min.js"></script>
+<script src="/assets/admin/js/bootstrap.js"></script>
+<script src="/assets/admin/js/resizeable.js"></script>
+<script src="/assets/admin/js/neon-api.js"></script>
+<script src="/assets/admin/js/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
 
 <!-- Imported scripts on this page -->
 
-
-
-<script src="../../assets/admin/js/datatables/datatables.js"></script>
+<script src="/assets/admin/js/datatables/datatables.js"></script>
 
 <!-- JavaScripts initializations and stuff -->
-<script src="../../assets/admin/js/neon-custom.js"></script>
+<script src="/assets/admin/js/neon-custom.js"></script>
 
 <!-- Imported scripts on this page -->
-<script src="../../assets/admin/js/bootstrap-switch.min.js"></script>
+<script src="/assets/admin/js/bootstrap-switch.min.js"></script>
 
 <!-- Demo Settings -->
-<script src="../../assets/admin/js/neon-demo.js"></script> {{/section}}
+<script src="/assets/admin/js/neon-demo.js"></script>
+<script>
+    $(document).ready(function () {
+        //bootstrap WYSIHTML5 - text editor
+        $('#table-1').DataTable();
+        $('div.alert').delay(5000).slideUp();
+    });
+</script> {{/section}}

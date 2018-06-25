@@ -26,12 +26,19 @@ router.post('/delete',(req,res) => {
 })
 
 router.get('/info/:id',(req,res)=> {
-    var vm = {
-        layout: 'main-admin',
-        title: 'Quản lý hóa đơn',
-        heading: 'Chi tiết hóa đơn'
-    }
-    res.render('admin/bill/info',vm);
+    Bill.getBillById(req.params.id)
+    .then(result => {
+        console.log(result[0]);
+        console.log(result[0].ID)
+        var vm = {
+            layout: 'main-admin',
+            title: 'Quản lý hóa đơn',
+            bills: result,
+            info: result[0],
+            heading: 'Chi tiết hóa đơn'
+        }
+        res.render('admin/bill/info',vm);
+    })
 })
 
 module.exports = router;
