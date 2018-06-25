@@ -2,10 +2,9 @@ const db = require('../../config/mysql');
 
 var Bill = {
     loadAllBill: () => {
-        return db(`select hoadon.Id as Id, khachhang.Ten as TenKhachHang, hoadon.SoLuong as SoLuong,sanpham.TenSP as TenSP, hoadon.TongTien as TongTien,hoadon.TinhTrang as TinhTrang
+        return db(`select hoadon.MaHoaDon as Id, khachhang.Ten as TenKhachHang,hoadon.TinhTrang as TinhTrang, DATE_FORMAT(hoadon.NgayMua,'%d/%m/%y')as NgayMua
                     from hoadon
-                        inner join khachhang on hoadon.IdKH = khachhang.Id
-                        inner join sanpham on hoadon.IdSP = sanpham.Id`)
+                        inner join khachhang on hoadon.IdKH = khachhang.Id`)
     },
     deleteById: (id) => {
         return db(`delete from hoadon where Id = ${id}`)
