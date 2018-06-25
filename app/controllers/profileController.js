@@ -1,9 +1,15 @@
 const express = require('express');
-const account = require('../Model/accountModel.js')
+const accountModel = require('../Model/Account');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    res.render('user/profile');
+    accountModel.loadUserById(1)
+    .then(result => {
+        var vm = {
+            account: result[0]
+        }
+        res.render('user/profile', vm);
+    })
 });
 
 module.exports = router;

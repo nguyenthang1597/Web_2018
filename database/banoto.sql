@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.7
+-- version 4.8.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 25, 2018 at 11:32 AM
--- Server version: 10.1.30-MariaDB
--- PHP Version: 7.2.2
+-- Generation Time: Jun 25, 2018 at 11:19 PM
+-- Server version: 10.1.32-MariaDB
+-- PHP Version: 7.2.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -33,6 +33,12 @@ CREATE TABLE `account` (
   `username` varchar(45) DEFAULT NULL,
   `password` varchar(65) DEFAULT NULL,
   `isAdmin` tinyint(1) DEFAULT NULL,
+  `ten` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `sdt` int(11) NOT NULL,
+  `diaChi` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `cmnd` int(9) NOT NULL,
+  `gioiTinh` tinyint(1) NOT NULL,
+  `ngaySinh` date NOT NULL,
   `email` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -40,14 +46,16 @@ CREATE TABLE `account` (
 -- Dumping data for table `account`
 --
 
-INSERT INTO `account` (`id`, `username`, `password`, `isAdmin`, `email`) VALUES
-(5, 'thanh3', 'f4bf9f7fcbedaba0392f108c59d8f4a38b3838efb6487', 0, 'asdsad'),
-(6, 'thanh4', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 1, '123456'),
-(7, 'thanh5', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 0, '1'),
-(8, 'thanh6', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 0, '1'),
-(11, 'thanh7', '6b51d431df5d7f141cbececcf79edf3dd861c3b4069f0b11661a3eefacbba918', 0, '12452123'),
-(12, 'thanh8', '481f6cc0511143ccdd7e2d1b1b94faf0a700a8b49cd13922a70b5ae28acaa8c5', 0, '147'),
-(13, 'thanh', 'ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb', 1, 'd');
+INSERT INTO `account` (`id`, `username`, `password`, `isAdmin`, `ten`, `sdt`, `diaChi`, `cmnd`, `gioiTinh`, `ngaySinh`, `email`) VALUES
+(1, 'admin', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 1, 'Admin', 902467813, '12, phường 1, quận 3, TP HCM', 301648567, 1, '1994-06-20', 'admin@gmail.com'),
+(2, 'tham', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 0, '', 0, '', 0, 0, '0000-00-00', 'tham@gmail.com'),
+(5, 'thanh3', 'f4bf9f7fcbedaba0392f108c59d8f4a38b3838efb6487', 0, '', 0, '', 0, 0, '0000-00-00', 'asdsad'),
+(6, 'thanh4', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 1, '', 0, '', 0, 0, '0000-00-00', '123456'),
+(7, 'thanh5', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 0, '', 0, '', 0, 0, '0000-00-00', '1'),
+(8, 'thanh6', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 0, '', 0, '', 0, 0, '0000-00-00', '1'),
+(11, 'thanh7', '6b51d431df5d7f141cbececcf79edf3dd861c3b4069f0b11661a3eefacbba918', 0, '', 0, '', 0, 0, '0000-00-00', '12452123'),
+(12, 'thanh8', '481f6cc0511143ccdd7e2d1b1b94faf0a700a8b49cd13922a70b5ae28acaa8c5', 0, '', 0, '', 0, 0, '0000-00-00', '147'),
+(13, 'thanh', 'ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb', 1, '', 0, '', 0, 0, '0000-00-00', 'd');
 
 -- --------------------------------------------------------
 

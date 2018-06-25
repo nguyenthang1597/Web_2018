@@ -1,6 +1,6 @@
 const loginController = require("../app/controllers/loginController.js");
 const signupController = require('../app/controllers/signupController');
-const SP = require("../app/controllers/SanPhamController");
+const SanPhamController = require("../app/controllers/SanPhamController");
 const profileController = require('../app/controllers/profileController.js');
 const cartController = require('../app/controllers/cartController.js');
 const restrict = require('../middle-wares/restrict.js');
@@ -13,9 +13,9 @@ const UserAccount = require('../app/controllers/AccountController');
 const BillController = require('../app/controllers/BillController')
 
 module.exports = (app) => {
-	app.use('/',SP);
-	app.use("/login",loginController);
-	app.use('/signup',signupController);
+	app.use('/',SanPhamController);
+	// app.use("/login",loginController);
+	// app.use('/signup',signupController);
 	app.use('/profile', profileController);
     app.use('/cart', cartController);
     app.use('/admin', AdminController);
