@@ -37,16 +37,9 @@
                             <tr class="odd gradeX">
                                 <td id="Id">{{Id}}</td>
                                 <td>{{TenKhachHang}}</td>
-                                <td>
-                                    {{#ifCond TinhTrang '==' '1'}} 
-                                    Đã giao
-                                    {{/ifCond}}
-                                    {{#ifCond TinhTrang '==' '2'}}
-                                    Đang Giao
-                                    {{/ifCond}}
-                                    {{#ifCond TinhTrang '==' '0'}}
-                                    Chưa giao
-                                    {{/ifCond}}
+                                <td class="TinhTrang" title="{{TinhTrang}}">
+                                    {{#ifCond TinhTrang '==' '1'}} Đã giao {{/ifCond}} {{#ifCond TinhTrang '==' '2'}} Đang Giao {{/ifCond}} {{#ifCond TinhTrang
+                                    '==' '0'}} Chưa giao {{/ifCond}}
                                 </td>
                                 <td>
                                     {{NgayMua}}
@@ -102,5 +95,21 @@
         //bootstrap WYSIHTML5 - text editor
         $('#table-1').DataTable();
         $('div.alert').delay(5000).slideUp();
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('td').css('color','black')
+        $('.TinhTrang').each(function () {
+            let tinhtrang = $(this).attr('title');
+
+            if (tinhtrang === '2') {
+                $(this).parent().css({ "background-color": "#89fd75" })
+            }
+            else if(tinhtrang === '0') {
+                $(this).parent().css({ "background-color": "#fb4a4a" })
+            }
+        })
     });
 </script> {{/section}}
