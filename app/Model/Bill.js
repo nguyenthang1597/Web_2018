@@ -11,12 +11,16 @@ var Bill = {
         return db(`delete from hoadon where Id = ${id}`)
     },
     getBillById: (id) => {
-        return db(`select hoadon.MaHoaDon as ID, hoadon.IdKH as IdKH, khachhang.Ten as TenKhachHang, khachhang.DiaChi as DiaChiGiao,
-        khachhang.SDT as SDT, khachhang.Email as Email, hoadon.TinhTrang as TinhTrang, hoadon.IdSP as IdSP, sanpham.TenSP as TenSP,
-        hoadon.SoLuong as SoLuongMua, sanpham.GiaBan as GiaBan, sanpham.MoTa as Mota, sanpham.XuatXu as XuatXu
+        return db(`select IdSP,TenSP,SL,DonGia,XuatXu
         from hoadon
-            inner join khachhang on hoadon.IdKH = khachhang.Id
-            inner join sanpham on sanpham.Id = hoadon.IdSP`)
+            inner join sanpham on hoadon.IdSP = sanpham.Id`)
+    },
+    getInfoById: (id) => {
+        return db(`select hoadon.MaHoaDon as MaHoaDon, khachhang.Ten as TenKhachHang,
+        IdKH,DiaChi,SDT,Email,TongTien,TinhTrang
+        from hoadon
+            inner join chitiethoadon on chitiethoadon.MaHoaDon = hoadon.MaHoaDon
+            inner join khachhang on IdKH = khachhang.Id`)
     }
 }
 

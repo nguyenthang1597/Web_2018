@@ -26,15 +26,13 @@ router.post('/delete',(req,res) => {
 })
 
 router.get('/info/:id',(req,res)=> {
-    Bill.getBillById(req.params.id)
-    .then(result => {
-        console.log(result[0]);
-        console.log(result[0].ID)
+    Promise.all([Bill.getBillById(req.params.id),Bill.getInfoById(req.params.id)])
+    .then(([result,result2]) => {
         var vm = {
             layout: 'main-admin',
             title: 'Quản lý hóa đơn',
-            bills: result,
-            info: result[0],
+            dsSP: result,
+            info: result2[0],
             heading: 'Chi tiết hóa đơn'
         }
         res.render('admin/bill/info',vm);
