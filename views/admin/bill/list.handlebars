@@ -1,15 +1,13 @@
 <div class="main-content">
 
     {{>admin-header}}
-    <hr />
-    {{>admin-breadcrumb}}
+    <hr /> {{>admin-breadcrumb}}
     <h2>{{heading}}</h2>
     {{#if successMessage}}
-	<div class="alert alert-success">{{successMessage}}</div>
-	{{/if}}
-	{{#if errorMessage}}
-	<div class="alert alert-danger">{{errorMessage}}</div>
-	{{/if}}
+    <div class="alert alert-success">{{successMessage}}</div>
+    {{/if}} {{#if errorMessage}}
+    <div class="alert alert-danger">{{errorMessage}}</div>
+    {{/if}}
     <div class="row">
         <div class="col-md-12">
 
@@ -40,7 +38,15 @@
                                 <td id="Id">{{Id}}</td>
                                 <td>{{TenKhachHang}}</td>
                                 <td>
-                                    {{TinhTrang}}
+                                    {{#ifCond TinhTrang '==' '1'}} 
+                                    Đã giao
+                                    {{/ifCond}}
+                                    {{#ifCond TinhTrang '==' '2'}}
+                                    Đang Giao
+                                    {{/ifCond}}
+                                    {{#ifCond TinhTrang '==' '0'}}
+                                    Chưa giao
+                                    {{/ifCond}}
                                 </td>
                                 <td>
                                     {{NgayMua}}
@@ -49,11 +55,6 @@
                                     <a href="/admin/bill/info/{{Id}}" class="btn btn-primary btn-sm btn-icon icon-left">
                                         <i class="entypo-pencil"></i>
                                         Chi tiết
-                                    </a>
-
-                                    <a href="javascript:void(0)" class="btn btn-danger btn-sm btn-icon icon-left deleteBill">
-                                        <i class="entypo-cancel"></i>
-                                        Xoá
                                     </a>
                                 </td>
                             </tr>
@@ -95,9 +96,6 @@
 
 <!-- Demo Settings -->
 <script src="/assets/admin/js/neon-demo.js"></script>
-
-<script src="/assets/admin/scripts/bill.js"></script>
-
 
 <script>
     $(document).ready(function () {

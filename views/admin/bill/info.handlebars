@@ -62,15 +62,17 @@
                                     <option value="1" selected>Đã Giao</option>
                                     <option value="0">Chưa giao</option>
                                     <option value="2">Đang Giao</option>
-                                    {{else}} {{#ifCond info.TinhTrang '==' '2'}}
+                                    {{/ifCond}} 
+                                    {{#ifCond info.TinhTrang '==' '2'}}
                                     <option value="1">Đã Giao</option>
                                     <option value="0">Chưa giao</option>
                                     <option value="2" selected>Đang Giao</option>
-                                    {{else}}
+                                    {{/ifCond}}
+                                    {{#ifCond info.TinhTrang '==' '0'}}
                                     <option value="1">Đã Giao</option>
                                     <option value="0" selected>Chưa giao</option>
                                     <option value="2">Đang Giao</option>
-                                    {{/ifCond}} {{/ifCond}}
+                                    {{/ifCond}}
 
                                 </select>
                             </div>
