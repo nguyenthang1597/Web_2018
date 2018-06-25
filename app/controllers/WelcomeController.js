@@ -129,6 +129,25 @@ router.get('/HangXe/:Id',(req,res)=>{
 			SPNSX: rows,
 		}
 		res.render('user/xemchitiet',vm);
+	}).then(rows=>{
+		return SP.updateLuotXem(id);
 	})
 })
+ router.get('/lichsu',(req,res)=>{
+ 	SP.loadhoadon(req.user.id).then(rows=>{
+ 		var vm={
+ 			hoadon:rows,
+ 		}
+ 		res.render('user/lichsu',vm);
+ 	})
+ })
+ router.get('/chitietdonhang/:id',(req,res)=>{
+ 	var id = req.params.id;
+ 	SP.chitiethoadon(id).then(rows=>{
+ 		var vm={
+ 			sp:rows,
+ 		}
+ 		res.render('user/chitietdonhang',vm);
+ 	})
+ })
 module.exports = router;

@@ -1,0 +1,83 @@
+  <!-- HEADER END -->
+  <main id="main" class="section">
+    <div class="container">
+      <div class="row">
+        <!-- MAIN CONTENT -->
+        <div class="col-xs-12 col-sm-12 col-md-9">
+          <section class="main-content" role="main">
+            <ul class="list-group catalog-product-list">
+              {{#each sp}}
+              <li class="list-group-item    animated" data-animation="bounceInLeft">
+                <div class="media col-md-5  col-sm-5 col-xs-12">
+                  <figure class="pull-left">
+                    <a href="/XemChiTiet/{{Id}}">
+                      <img width="369" height="200" src="/img/{{HinhAnh}}" alt="alt">
+                    </a>
+                  </figure>
+                </div>
+                <div class="col-md-7 col-xs-12  col-sm-7 list-group-item-content">
+                  <h4 class="list-group-item-heading">{{TenSP}}
+                  </h4>
+                  <div class="price">
+                    <h2>{{GiaBan}}</h2>
+                  </div>
+                  <p class="list-group-item-text">{{ChiTiet}}</p>
+                  <div class="product-box">
+                    <div class="btn-group">
+                      <div class="btn btn-default">Số lượng: {{SL}}  chiếc</div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </section>
+        </div>
+        <!-- // MAIN CONTENT -->
+        <div class="space40 visible-xs"></div>
+        <!-- SIDEBAR -->
+        <div class="col-xs-12 col-sm-12 col-md-3">
+          <aside class="sidebar">
+
+            <!-- ARCHIVE WIDGET -->
+            <div class="widget widget-filter">
+              <div class="block_content">
+
+
+                <div class="list-group-heading">
+                  <span class="list-group-heading-inner">
+                    <span style="font-family: all;">Thông tin đơn hàng</span>
+                  </span>
+                </div>
+
+
+                <div class="list-content">
+                  <ul class="check-list">
+                    <li>
+                      <label for="">Mã đơn hàng:{{MaHoaDon}}</label>
+                    </li>                      
+                    <li>
+                      <label>Ngày mua: {{NgayMua}}
+                      </label>
+                    </li>
+
+                    <li>
+                      <label>Tổng tiền: {{TongTien}}
+                      </label>
+                    </li>
+                    <li>
+                      <label>Trạng thái: {{TinhTrang}}
+                      </label>
+                    </li>
+              {{/each}}
+                    
+                  </ul>
+                </div>
+              </div>
+            </aside>
+          </div>
+          <!-- // SIDEBAR -->
+
+        </div>
+      </div>
+    </main>
+

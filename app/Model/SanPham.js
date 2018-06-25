@@ -31,3 +31,15 @@ exports.counttimkiem=(tenloai,tenxe,hangxe,min,max)=>{
 	var sql = `select count(*) as total from sanpham where LoaiXe = ${tenloai} or TenSP like "%${tenxe}%" or HangXe=${hangxe} or (GiaBan >= ${min} and GiaBan <=${max})`;
 	return db(sql);
 }
+exports.updateLuotXem=(id)=>{
+	var sql = `update sanpham set LuotXem = LuotXem + 1 where Id = ${id} `;
+	return db(sql);
+}
+exports.loadhoadon=(id)=>{
+	var sql = `select hoadon.MaHoaDon,hoadon.SL,hoadon.TinhTrang,hoadon.TongTien,hoadon.NgayMua,sanpham.TenSP from hoadon, sanpham where (hoadon.IdKH=${id} and hoadon.IdSP=sanpham.Id) order by hoadon.NgayMua desc `;
+	return db(sql);
+}
+exports.chitiethoadon=(id)=>{
+	var sql = `select * from hoadon, sanpham where hoadon.MaHoaDon=${id} and hoadon.IdSP=sanpham.Id `;
+	return db(sql);
+}

@@ -1,0 +1,59 @@
+  {{#section 'style'}}
+  <link rel="stylesheet" href="/assets/admin/js/datatables/datatables.css">
+  {{/section}}
+  <main id="main" class="section">
+    <div class="container">
+      <div class="row">
+        <!-- MAIN CONTENT -->
+        <div class="col-xs-12 col-sm-12 col-md-12">
+          <section class="main-content" role="main">
+            <table class="table table-bordered datatable" id="table">
+              <thead>
+                <tr>
+                  <th width="3%" style="vertical-align:middle">Mã
+                    <br> đơn hàng</th>
+                    <th width="1%" style="vertical-align:middle">Ngày mua</th>
+                    <th width="37%" style="vertical-align:middle">Sản phẩm</th>
+                    <th width="4%" style="vertical-align:middle">Tổng tiền</th>
+                    <th width="8%">Trạng thái
+                      <br> đơn hàng
+                    </th>
+                  </tr>
+                </thead>
+
+                <tbody class="table-hover">
+                  {{#each hoadon}}
+                  <tr>
+                    <td><a href="/chitietdonhang/{{MaHoaDon}}">{{MaHoaDon}}</a></td>
+                    <td>{{NgayMua}}</td>
+                    <td>
+                      <table class="table">
+                        <tr>
+                          <td style="width: 80%">{{TenSP}}</td>
+                          <td style="width: 20%">{{SL}}</td>
+                          <td>
+                            <i class="fas fa-info-circle" style="color:#5bc0de"></i>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                    <td>{{TongTien}}</td>
+                    <td>{{TinhTrang}}</td>
+                  </tr>
+                  {{/each}}
+                </tbody>
+              </table>
+            </section>
+          </div>
+          <!-- // MAIN CONTENT -->
+          <div class="space40 visible-xs"></div>
+        </div>
+      </div>
+    </main>
+    {{#section 'scripts'}}
+    <script src="/assets/admin/js/datatables/datatables.js"></script>
+    <script> $(document).ready(function () {
+      $('#table').DataTable();
+    });
+    </script>
+    {{/section}}
