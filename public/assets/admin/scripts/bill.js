@@ -1,9 +1,9 @@
 $(document).ready(() => {
-	$('.deleteCatalog').on('click', function() {
-		if(window.confirm('Bạn có chắc chắn muốn xóa hãng xe này?')){
+	$('.deleteBill').on('click', function() {
+		if(window.confirm('Bạn có chắc chắn muốn xóa hóa đơn này?')){
 			let target = $(this).parent().parent();
 			let Id = target.find('td#Id')[0].innerText;
-			let url = '/admin/catalog/delete';
+			let url = '/admin/bill/delete';
 			$.ajax({
 				url: url,
 				type: 'POST',
@@ -22,20 +22,5 @@ $(document).ready(() => {
 				}
 			})
 		}
-	})
-
-	$('input.hide').change(function() {
-		let url = '/admin/catalog/visible';
-		$.ajax({
-			url: url,
-			type: 'POST',
-			data: {
-				Id: Id,
-				isHide: this.checked ? 1 : 0
-			},
-			success: function(data) {
-				
-			}
-		})
 	})
 })
