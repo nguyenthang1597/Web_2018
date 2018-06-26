@@ -129,13 +129,17 @@ router.post('/edit/:Id', (req, res) => {
         }
         Product.getOneById(req.params.Id)
             .then(result => {
-                console.log(req.files.Pic);
-                if (req.files.Pic.length == 0) {
-                    product.HinhAnh = result[0].HinhAnh;
+                if(req.files.Pic){
+                    if (req.files.Pic.length == 0) {
+                        product.HinhAnh = result[0].HinhAnh;
+                    } else {
+                        deleteOldPic(result[0].HinhAnh);
+                        product.HinhAnh = req.files.Pic[0].filename;
+                    }
                 } else {
-                    deleteOldPic(result[0].HinhAnh);
-                    product.HinhAnh = req.files.Pic[0].filename;
+                    product.HinhAnh = result[0].HinhAnh;
                 }
+                
                 Product.updateById(req.params.Id, product)
                     .then(result => {
                         req.flash('successMessage', 'Cập nhật thành công!');

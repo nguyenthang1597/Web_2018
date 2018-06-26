@@ -23,6 +23,7 @@ const upload = multer({
 router.get('/list', (req, res) => {
     Catalog.getAll()
         .then(result => {
+            console.log(result);
             res.render('admin/catalog/list', {
                 layout: 'main-admin',
                 catalogs: result,

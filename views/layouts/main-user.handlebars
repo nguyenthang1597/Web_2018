@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Trang chủ</title>
   <link rel="stylesheet"type="text/css" href="/assets/user/css/master.css">
-
+  {{{_sections.style}}}
 </head>
 <body class="home inner-page">
   <!-- HEADER -->
@@ -30,12 +30,12 @@
             </a>
           </li>
           <li>
-            <a href="danh_sach_don_hang.html">
+            <a href="/lichsu">
               <span style="font-family: all;">Lịch sử mua hàng</span>
             </a>
           </li>
           <li>
-            <a href="kq_tim_kiem.html">
+            <a href="/timkiem">
               <span style="font-family: all;">Tìm kiếm</span>
 
             </a>
@@ -87,7 +87,7 @@
               </div>
               <div class="mini-search-top">
                 <form class="form-mini-search" >
-                  <a href="./tim" class="arrow-link submit-link"> <span class="icon-transform transform-please"><i class="fa fa-search"></i></span></a>
+                  <a href="/timkiem" class="arrow-link submit-link"> <span class="icon-transform transform-please"><i class="fa fa-search"></i></span></a>
                 </form>
               </div>
             </div>
@@ -169,7 +169,9 @@
     <!-- END --> 
 
     <!-- SCRIPTS --> 
+    <script src="/assets/admin/js/datatables/datatables.js"></script>
     <script type="text/javascript" src="/assets/user/js/jquery-1.11.1.min.js"></script>  
+     {{{_sections.scripts}}}
     <script type="text/javascript" src="/assets/user/js/jquery-migrate-1.2.1.js" ></script> 
     <script type="text/javascript" src="/assets/user/js/bootstrap-3.1.1.min.js"></script> 
     <script type="text/javascript" src="/assets/user/js/modernizr.custom.js"></script> 
