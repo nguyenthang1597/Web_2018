@@ -15,8 +15,6 @@
 
 -------------------------------------------------------------------*/
 
-
-
 /* SECTION 1*/
 
 .box-transform {
@@ -155,12 +153,12 @@
 	position: relative;
 	left: 14px;
 }
-.carousel-1 li {
+.carousel-1 .li {
 	display: inline-block;
 	position: relative;
-	width: 370px;
+	/*width: 370px;*/
 }
-.carousel-1 li .media {
+.carousel-1 .li .media {
 	position: relative;
 }
 .carousel-item-content {
@@ -186,7 +184,7 @@
 	-webkit-transition: all .4s ease-in-out;
 	transition: all .4s ease-in-out;
 }
-.carousel-1 li .icon-transform {
+.carousel-1 .li .icon-transform {
 	transition: all .4s ease-in-out;
 	-o-transition: all .4s ease-in-out;
 	-ms-transition: all .4s ease-in-out;
@@ -194,7 +192,7 @@
 	-webkit-transition: all .4s ease-in-out;
 	transition: all .4s ease-in-out;
 }
-.carousel-1 li:hover .carousel-title, .carousel-1 li:hover .icon-transform {
+.carousel-1 .li:hover .carousel-title, .carousel-1 li:hover .icon-transform {
 	background-color: #000;
 	border-bottom-color: #000;
 }

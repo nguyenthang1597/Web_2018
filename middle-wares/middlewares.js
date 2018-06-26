@@ -1,4 +1,10 @@
 module.exports = {
+    isLoggedInUser: (req, res, next) => {
+        if (req.isAuthenticated()) {
+            return next();
+        }
+        res.redirect('/');
+    },
     isLoggedInAdmin: (req, res, next) => {
         if (req.isAuthenticated()) {
             if (req.user.isAdmin)

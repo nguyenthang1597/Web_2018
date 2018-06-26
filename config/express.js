@@ -1,4 +1,4 @@
-module.exports = function (app, express, session, hbs, logger, cookieParser, bodyParser, passport,flash,handleLayoutMDW) {
+module.exports = function (app, express, session, hbs, logger, cookieParser, bodyParser, passport,flash) {
 	app.engine('handlebars', hbs.engine);
 	app.set('view engine', 'handlebars');
 	app.set('views', 'views');
@@ -21,8 +21,6 @@ module.exports = function (app, express, session, hbs, logger, cookieParser, bod
 	app.use(passport.initialize());
 	app.use(passport.session());
 	app.use(flash());
-	app.use(handleLayoutMDW);
-
 	app.use((req, res, next) => {
 		res.locals = ({
 			user: req.user
@@ -30,4 +28,3 @@ module.exports = function (app, express, session, hbs, logger, cookieParser, bod
 		return next();
 	})
 }
-

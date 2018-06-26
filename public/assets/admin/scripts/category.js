@@ -1,6 +1,6 @@
 $(document).ready(() => {
-	$('.deleteCate').on('click', function() {
-		if(window.confirm('Bạn có chắc chắn muốn xóa loại xe này?')){
+	$('.deleteCate').on('click', function () {
+		if (window.confirm('Bạn có chắc chắn muốn xóa loại xe này?')) {
 			let target = $(this).parent().parent();
 			let Id = target.find('td#Id')[0].innerText;
 			let url = '/admin/category/delete';
@@ -10,22 +10,22 @@ $(document).ready(() => {
 				data: {
 					Id: Id
 				},
-				success: function(data) {
-					if(data){
-						alert(data);
+				success: function (data) {
+					if (data) {
 						var $table1 = jQuery('#table-1').DataTable();
 						$table1.row(target).remove().draw();
-					}
-						
-					else
+						alert(data);
+
+					} else
 						alert('Xóa không thành công!');
 				}
 			})
 		}
 	})
 
-	$('input.hide').change(function() {
-		let url = '/admin/catalog/visible';
+	$('input.hide').change(function () {
+		let url = '/admin/category/visible';
+		let Id = $(this).parent().parent().parent().parent().find('td#Id')[0].innerText;
 		$.ajax({
 			url: url,
 			type: 'POST',
@@ -33,8 +33,8 @@ $(document).ready(() => {
 				Id: Id,
 				isHide: this.checked ? 1 : 0
 			},
-			success: function(data) {
-				
+			success: function (data) {
+
 			}
 		})
 	})

@@ -1,4 +1,3 @@
-var express = require("express");
 var passport = require('passport');
 
 const LoginController = {
@@ -58,5 +57,6 @@ const LoginController = {
 		res.redirect('/');
 	}
 }
+
 
 module.exports = LoginController;
