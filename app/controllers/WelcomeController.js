@@ -1,40 +1,39 @@
 const express = require('express');
 const router = express.Router();
 const restrict = require('../../middle-wares/restrict.js');
-const LoginController = require('./loginController');
 const mw = require('../../middle-wares/middlewares')
-const SignupControler = require('./signupControler');
 var SP = require('../Model/SanPham.js');
 var config = require('../../config/config');
+const LoginController = require('./LoginController');
+const mw = require('../../middle-wares/middlewares')
+const SignupControler = require('./SignupControler');
 
 router.get('/login', mw.LoggedUser, LoginController.loginForm);
-router.get('/signup',SignupControler.formSignUp);
-
-router.post('/login',mw.LoggedUser, LoginController.userLogin);
-router.post('/signup',SignupControler.userSignUp);
-router.get('/logout',LoginController.userLogout)
-router.get('/timkiem',(req,res)=>{
+router.post('/login', mw.LoggedUser, LoginController.userLogin);
+router.post('/signup', SignupControler.userSignUp);
+router.get('/logout', LoginController.userLogout)
+router.get('/timkiem', (req, res) => {
 	res.render('user/timkiem');
 })
-router.get("/",(req,res)=> {
+router.get("/", (req, res) => {
 	SP.loadAll().then(rows => {
 		console.log(rows);
 		var vm = {
 			moinhat: rows[0],
 			phobien: rows[1],
-			xemnhieu:rows[2],
+			xemnhieu: rows[2],
 		};
 		res.render('index', vm);
 	});
 });
-router.get('/LoaiXe/:Id',(req,res)=>{
-	var Id =req.params.Id;
+router.get('/LoaiXe/:Id', (req, res) => {
+	var Id = req.params.Id;
 	var page = req.query.page;
 	if (!page) {
 		page = 1;
 	}
 	var offset = (page - 1) * config.PER_PAGE;
-	var p1 = SP.LoadLoaiXe(Id,offset);
+	var p1 = SP.LoadLoaiXe(Id, offset);
 	var p2 = SP.countLoaiXe(Id);
 	Promise.all([p1, p2]).then(([pRows, countRows]) => {
 		var total = countRows[0].total;
@@ -59,14 +58,14 @@ router.get('/LoaiXe/:Id',(req,res)=>{
 		res.render('user/sanpham', vm);
 	});
 });
-router.get('/HangXe/:Id',(req,res)=>{
-	var Id =req.params.Id;
+router.get('/HangXe/:Id', (req, res) => {
+	var Id = req.params.Id;
 	var page = req.query.page;
 	if (!page) {
 		page = 1;
 	}
 	var offset = (page - 1) * config.PER_PAGE;
-	var p1 = SP.LoadHangXe(Id,offset);
+	var p1 = SP.LoadHangXe(Id, offset);
 	var p2 = SP.countHangXe(Id);
 	Promise.all([p1, p2]).then(([pRows, countRows]) => {
 		var total = countRows[0].total;
@@ -91,23 +90,23 @@ router.get('/HangXe/:Id',(req,res)=>{
 		res.render('user/sanpham', vm);
 	});
 })
- router.get('/XemChiTiet/:Id',(req,res)=>{
+router.get('/XemChiTiet/:Id', (req, res) => {
 	var id = req.params.Id;
-	let CungLoai,CungHang,SanPham;
-	SP.getById(id).then(rows=>{
+	let CungLoai, CungHang, SanPham;
+	SP.getById(id).then(rows => {
 		SanPham = rows[0];
-		return SP.LoadLoaiXe(SanPham.LoaiXe,0);
-	}).then(rows=>{
+		return SP.LoadLoaiXe(SanPham.LoaiXe, 0);
+	}).then(rows => {
 		CungLoai = rows;
-		return SP.LoadHangXe(SanPham.HangXe,0)
-	}).then(rows=>{
+		return SP.LoadHangXe(SanPham.HangXe, 0)
+	}).then(rows => {
 		console.log(SanPham);
-		var vm ={
-			sp:SanPham,
-			SPLoai:CungLoai,
+		var vm = {
+			sp: SanPham,
+			SPLoai: CungLoai,
 			SPNSX: rows,
 		}
-		res.render('user/xemchitiet',vm);
+		res.render('user/xemchitiet', vm);
 	})
 })
 module.exports = router;

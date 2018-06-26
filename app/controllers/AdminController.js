@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const mw = require('../../middle-wares/middlewares');
-const LoginController = require('../controllers/loginController');
+const LoginController = require('../controllers/LoginController');
 
 
 router.get('/', mw.LoggedAdmin, LoginController.formAdminLogin);
