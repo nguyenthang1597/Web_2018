@@ -1,7 +1,7 @@
 var db = require('../../config/mysql')
 var config = require('../../config/config');
 exports.loadAll=()=>{
-	return db('select * from sanpham order by NgayNhap desc, SLBan desc, LuotXem desc limit 10');
+	return db('select * from sanpham order by NgayNhap desc, SLBan desc, LuotXem desc limit 10;select * from sanpham order by SLBan desc limit 10;select * from sanpham order by LuotXem desc limit 10');
 }
 exports.LoadLoaiXe = (id,offset)=>{
 	var sql = `select * from sanpham where LoaiXe = ${id} limit ${config.PER_PAGE} offset ${offset}`;

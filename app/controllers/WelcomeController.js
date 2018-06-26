@@ -18,6 +18,7 @@ router.get('/timkiem',(req,res)=>{
 })
 router.get("/",(req,res)=> {
 	SP.loadAll().then(rows => {
+		console.log(rows);
 		var vm = {
 			moinhat: rows[0],
 			phobien: rows[1],
@@ -100,6 +101,7 @@ router.get('/HangXe/:Id',(req,res)=>{
 		CungLoai = rows;
 		return SP.LoadHangXe(SanPham.HangXe,0)
 	}).then(rows=>{
+		console.log(SanPham);
 		var vm ={
 			sp:SanPham,
 			SPLoai:CungLoai,

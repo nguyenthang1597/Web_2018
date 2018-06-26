@@ -4,6 +4,7 @@ const router = express.Router();
 const Product = require('../Model/Product');
 const Catalog = require('../Model/Catalog');
 const Category = require('../Model/Category');
+const Picture = require('../Model/Picture');
 const multer = require('multer');
 const fs = require('fs');
 const moment = require('moment');
@@ -16,6 +17,7 @@ const storage = multer.diskStorage({
     }
 });
 
+
 const deleteOldPic = (filename) => {
     let url_del = 'public/upload/product/' + filename;
     if (fs.existsSync(url_del))
@@ -23,72 +25,77 @@ const deleteOldPic = (filename) => {
 };
 const upload = multer({
     storage: storage
-}).single('Pic');
+}).fields([
+    {name: 'Pic', maxCount: 1},
+    {name: 'subPic', maxCount: 10}
+])
 
 
 router.get('/list', (req, res) => {
     Product.getAll()
-    .then(result => {
-        res.render('admin/product/list', {
-            layout: 'main-admin',
-            title: 'Quản lý xe',
-            heading: 'Danh sách xe',
-            products: result,
-            successMessage: req.flash('successMessage')[0],
-            errorMessage: req.flash('errorMessage')[0]
+        .then(result => {
+            res.render('admin/product/list', {
+                layout: 'main-admin',
+                title: 'Quản lý xe',
+                heading: 'Danh sách xe',
+                products: result,
+                successMessage: req.flash('successMessage')[0],
+                errorMessage: req.flash('errorMessage')[0]
+            })
         })
-    })
-    .catch(err => {
-        console.log(err);
-        res.end();
-    })
+        .catch(err => {
+            console.log(err);
+            res.end();
+        })
 })
 
 
 router.post('/visible', (req, res) => {
     Product.visible({
-        Id: req.body.Id,
-        isHide: req.body.isHide
-    })
-    .then(result => {
-        res.end("Thanh cong!");
-    })
-    .catch(err => {
-        res.end();
-    })
+            Id: req.body.Id,
+            isHide: req.body.isHide
+        })
+        .then(result => {
+            res.end("Thanh cong!");
+        })
+        .catch(err => {
+            res.end();
+        })
 })
 
 router.post('/delete', (req, res) => {
     Product.deleteById(req.body.Id)
-    .then(result => {
-        res.send('Xóa thành công!');
-    })
-    .catch(err => {
-        res.end();
-    })
+        .then(result => {
+            res.send('Xóa thành công!');
+        })
+        .catch(err => {
+            res.end();
+        })
 })
 
 router.get('/edit/:Id', (req, res) => {
-    Promise.all([Product.getOneById(req.params.Id), Catalog.getAll(), Category.getAll()])
-    .then(([product, catalogs, category]) => {
-        res.render('admin/product/edit', {
-            layout: 'main-admin',
-            title: 'Quản lý xe',
-            heading: 'Chỉnh sửa thông tin xe',
-            product: product[0],
-            catalogs: catalogs,
-            category: category
+    Promise.all([Product.getOneById(req.params.Id), Catalog.getAll(), Category.getAll(), Picture.getById(req.params.Id)])
+        .then(([product, catalogs, category, pics]) => {
+            res.render('admin/product/edit', {
+                layout: 'main-admin',
+                title: 'Quản lý xe',
+                heading: 'Chỉnh sửa thông tin xe',
+                product: product[0],
+                catalogs: catalogs,
+                category: category,
+                pictures: pics
+            })
         })
-    })
-    .catch(err => {
-        console.log(err);
-        res.end();
-    })
+        .catch(err => {
+            console.log(err);
+            res.end();
+        })
 })
 
 router.post('/edit/:Id', (req, res) => {
     upload(req, res, (err) => {
-        if(err){
+        if (err) {
+            console.log(err);
             req.flash('errorMessage', 'Cập nhật thông tin xe không thành công!');
             return res.redirect('/admin/product/list');
         }
@@ -105,50 +112,66 @@ router.post('/edit/:Id', (req, res) => {
             isHide: isHide
         }
 
-        Product.getOneById(req.params.Id)
-        .then(result => {
-            if ((typeof req.file) == 'undefined') {
-                product.Pic = result[0].HinhAnh;
-            } else {
-                deleteOldPic(result[0].HinhAnh);
-                product.HinhAnh = req.file.filename;
+        let pics = req.files.subPic;
+        if(pics){
+            let info = {
+                MaXe: req.params.Id
             }
-
-            Product.updateById(req.params.Id, product)
+            pics.forEach(element => {
+                info.picture = element.filename;
+                Picture.add(info, (err, result) => {
+                    if(err)
+                        console.log(err);
+                    else
+                        console.log(result);
+                })
+            });
+        }
+        Product.getOneById(req.params.Id)
             .then(result => {
-                req.flash('successMessage', 'Cập nhật thành công!');
-                return res.redirect('/admin/product/list');
+                console.log(req.files.Pic);
+                if (req.files.Pic.length == 0) {
+                    product.HinhAnh = result[0].HinhAnh;
+                } else {
+                    deleteOldPic(result[0].HinhAnh);
+                    product.HinhAnh = req.files.Pic[0].filename;
+                }
+                Product.updateById(req.params.Id, product)
+                    .then(result => {
+                        req.flash('successMessage', 'Cập nhật thành công!');
+                        return res.redirect('/admin/product/list');
+                    })
+                    .catch(err => {
+                        console.log(err);
+                        deleteOldPic(req.file.filename);
+                        req.flash('errorMessage', 'Cập nhật không thành công!');
+                        return res.redirect('/admin/product/list');
+                    })
             })
-            .catch(err => {
-                console.log(err);
-                deleteOldPic(req.file.filename);
-                req.flash('errorMessage', 'Cập nhật không thành công!');
-                return res.redirect('/admin/product/list');
-            })
-        })
     })
+    
 })
 
 router.get('/add', (req, res) => {
     Promise.all([Catalog.getAll(), Category.getAll()])
-    .then(([catalogs, category]) => {
-        res.render('admin/product/add', {
-            layout: 'main-admin',
-            title: 'Quản lý xe',
-            heading: 'Thêm xe mới',
-            catalogs: catalogs,
-            category: category
+        .then(([catalogs, category]) => {
+            res.render('admin/product/add', {
+                layout: 'main-admin',
+                title: 'Quản lý xe',
+                heading: 'Thêm xe mới',
+                catalogs: catalogs,
+                category: category
+            })
         })
-    })
-    .catch(err => {
-        res.end();
-    })
+        .catch(err => {
+            res.end();
+        })
 })
 
 
 router.post('/add', (req, res) => {
     upload(req, res, (err) => {
-        if(err){
+        if (err) {
             req.flash('errorMessage', 'Thêm xe mới không thành công!');
             return res.redirect('/admin/product/list');
         }
@@ -164,23 +187,22 @@ router.post('/add', (req, res) => {
             XuatXu: req.body.XuatXu
         }
 
-        if(typeof req.file == 'undefined'){
+        if (typeof req.file == 'undefined') {
             product.HinhAnh = '';
-        }
-        else
+        } else
             product.HinhAnh = req.file.filename;
 
         console.log(product);
         Product.add(product)
-        .then(result => {
-            req.flash('successMessage', 'Thêm xe mới thành công!');
-            res.redirect('/admin/product/list');
-        })
-        .catch(err => {
-            console.log(err);
-            req.flash('errorMessage', 'Thêm xe mới không thành công!');
-            res.redirect('/admin/product/list');
-        })
+            .then(result => {
+                req.flash('successMessage', 'Thêm xe mới thành công!');
+                res.redirect('/admin/product/list');
+            })
+            .catch(err => {
+                console.log(err);
+                req.flash('errorMessage', 'Thêm xe mới không thành công!');
+                res.redirect('/admin/product/list');
+            })
     })
 })
 
