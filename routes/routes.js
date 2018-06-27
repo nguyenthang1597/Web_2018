@@ -1,3 +1,4 @@
+
 const LoginController = require("../app/controllers/LoginController.js");
 const SignupController = require('../app/controllers/SignupControler.js');
 const restrict = require('../middle-wares/restrict.js');
@@ -24,5 +25,4 @@ module.exports = (app) => {
     app.use('/admin/user-account',mw.isLoggedInAdmin,UserAccount);
     app.use('/admin/bill',mw.isLoggedInAdmin,BillController);
     app.use('/',WelcomeController);
-
 }

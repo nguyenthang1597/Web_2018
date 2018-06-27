@@ -12,27 +12,10 @@ router.get('/', mw.isLoggedInUser, (req, res) => {
         let vm = {
             user: row[0]
         }
-        //console.log(vm);
         res.render('user/profile', vm);
     })
-
-    //res.send("Profile !!!");
 });
 
-router.post('/', mw.isLoggedInUser, (req, res) => {
-    // let username = req.session.user.username;
-    // accountModel.loadUserByUsername(username).then(row => {
-    //     let vm = {
-    //         user: row[0]
-    //     }
-    //     console.log(vm);
-    //     res.render('user/profile', vm);
-    // })
-
-    //res.send("Profile !!!");
-
-    console.log(req.body.username);
-});
 
 router.get('/doimatkhau', mw.isLoggedInUser, (req, res) => {
     res.render('user/doimatkhau');
@@ -56,7 +39,6 @@ router.post('/doimatkhau', mw.isLoggedInUser, (req, res) => {
             }
         }
     })
-
 });
 
 module.exports = router;
