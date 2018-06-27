@@ -70,7 +70,7 @@ router.get('/timkiem', (req, res) => {
 })
 router.get("/", (req, res) => {
 	SP.loadAll().then(rows => {
-		console.log(rows);
+		//console.log(rows);
 		var vm = {
 			moinhat: rows[0],
 			phobien: rows[1],
@@ -136,7 +136,7 @@ router.get('/XemChiTiet/:Id', (req, res) => {
 	})
 	.then(rows => {
 		subPic = rows;
-		console.log(subPic);
+		//console.log(subPic);
 		var vm = {
 			sp: SanPham,
 			SPLoai: CungLoai,

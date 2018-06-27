@@ -1,0 +1,231 @@
+{{#section 'title'}} Thông tin cá nhân {{/section}} {{#section 'css'}}
+<script type="text/javascript" src="./assets/user/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="dialog.js"></script>
+<link href="./assets/user/css/master.css" rel="stylesheet">
+<script type="text/css" src="./assets/user/css/profile.css"></script> {{/section}}
+
+<body class="noIE inner-page ">
+
+  {{#with user}}
+  <main id="main" class="section">
+
+    <div class="container">
+      <div class="row">
+        <!-- MAIN CONTENT -->
+        <div class="col-xs-12 col-sm-12 col-md-9">
+          <section class="main-content" role="main">
+            <form class="form-inline">
+              <div class="form-group">
+                <label for="inputName">Họ tên</label>
+                <span style="display:inline-block; width: 111px;"></span>
+                <input type="text" class="form-control" id="inputName" value="{{ten}}">
+              </div>
+            </form>
+            <br>
+            <form class="form-inline">
+              <div class="form-group">
+                <label for="inputPhoneNumber">Số điện thoại</label>
+                <span style="display:inline-block; width: 70px;"></span>
+                <input type="text" class="form-control" id="inputPhoneNumber" value="{{sdt}}">
+              </div>
+            </form>
+
+            <br>
+
+            <form class="form-inline">
+              <div class="form-group">
+                <label for="inputIDCardNumber">Số CMND/Hộ chiếu</label>
+                <span style="display:inline-block; width: 30px;"></span>
+                <input type="text" class="form-control" id="inputIDCardNumber" value="{{cmnd}}">
+              </div>
+            </form>
+
+            <br>
+
+            <form class="form-inline">
+              <div class="form-group">
+                <label for="inputEmail">Email</label>
+                <span style="display:inline-block; width: 120px;"></span>
+                <input class="form-control" type="text" value="{{email}}" style="color:black;" disabled>
+              </div>
+            </form>
+
+            <br>
+
+            <form class="form-inline">
+              <div class="form-group">
+                <label for="inputGender">Giới tính</label>
+                <span style="display:inline-block; width: 102px;"></span>
+                {{#if gioiTinh}}
+                <select class="form-control">
+                  <option selected>Nam</option>
+                  <option>Nữ</option>
+                </select>
+                {{else}}
+                <select class="form-control">
+                  <option>Nam</option>
+                  <option selected>Nữ</option>
+                </select>
+                {{/if}}
+              </div>
+            </form>
+
+
+            <br>
+            <form class="form-inline">
+              <div class="form-group">
+                <label for="inputBirthday">Ngày sinh</label>
+                <span style="display:inline-block; width: 93px;"></span>
+                <input class="form-control" type="date" value="{{ngaySinh}}"> {{!--
+                <select id="day" class="form-control">
+                  <option>Ngày</option>
+                </select>
+
+                <select id="month" class="form-control">
+                  <option>Tháng</option>
+                </select>
+
+                <select id="year" class="form-control">
+                  <option>Năm</option>
+                </select> --}}
+            </form>
+
+            <br><br>
+
+            <form class="form-inline">
+              <div class="form-group">
+                <label for="inputAddress">Địa chỉ</label>
+                <span style="display:inline-block; width: 113px;"></span>
+                <input class="form-control" type="text" value="{{diaChi}}">
+              </div>
+            </form>
+
+          </section>
+
+          <br>
+          <br>
+          <br>
+          <div style="text-align:center;">
+            <button type="submit" class="btn btn-primary">Cập nhật</button>
+          </div>
+
+
+          </div>
+          <!-- // MAIN CONTENT -->
+          <div class="space40 visible-xs"></div>
+          <!-- SIDEBAR -->
+          <div class="col-xs-12 col-sm-12 col-md-3">
+            <aside class="sidebar">
+
+              <!-- ARCHIVE WIDGET -->
+              <div class="widget widget-filter">
+                <div class="block_content">
+                  <div class="list-group-heading">
+                    <span class="list-group-heading-inner">
+                      <span style="font-family: all;">Quản lý tài khoản</span>
+                    </span>
+                  </div>
+                  <div class="list-content">
+                    <ul>
+                      <li>
+                        <a href="/profile">Thông tin cá nhân</a>
+                      </li>
+                      <li>
+                        <a href="/doimatkhau">Đổi mật khẩu</a>
+                      </li>
+                    </ul>
+                  </div>
+
+                </div>
+              </div>
+
+              <!-- OUR SOCIAL NETWORK WIDGET -->
+              <div class="widget widget-social">
+                <h3 class="widget-title">
+                  <span>OUR SOCIAL NETWORK</span>
+                </h3>
+                <ul class="unstyled clearfix social-team">
+                  <li>
+                    <a target="_blank" href="http://fb.com/#">
+                      <i class="fa fa-facebook"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a target="_blank" href="http://twitter.com/#">
+                      <i class="fa fa-twitter"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a target="_blank" href="http://plus.google.com/#">
+                      <i class="fa fa-google"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a target="_blank" href="http://youtube.com/#">
+                      <i class="fa fa-youtube"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a target="_blank" href="http://rss.com/#">
+                      <i class="fa fa-rss"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <!-- // TAGS WIDGET -->
+
+            </aside>
+          </div>
+
+
+        </div>
+      </div>
+  </main>
+  {{/with}} {{#section 'js'}}
+  <!-- Script tạo ngày -->
+  <!-- Extra JavaScript/CSS added manually in "Settings" tab -->
+  <!-- Include jQuery -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+  <!-- Include Date Range Picker -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"
+  />
+
+
+  <script>
+    var select = document.getElementById('day');
+    var maxDay = 32,
+      maxMonth = 13,
+      minYear = 1900,
+      maxYear = 2018;
+
+    for (var i = 1; i < maxDay; i++) {
+      var opt = document.createElement('option');
+      opt.value = i;
+      opt.innerHTML = i;
+      select.appendChild(opt);
+    }
+
+    select = document.getElementById('month');
+    for (var i = 1; i < maxMonth; i++) {
+      var opt = document.createElement('option');
+      opt.value = i;
+      opt.innerHTML = i;
+      select.appendChild(opt);
+    }
+
+    select = document.getElementById('year');
+    for (var i = minYear; i < maxYear; i++) {
+      var opt = document.createElement('option');
+      opt.value = i;
+      opt.innerHTML = i;
+      select.appendChild(opt);
+    }
+  </script>
+  <!-- END Script tạo ngày -->
+  {{/section}}
+
+</body>
+
+</html>

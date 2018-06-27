@@ -7,6 +7,7 @@ module.exports = (sql) => {
 			user: 'root',
 			password: '',
 			database: 'banoto',
+			dateStrings: 'date',
 			multipleStatements: true
 		})
 
