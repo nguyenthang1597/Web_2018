@@ -1,4 +1,5 @@
 var exphbs = require('express-handlebars');
+var wnumb = require('wnumb');
 
 var hbs = exphbs.create({
 	defaultLayout: 'main-user',
@@ -33,7 +34,13 @@ var hbs = exphbs.create({
 			if (!this._sections) this._sections = {};
 			this._sections[name] = options.fn(this);
 			return null;
-		}
+		},
+		number_format: n => {
+            var nf = wnumb({
+                thousand: ','
+            });
+            return nf.to(n);
+        }
 	}
 });
 

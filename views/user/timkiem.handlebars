@@ -1,0 +1,131 @@
+  <main id="main" class="section">
+    <div class="container">
+      <div class="row">
+        <!-- MAIN CONTENT -->
+        <div class="col-xs-12 col-sm-12 col-md-9">
+          <section class="main-content" role="main">
+            {{#if noProducts}}
+            <div class="row">
+              <div class="col-sm-12 col-md-12 col-lg-12">
+                Không có sản phẩm thoả yêu cầu.
+              </div>
+            </div>
+            {{else}}
+            <ul class="list-group catalog-product-list">
+              {{#each sp}}
+              <li class="list-group-item    animated" data-animation="bounceInLeft">
+                <div class="media col-md-5  col-sm-5 col-xs-12">
+                  <figure class="pull-left">
+                    <a href="/XemChiTiet/{{Id}}">
+                      <img width="369" height="200" src="/upload/product/{{HinhAnh}}" alt="alt">
+                    </a>
+                  </figure>
+                </div>
+                <div class="col-md-7 col-xs-12  col-sm-7 list-group-item-content">
+                  <h4 class="list-group-item-heading">{{TenSP}}
+                  </h4>
+                  <div class="price">
+                    <h2> ${{number_format GiaBan}}</h2>
+                  </div>
+                  <p class="list-group-item-text">{{{ChiTiet}}}</p>
+                  <div class="product-box">
+                    <div class="btn-group">
+                      <a href="/XemChiTiet/{{Id}}" class="btn btn-default btn-black ">
+                        <i class="fa fa-car"></i>
+                        <span>View more</span>
+                      </a>
+                     {{#if ../user}}
+                      <a href="#" class="btn btn-danger ">
+                        <i class="fa fa-shopping-cart"></i>
+                        <span>Buy</span>
+                      </a>
+                      {{/if}}
+                    </div>
+                  </div>
+                </div>
+              </li>
+              {{/each}}
+            </ul>
+            <ul class="pagination">
+              <li class="disabled">
+                <a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a>
+              </li>
+              {{#each page_numbers}}
+              {{#if isCurPage}}
+              <li class="active"><a href="javascript:;">{{value}}</a></li>
+              {{else}}
+              <li><a href="?tenxe=&tenloai=1&hangxe=1&min=&max=&page={{value}}">{{value}}</a></li>
+              {{/if}}
+              {{/each}}
+              <li>
+                <a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+              </ul>
+              {{/if}}
+            </section>
+          </div>
+          <!-- // MAIN CONTENT -->
+          <div class="space40 visible-xs"></div>
+          <!-- SIDEBAR -->
+          <div class="col-xs-12 col-sm-12 col-md-3">
+            <aside class="sidebar">
+
+              <!-- ARCHIVE WIDGET -->
+              <div class="widget widget-filter">
+                <div class="block_content">
+                  <h3 class="widget-sub-title">
+                    <span>TÌM THEO</span>
+                  </h3>
+                  <div class="list-group">
+                    <form action="timkiem" method="get" accept-charset="utf-8">
+                      <div class="list-group-heading">
+                        <span class="list-group-heading-inner">
+                          <span style="font-family: all;">Tên Xe</span>
+                        </span>
+                      </div>
+                      <div class="list-content">
+                        <input placeholder="Tên xe" name="tenxe"></input>
+                      </div>
+                      <div class="list-group-heading">
+                        <span class="list-group-heading-inner">
+                          <span style="font-family: all;">Loại Xe</span>
+                        </span>
+                      </div>
+                      <div class="list-content">
+                        <select name="tenloai">
+                           <option value="0" >Loại xe</option>
+                          {{#each layoutVM.LoaiXe}}
+                          <option value="{{{Id}}}" >{{TenLoai}}</option>
+                          {{/each}}
+                        </select>
+                      </div>
+                      <div class="list-group-heading">
+                        <span class="list-group-heading-inner">
+                          <span style="font-family: all;">Hãng xe</span>
+                        </span>
+                      </div>
+                      <div class="list-content">
+                        <select name ="hangxe">
+                          <option value="0">Hãng xe</option>
+                          {{#each layoutVM.HangXe}}
+                          <option value="{{Id}}">{{TenHang}}</option>
+                          {{/each}}
+                        </select>
+                      </div>
+                      <div class="list-group-heading">
+                        <span class="list-group-heading-inner">
+                          <span style="font-family: all;">Giá bán</span>
+                        </span>
+                      </div><br><br>
+                      <input type="number" min="0" placeholder="Tối thiểu" value pattern="[0-9]*" name="min"></input><br><br>
+                      <input type="number" min="0" placeholder="Tối đa" value pattern="[0-9]*" name = "max"></input><br><br>
+                      <button type="summit" class="btn btn-primary center-block">Tìm</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+            </aside>
+          </div>
+        </div>
+      </div>
+    </main>

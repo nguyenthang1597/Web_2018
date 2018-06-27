@@ -1,0 +1,190 @@
+<div class="main-content">
+
+    {{>admin-header}}
+
+    <hr /> {{>admin-breadcrumb}}
+    <h2>{{heading}}</h2>
+    <form method="POST" enctype="multipart/form-data" class="form-horizontal form-groups-bordered">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="panel panel-primary" data-collapsed="0">
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Hãng sản xuất</label>
+                            <div class="col-sm-5">
+                                <select class="form-control" name="HangXe" id="HangXe">
+                                    {{#each catalogs}}
+                                    <option value="{{{Id}}}">{{TenHang}}</option>
+                                    {{/each}}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Tên xe</label>
+                            <div class="col-sm-8">
+                                <input type="text" name="TenSP" value="{{product.TenSP}}" id="TEN" class="form-control" placeholder="Tên xe" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Ảnh</label>
+                            <div class="col-sm-5">
+                                {{#if product.HinhAnh}}
+                                <img src="/upload/product/{{product.HinhAnh}}" width="400" height="auto" alt=""> {{else}}
+                                <input type="file" name="Pic" class="form-control"> {{/if}}
+                            </div>
+                        </div>
+
+                        {{#if product.HinhAnh}}
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Chọn ảnh khác</label>
+                            <div class="col-sm-5">
+                                <input type="file" name="Pic" class="form-control">
+                            </div>
+                        </div>
+                        {{/if}}
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Ảnh phụ</label>
+                            <div class="col-sm-5">
+                                {{#if pictures}}
+                                    {{#each pictures}}
+                                        <img src="/upload/product/{{picture}}" width="100" height="100" alt="">
+                                    {{/each}}
+                                {{/if}}
+                                <input type="file" name="subPic" class="form-control" multiple>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Loại xe</label>
+                            <div class="col-sm-5">
+                                <select class="form-control" name="LoaiXe" id="LoaiXe">
+                                    {{#each category}}
+                                    <option value="{{{Id}}}">{{TenLoai}}</option>
+                                    {{/each}}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Giá bá
+                                <nav></nav>
+                            </label>
+
+                            <div class="col-sm-8">
+
+                                <input type="text" name="GiaBan" value="{{product.GiaBan}}" id="" class="form-control" placeholder="Giá bán" required>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Số lượng</label>
+                            <div class="col-sm-8">
+                                <input type="text" name="SoLuong" value="{{product.SoLuong}}" id="" class="form-control" placeholder="Số lượng" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Xuất xứ</label>
+
+                            <div class="col-sm-8">
+
+                                <input type="text" name="XuatXu" value="{{product.XuatXu}}" id="" class="form-control" placeholder="Xuất xứ" required>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Mô tả</label>
+                            <div class="col-sm-8">
+                                <textarea name="MoTa" id="MoTa" class="textarea" placeholder="Mô tả" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{{product.MoTa}}}</textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Chi tiết</label>
+                            <div class="col-sm-8">
+                                <textarea name="ChiTiet" id="ChiTiet" class="textarea" placeholder="Chi tiết" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{{product.ChiTiet}}}</textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Ẩn xe</label>
+
+                            <div class="col-sm-5">
+
+                                <div class="bs-example">
+                                    <div class="make-switch" data-on="primary" data-off="info">
+                                        {{#if product.isHide}}
+                                        <input type="checkbox" name="isHide" checked> {{else}}
+                                        <input type="checkbox" name="isHide"> {{/if}}
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-8" style="text-align: center;">
+
+                    <div class="bs-example">
+                        <button type="submit" class="btn btn-green btn-icon">
+                            Sửa
+                            <i class="entypo-check"></i>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+    </form>
+    </div>
+
+    <br />
+
+</div>
+
+
+
+
+
+
+{{#section 'scripts'}}
+<!-- Imported styles on this page -->
+
+<!-- Bottom scripts (common) -->
+<script src="/assets/admin/js/gsap/TweenMax.min.js"></script>
+<script src="/assets/admin/js/jquery-ui/js/jquery-ui-1.10.3.minimal.min.js"></script>
+<script src="/assets/admin/js/bootstrap.js"></script>
+<script src="/assets/admin/js/resizeable.js"></script>
+<script src="/assets/admin/js/neon-api.js"></script>
+<script src="/assets/admin/js/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+
+<!-- JavaScripts initializations and stuff -->
+<script src="/assets/admin/js/neon-custom.js"></script>
+
+<!-- Imported scripts on this page -->
+<script src="/assets/admin/js/bootstrap-switch.min.js"></script>
+
+<!-- Demo Settings -->
+<script src="/assets/admin/js/neon-demo.js"></script>
+
+<script type="text/javascript" src="/assets/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="/assets/ckeditor/adapters/jquery.js"></script>
+
+<script type="text/javascript">
+    CKEDITOR.replace('MoTa', {
+        "extraPlugins": 'imagebrowser',
+        "imageBrowser_listUrl": "/files"
+    });
+    CKEDITOR.replace('ChiTiet', {
+        "extraPlugins": 'imagebrowser',
+        "imageBrowser_listUrl": "/files"
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('#HangXe').val('{{{product.HangXe}}}').change();
+        $('#LoaiXe').val('{{{product.LoaiXe}}}').change();
+    })
+
+</script> {{/section}}

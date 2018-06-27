@@ -6,8 +6,8 @@ module.exports = (sql) => {
 			host: 'localhost',
 			user: 'root',
 			password: '',
-			database: 'banoto',
-			multipleStatements: true,
+			database: 'web',
+			multipleStatements: true
 		})
 
 		cn.connect((err) => {

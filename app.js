@@ -7,20 +7,18 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var passport = require('passport');
-
 var flash = require('connect-flash');	
 
 var mysql = require('./config/mysql')
 
-require('dotenv').config();
-var handleLayoutMDW = require('./middlewares/handleLayout');
+require('dotenv').config()
+var handleLayoutMDW = require('./middle-wares/handleLayout');
 var hbs = require('./config/express-handlebars');
 var app = express();
 var server = http.createServer(app);
 
 //config Express
 require('./config/express')(app, express, session, hbs, logger, cookieParser, bodyParser, passport, flash,handleLayoutMDW);
-
 //config Route
 require('./routes/routes')(app);
 

@@ -1,0 +1,44 @@
+  {{#section 'style'}}
+  <link rel="stylesheet" href="/assets/admin/js/datatables/datatables.css">
+  {{/section}}
+  <main id="main" class="section">
+    <div class="container">
+      <div class="row">
+        <!-- MAIN CONTENT -->
+        <div class="col-xs-12 col-sm-12 col-md-12">
+          <section class="main-content" role="main">
+            <table class="table table-bordered datatable" id="table">
+              <thead>
+                <tr>
+                  <th style="vertical-align:middle">Mã đơn hàng</th>
+                  <th  style="vertical-align:middle">Ngày mua</th>
+                  <th  style="vertical-align:middle">Tổng tiền</th>
+                  <th >Trạng thái đơn hàng</th>
+                </tr>
+              </thead>
+              <tbody class="table-hover">
+                {{#each hoadon}}
+                <tr>
+                  <td><a href="/chitietdonhang/{{MaHoaDon}}">{{MaHoaDon}}</a></td>
+                  <td>{{NgayMua}}</td>
+                  <td>$ {{number_format TongTien}}</td>
+                 <td>{{#ifCond TinhTrang '==' '1'}} Đã giao {{/ifCond}} {{#ifCond TinhTrang '==' '2'}} Đang Giao {{/ifCond}} {{#ifCond TinhTrang
+                  '==' '0'}} Chưa giao {{/ifCond}}</td>
+                </tr>
+                {{/each}}
+              </tbody>
+            </table>
+          </section>
+        </div>
+        <!-- // MAIN CONTENT -->
+        <div class="space40 visible-xs"></div>
+      </div>
+    </div>
+  </main>
+  {{#section 'scripts'}}
+  <script src="/assets/admin/js/datatables/datatables.js"></script>
+  <script> $(document).ready(function () {
+    $('#table').DataTable();
+  });
+  </script>
+  {{/section}}
