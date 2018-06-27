@@ -5,22 +5,22 @@
           <div class="page-title col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <!-- Tên xe hơi -->
             <h3>{{sp.TenSP}}</h3>
-            <div class="line transform-please-2"></div>
+            <div class="line transform-please-2"></div> 
           </div>
           <div class="pb-left-column col-xs-12 col-sm-12 col-md-7 col-lg-7">
             <div class="clearfix" id="image-block">
               <div id="slider-product" class="flexslider">
                 <ul class="slides">
-                  <li> <a  href="/img/{{sp.HinhAnh}}"> <img src="/img/{{sp.HinhAnh}}" alt="alt" /></a> </li>
+                  <li> <a  href="/upload/product/{{sp.HinhAnh}}"> <img src="/upload/product/{{sp.HinhAnh}}" alt="alt"  /></a> </li>
                   {{#each img}}
-                  <li> <a  href="/img/{{picture}}"> <img src="/img/{{picture}}" alt="alt" /></a> </li>
+                  <li> <a  href="/upload/product/{{picture}}"> <img src="/upload/product/{{picture}}" alt="alt" /></a> </li>
                   {{/each}}
                 </ul>
               </div>
               <div id="carousel" class="flexslider">
                 <ul class="slides">
                   {{#each img}}
-                  <li> <img src="/img/{{picture}}" alt="alt" /> </li>
+                  <li> <img src="/upload/product/{{picture}}" alt="alt" /> </li>
                   {{/each}}
                 </ul>
               </div>
@@ -28,7 +28,7 @@
           </div>
           <div class="pb-center-column col-xs-12 col-sm-12 col-md-5 col-lg-5">
             <div class="price-line">
-              <div class="price-box transform-please"><span>$ {{sp.GiaBan}} </span></div>
+              <div class="price-box transform-please"><span>$ {{number_format sp.GiaBan}} </span></div>
             </div>
             <div class="product-featured" style="font-family: all;">
               <div  class="featured-box">
@@ -59,12 +59,12 @@
                 <ul  class="featured-title">
                   <li>Chi Tiết</li>
                 </ul>
-                <div  class="featured-content" style="font-family: all;">{{sp.ChiTiet}}</div>
+                <div  class="featured-content" style="font-family: all;">{{{sp.ChiTiet}}}</div>
               </div>
               <div class="desc">
                 <ul  class="featured-title">
-                  <li>Số lượt xem: <span>{{sp.LuotXem}}</span></li>
-                  <li>Số lượng bán: <span>{{sp.SLBan}}</span> </li>
+                  <li>Số lượt xem: <span>{{number_format sp.LuotXem}}</span></li>
+                  <li>Số lượng bán: <span>{{number_format sp.SLBan}}</span> </li>
                 </ul>
               </div>
               <div class="offer_specification"> </div>
@@ -79,7 +79,7 @@
               <ul class="nav nav-tabs">
                 <li class="active"><a data-toggle="tab" href="#tab1" data-loading-text="Loading..." style="font-family: all;">Thông tin chi tiết</a></li>
               </ul><br><br>
-              <p>{{sp.MoTa}}</p>
+              <p>{{{sp.MoTa}}}</p>
             </div>
             <section class="btn-set-section">
               {{#if user}}
@@ -97,7 +97,7 @@
               </div>
               <ul>
                 {{#each SPLoai}}
-                <li><a href="/XemChiTiet/{{Id}}"><img alt="alt" src="/img/{{HinhAnh}}" width="170" height="120"></a>
+                <li><a href="/XemChiTiet/{{Id}}"><img alt="alt" src="/upload/product/{{HinhAnh}}" width="170" height="120"></a>
                   <h3>{{TenSP}}</h3>
                 </li>
                 {{/each}}
@@ -113,7 +113,7 @@
               </div>
               <ul>
                 {{#each SPNSX}}
-                <li><a href="/XemChiTiet/{{Id}}"><img alt="alt" src="/img/{{HinhAnh}}" width="170" height="120"></a>
+                <li><a href="/XemChiTiet/{{Id}}"><img alt="alt" src="/upload/product/{{HinhAnh}}" width="170" height="120"></a>
                   <h3>{{TenSP}}</h3>
                 </li>
                 {{/each}}

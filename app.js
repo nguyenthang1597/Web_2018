@@ -7,7 +7,6 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var passport = require('passport');
-
 var flash = require('connect-flash');	
 
 var mysql = require('./config/mysql')
@@ -22,7 +21,9 @@ var server = http.createServer(app);
 require('./config/express')(app, express, session, hbs, logger, cookieParser, bodyParser, passport, flash,handleLayoutMDW);
 //config Route
 require('./routes/routes')(app);
+
 require('./config/passport')(passport);
+
 server.listen(3000, (err) => {
 	if (err)
 		console.log(err);

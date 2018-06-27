@@ -49,7 +49,6 @@ router.get('/edit/:id', (req, res) => {
 router.post('/edit/:id', (req, res) => {
     upload(req, res, (err) => {
         if (err) {
-            console.log(err);
             req.flash('errorMessage', 'Chỉnh sửa không thành công!');
             return res.redirect('/admin/catalog/list');
         }
@@ -141,6 +140,17 @@ router.post('/visible', (req, res) => {
     })
     .catch(err => {
         res.end();
+    })
+})
+
+router.get('/getAll', (req, res) => {
+    Catalog.getAll()
+    .then(result => {
+        let a = JSON.stringify(result);
+        res.end(a);
+    })
+    .catch(err => {
+        console.log(err);
     })
 })
 

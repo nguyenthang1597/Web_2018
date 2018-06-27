@@ -11,7 +11,7 @@
                 <div class="media col-md-5  col-sm-5 col-xs-12">
                   <figure class="pull-left">
                     <a href="/XemChiTiet/{{Id}}">
-                      <img width="500" height="200" src="/img/{{HinhAnh}}" alt="alt">
+                      <img width="500" height="200" src="/upload/product/{{HinhAnh}}" alt="alt">
                     </a>
                   </figure>
                 </div>
@@ -19,9 +19,9 @@
                   <h4 class="list-group-item-heading" style="color:red">{{TenSP}}
                   </h4>
                   <div class="price">
-                    <h2>$ {{GiaBan}}</h2>
+                    <h2>$ {{number_format GiaBan}}</h2>
                   </div>
-                  <p class="list-group-item-text">{{ChiTiet}}</p>
+                  <p class="list-group-item-text">{{{ChiTiet}}}</p>
                   <div class="product-box">
                     <div class="btn-group">
                       <div class="btn btn-default">Số lượng: {{SL}}  chiếc</div>
@@ -59,11 +59,12 @@
                       </label>
                     </li>
                     <li>
-                      <label>Tổng tiền: {{hoadon.TongTien}}
+                      <label>Tổng tiền: $ {{number_format hoadon.TongTien}}
                       </label>
                     </li>
                     <li>
-                      <label>Trạng thái: {{hoadon.TinhTrang}}
+                      <label>Trạng thái: {{#ifCond hoadon.TinhTrang '==' '1'}} Đã giao {{/ifCond}} {{#ifCond hoadon.TinhTrang '==' '2'}} Đang Giao {{/ifCond}} {{#ifCond hoadon.TinhTrang
+                  '==' '0'}} Chưa giao {{/ifCond}}
                       </label>
                     </li>
                   </ul>

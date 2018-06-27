@@ -28,5 +28,4 @@ module.exports = function (app, express, session, hbs, logger, cookieParser, bod
 		return next();
 	})
 	 app.use(handleLayoutMDW);
-	
 }

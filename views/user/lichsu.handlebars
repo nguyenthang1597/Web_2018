@@ -21,8 +21,9 @@
                 <tr>
                   <td><a href="/chitietdonhang/{{MaHoaDon}}">{{MaHoaDon}}</a></td>
                   <td>{{NgayMua}}</td>
-                  <td>{{TongTien}}</td>
-                  <td>{{TinhTrang}}</td>
+                  <td>$ {{number_format TongTien}}</td>
+                 <td>{{#ifCond TinhTrang '==' '1'}} Đã giao {{/ifCond}} {{#ifCond TinhTrang '==' '2'}} Đang Giao {{/ifCond}} {{#ifCond TinhTrang
+                  '==' '0'}} Chưa giao {{/ifCond}}</td>
                 </tr>
                 {{/each}}
               </tbody>

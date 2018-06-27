@@ -1,4 +1,3 @@
-
 const LocalStrategy = require('passport-local').Strategy;
 const db = require('../config/mysql');
 const sha256 = require('sha256');

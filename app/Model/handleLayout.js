@@ -1,5 +1,6 @@
 var db = require('../../config/mysql')
 
 exports.loadAll=()=>{
-	return db('select * from loaixe; select * from hangxe');
+	var sql = 'select * from loaixe; select * from hangxe where isHide=0';
+	return db(sql);
 }
