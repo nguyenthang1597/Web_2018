@@ -1,9 +1,8 @@
-
-const LoginController = require("../app/controllers/LoginController.js");
-const SignupController = require('../app/controllers/SignupControler.js');
+const LoginController = require("../app/controllers/LoginController.js")
+const SignupController = require('../app/controllers/SignupControler.js')
 const restrict = require('../middle-wares/restrict.js');
 const mw = require('../middle-wares/middlewares');
-const AdminController = require('../app/controllers/AdminController');
+const AdminController = require('../app/controllers/AdminController')
 const CatalogController = require('../app/controllers/CatalogController');
 const CategoryController = require('../app/controllers/CategoryController');
 const WelcomeController = require('../app/controllers/WelcomeController');
@@ -14,6 +13,7 @@ const BillController = require('../app/controllers/BillController');
 const profileController = require('../app/controllers/profileController');
 const cartController = require('../app/controllers/cartController');
 
+
 module.exports = (app) => {
     app.use('/admin', AdminController);
     app.use('/profile', profileController);
@@ -22,7 +22,8 @@ module.exports = (app) => {
     app.use('/admin/category', mw.isLoggedInAdmin, CategoryController);
     app.use('/admin/report', mw.isLoggedInAdmin, ReportController);
     app.use('/admin/product', mw.isLoggedInAdmin, ProductController);
-    app.use('/admin/user-account',mw.isLoggedInAdmin,UserAccount);
-    app.use('/admin/bill',mw.isLoggedInAdmin,BillController);
-    app.use('/',WelcomeController);
+    app.use('/admin/user-account', mw.isLoggedInAdmin, UserAccount);
+    app.use('/admin/bill', mw.isLoggedInAdmin, BillController);
+    app.use('/', WelcomeController);
+
 }

@@ -230,7 +230,7 @@ $(document).ready(function() {
 
             var brandslider = $('.brandslider ul li').length;
 
-            if (brandslider > 6) {
+            // if (brandslider > 6) {
 
 
 
@@ -245,7 +245,7 @@ $(document).ready(function() {
                 $('.bx-next').html(' <i class="fa fa-angle-right"></i>')
                 $('.bx-prev').html(' <i class="fa fa-angle-left"></i>')
 
-            }
+            // }
 
 
 

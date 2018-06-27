@@ -10,7 +10,7 @@ module.exports = {
     loadUserByUsername: (username) => {
         return db(`select * from account where username = '${username}'`);
     },
-    deleteById: (id) => {
+    deleteById: (id)=> {
         return db(`delete from account where id = ${id}`);
     }
 }

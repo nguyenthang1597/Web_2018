@@ -17,7 +17,8 @@
                 <div class="media col-md-5  col-sm-5 col-xs-12">
                   <figure class="pull-left">
                     <a href="/XemChiTiet/{{Id}}">
-                      <img width="369" height="200" src="/img/{{HinhAnh}}" alt="alt">
+
+                      <img width="369" height="200" src="/upload/product/{{HinhAnh}}" alt="alt">
                     </a>
                   </figure>
                 </div>
@@ -25,9 +26,11 @@
                   <h4 class="list-group-item-heading">{{TenSP}}
                   </h4>
                   <div class="price">
-                    <h2> ${{GiaBan}}</h2>
+
+                    <h2> ${{number_format GiaBan}}</h2>
                   </div>
-                  <p class="list-group-item-text">{{ChiTiet}}</p>
+                  <p class="list-group-item-text">{{{ChiTiet}}}</p>
+
                   <div class="product-box">
                     <div class="btn-group">
                       <a href="/XemChiTiet/{{Id}}" class="btn btn-default btn-black ">
@@ -92,6 +95,8 @@
                       </div>
                       <div class="list-content">
                         <select name="tenloai">
+
+                           <option value="0" >Loại xe</option>
                           {{#each layoutVM.LoaiXe}}
                           <option value="{{{Id}}}" >{{TenLoai}}</option>
                           {{/each}}
@@ -104,6 +109,9 @@
                       </div>
                       <div class="list-content">
                         <select name ="hangxe">
+
+                          <option value="0">Hãng xe</option>
+
                           {{#each layoutVM.HangXe}}
                           <option value="{{Id}}">{{TenHang}}</option>
                           {{/each}}

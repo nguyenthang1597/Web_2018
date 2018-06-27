@@ -70,7 +70,10 @@ router.get('/timkiem', (req, res) => {
 })
 router.get("/", (req, res) => {
 	SP.loadAll().then(rows => {
+<<<<<<< HEAD
 		//console.log(rows);
+=======
+>>>>>>> origin
 		var vm = {
 			moinhat: rows[0],
 			phobien: rows[1],
@@ -136,7 +139,10 @@ router.get('/XemChiTiet/:Id', (req, res) => {
 	})
 	.then(rows => {
 		subPic = rows;
+<<<<<<< HEAD
 		//console.log(subPic);
+=======
+>>>>>>> origin
 		var vm = {
 			sp: SanPham,
 			SPLoai: CungLoai,
@@ -169,4 +175,14 @@ router.get('/chitietdonhang/:id', mw.isLoggedInUser, (req, res) => {
 		res.render('user/chitietdonhang', vm);
 	});
 })
+<<<<<<< HEAD
+=======
+
+router.get('/about',(req,res)=> {
+	var vm = {
+		layout: false
+	};
+	res.render('user/about',vm);
+})
+>>>>>>> origin
 module.exports = router;

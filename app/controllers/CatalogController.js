@@ -23,7 +23,10 @@ const upload = multer({
 router.get('/list', (req, res) => {
     Catalog.getAll()
         .then(result => {
+<<<<<<< HEAD
             console.log(result);
+=======
+>>>>>>> origin
             res.render('admin/catalog/list', {
                 layout: 'main-admin',
                 catalogs: result,
@@ -50,7 +53,10 @@ router.get('/edit/:id', (req, res) => {
 router.post('/edit/:id', (req, res) => {
     upload(req, res, (err) => {
         if (err) {
+<<<<<<< HEAD
             console.log(err);
+=======
+>>>>>>> origin
             req.flash('errorMessage', 'Chỉnh sửa không thành công!');
             return res.redirect('/admin/catalog/list');
         }

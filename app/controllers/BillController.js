@@ -30,8 +30,11 @@ router.post('/delete', (req, res) => {
 router.get('/info/:id', (req, res) => {
     Promise.all([Bill.getBillById(req.params.id), Bill.getInfoById(req.params.id)])
         .then(([result, result2]) => {
+<<<<<<< HEAD
             console.log(result)
             console.log(result2);
+=======
+>>>>>>> origin
             var vm = {
                 layout: 'main-admin',
                 title: 'Quản lý hóa đơn',
