@@ -14,6 +14,9 @@
         <!-- MAIN CONTENT -->
         <div class="col-xs-12 col-sm-12 col-md-9">
           <section class="main-content" role="main">
+            <form action="/profile/" method="post">
+
+            </form>
             <form class="form-inline">
               <div class="form-group">
                 <label for="inputName">Họ tên</label>
@@ -76,21 +79,12 @@
               <div class="form-group">
                 <label for="inputBirthday">Ngày sinh</label>
                 <span style="display:inline-block; width: 93px;"></span>
-                <input class="form-control" type="date" value="{{ngaySinh}}"> {{!--
-                <select id="day" class="form-control">
-                  <option>Ngày</option>
-                </select>
+                <input class="form-control" type="date" value="{{ngaySinh}}">
 
-                <select id="month" class="form-control">
-                  <option>Tháng</option>
-                </select>
-
-                <select id="year" class="form-control">
-                  <option>Năm</option>
-                </select> --}}
             </form>
 
-            <br><br>
+            <br>
+            <br>
 
             <form class="form-inline">
               <div class="form-group">
@@ -100,14 +94,16 @@
               </div>
             </form>
 
+            <br>
+            <br>
+            <br>
+            <div style="text-align:center;">
+              <button type="submit" class="btn btn-primary">Cập nhật</button>
+            </div>
+
           </section>
 
-          <br>
-          <br>
-          <br>
-          <div style="text-align:center;">
-            <button type="submit" class="btn btn-primary">Cập nhật</button>
-          </div>
+
 
 
           </div>
@@ -131,7 +127,7 @@
                         <a href="/profile">Thông tin cá nhân</a>
                       </li>
                       <li>
-                        <a href="/doimatkhau">Đổi mật khẩu</a>
+                        <a href="/profile/doimatkhau">Đổi mật khẩu</a>
                       </li>
                     </ul>
                   </div>
@@ -191,38 +187,6 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"
   />
-
-
-  <script>
-    var select = document.getElementById('day');
-    var maxDay = 32,
-      maxMonth = 13,
-      minYear = 1900,
-      maxYear = 2018;
-
-    for (var i = 1; i < maxDay; i++) {
-      var opt = document.createElement('option');
-      opt.value = i;
-      opt.innerHTML = i;
-      select.appendChild(opt);
-    }
-
-    select = document.getElementById('month');
-    for (var i = 1; i < maxMonth; i++) {
-      var opt = document.createElement('option');
-      opt.value = i;
-      opt.innerHTML = i;
-      select.appendChild(opt);
-    }
-
-    select = document.getElementById('year');
-    for (var i = minYear; i < maxYear; i++) {
-      var opt = document.createElement('option');
-      opt.value = i;
-      opt.innerHTML = i;
-      select.appendChild(opt);
-    }
-  </script>
   <!-- END Script tạo ngày -->
   {{/section}}
 
