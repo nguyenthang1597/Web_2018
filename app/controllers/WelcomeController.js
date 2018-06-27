@@ -167,4 +167,11 @@ router.get('/chitietdonhang/:id', mw.isLoggedInUser, (req, res) => {
 		res.render('user/chitietdonhang', vm);
 	});
 })
+
+router.get('/about',(req,res)=> {
+	var vm = {
+		layout: false
+	};
+	res.render('user/about',vm);
+})
 module.exports = router;
