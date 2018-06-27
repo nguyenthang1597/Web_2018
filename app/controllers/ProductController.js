@@ -210,4 +210,15 @@ router.post('/add', (req, res) => {
     })
 })
 
+
+router.post('/deleteImages', (req, res) => {
+    let url_del = 'public' + req.body.url;
+    console.log(url_del);
+    if (fs.existsSync(url_del)){
+        console.log("a");
+        fs.unlinkSync(url_del);
+    }
+        
+    res.end();
+})
 module.exports = router;
