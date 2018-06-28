@@ -2,7 +2,14 @@
 <script type="text/javascript" src="./assets/user/js/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="dialog.js"></script>
 <link href="./assets/user/css/master.css" rel="stylesheet">
-<script type="text/css" src="./assets/user/css/profile.css"></script> {{/section}} {{!-- BODY --}} {{#with user}}
+<script type="text/css" src="./assets/user/css/profile.css"></script> {{/section}} {{!-- BODY --}} {{#if successMessage}}
+
+
+<div class="alert alert-success">{{successMessage}}</div>
+{{/if}} {{#if errorMessage}}
+<div class="alert alert-danger">{{errorMessage}}</div>
+{{/if}} {{#with user}}
+
 <main id="main" class="section">
 
   <div class="container">
