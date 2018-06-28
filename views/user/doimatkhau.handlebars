@@ -6,7 +6,11 @@
 
 <body class="noIE inner-page ">
 
-  {{#with user}}
+  {{#if successMessage}}
+  <div class="alert alert-success">{{successMessage}}</div>
+  {{/if}} {{#if errorMessage}}
+  <div class="alert alert-danger">{{errorMessage}}</div>
+  {{/if}} {{#with user}}
   <main id="main" class="section">
 
     <div class="container">
@@ -14,7 +18,7 @@
         <!-- MAIN CONTENT -->
         <div class="col-xs-12 col-sm-12 col-md-9">
           <section class="main-content" role="main">
-            <form class="form-horizontal" action="/profile/doimatkhau" method="post">
+            <form class="form-horizontal" action="" method="post">
               <div class="form-group">
                 <label for="oldPassword" class="col-sm-2 control-label">Mật khẩu cũ</label>
                 <div class="col-sm-6">
@@ -24,14 +28,14 @@
               <div class="form-group">
                 <label for="newPassword" class="col-sm-2 control-label">Mật khẩu mới</label>
                 <div class="col-sm-6">
-                  <input type="text" class="form-control" id="newPassword" name="newPassword">
+                  <input type="password" class="form-control" id="newPassword" name="newPassword">
                 </div>
               </div>
 
               <div class="form-group">
                 <label for="reNewPassword" class="col-sm-2 control-label">Nhập lại mật khẩu mới</label>
                 <div class="col-sm-6">
-                  <input type="text" class="form-control" id="reNewPassword" name="reNewPassword">
+                  <input type="password" class="form-control" id="reNewPassword" name="reNewPassword">
                 </div>
               </div>
 
@@ -45,9 +49,7 @@
                 </div>
               </div>
             </form>
-
           </section>
-
         </div>
         <!-- // MAIN CONTENT -->
         <div class="space40 visible-xs"></div>
@@ -111,7 +113,6 @@
               </ul>
             </div>
             <!-- // TAGS WIDGET -->
-
           </aside>
         </div>
       </div>
@@ -121,4 +122,11 @@
 
 </body>
 
-</html>
+{{#section 'scripts'}}
+
+<script>
+  $(document).ready(function () {
+    //bootstrap WYSIHTML5 - text editor
+    $('div.alert').delay(5000).slideUp();
+  });
+</script> {{/section}}

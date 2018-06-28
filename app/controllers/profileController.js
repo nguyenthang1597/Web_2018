@@ -47,25 +47,43 @@ router.post('/', mw.isLoggedInUser, (req, res) => {
 
 
 router.get('/ChangePassword', mw.isLoggedInUser, (req, res) => {
-    res.render('user/doimatkhau');
+    let vm = {
+        successMessage: req.flash('successMessage')[0],
+        errorMessage: req.flash('errorMessage')[0]
+    }
+    res.render('user/doimatkhau', vm);
 });
 
 router.post('/ChangePassword', mw.isLoggedInUser, (req, res) => {
-    let currentUsername = req.session.user.username;
-    accountModel.loadUserByUsername(currentUsername).then(row => {
+    let id = req.user.id;
+    if (req.body.newPassword === "" || req.body.reNewPassword === "" || req.body.oldPassword === "") {
+        req.flash('errorMessage', 'Không được để trống thông tin.')
+        return res.redirect('/profile/ChangePassword');
+    }
+    if (req.body.newPassword != req.body.reNewPassword) {
+        req.flash('errorMessage', 'Mật khẩu mới và mật khẩu nhập lại không giống nhau.')
+        return res.redirect('/profile/ChangePassword');
+    }
+    if (req.body.newPassword === req.body.oldPassword) {
+        req.flash('errorMessage', 'Mật khẩu cũ và mới trùng nhau')
+        return res.redirect('/profile/ChangePassword');
+    }
+    Account.loadUserById(id).then(row => {
+        console.log(row[0]);
+        console.log(req.body.oldPassword + "   " + req.body.newPassword +"  " + req.body.reNewPassword)
         if (row[0].password !== sha256(req.body.oldPassword).toString()) {
+            req.flash('errorMessage', 'Mật khẩu không chính xác.')
             res.redirect('/profile/ChangePassword');
         } else {
-            console.log(req.body.newPassword);
-            if ((req.body.newPassword === req.body.reNewPassword) && (req.body.newPassword !== req.body.oldPassword)) {
-                let newPassword = sha256(req.body.newPassword).toString();
-                let sql = `UPDATE account SET password = '${newPassword}' WHERE username = '${currentUsername}';`;
-                db(sql).then(rows => {
-                    res.redirect('/login');
+            let newPassword = sha256(req.body.newPassword).toString();
+            let sql = `UPDATE account SET password = '${newPassword}' WHERE id = '${id}'`;
+            db(sql).then(rows => {
+                    res.redirect('/logout');
                 })
-            } else {
-                res.redirect('/profile/ChangePassword');
-            }
+                .catch(err => {
+                    req.flash('errorMessage', 'Không thể cập nhật.')
+                    res.redirect('/profile/ChangePassword');
+                })
         }
     })
 });
