@@ -1,0 +1,135 @@
+{{#section 'title'}} Thông tin cá nhân {{/section}} {{#section 'css'}}
+<script type="text/javascript" src="./assets/user/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="dialog.js"></script>
+<link href="./assets/user/css/master.css" rel="stylesheet">
+<script type="text/css" src="./assets/user/css/profile.css"></script> {{/section}}
+
+<body class="noIE inner-page ">
+
+  {{#with user}}
+  <main id="main" class="section">
+
+    <div class="container">
+      <div class="row">
+        <!-- MAIN CONTENT -->
+        <div class="col-xs-12 col-sm-12 col-md-9">
+
+
+          <section class="main-content" role="main">
+
+
+            <form class="form-horizontal" action="/profile/doimatkhau" method="post">
+              <div class="form-group">
+                <label for="oldPassword" class="col-sm-2 control-label">Mật khẩu cũ</label>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control" id="oldPassword" name="oldPassword">
+                </div>
+              </div>
+
+
+              <div class="form-group">
+                <label for="newPassword" class="col-sm-2 control-label">Mật khẩu mới</label>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control" id="newPassword" name="newPassword">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="reNewPassword" class="col-sm-2 control-label">Nhập lại mật khẩu mới</label>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control" id="reNewPassword" name="reNewPassword">
+                </div>
+              </div>
+
+              <br>
+              <br>
+              <br>
+
+              <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-8">
+                  <button type="submit" class="btn btn-primary">Đổi mật khẩu</button>
+                </div>
+              </div>
+            </form>
+
+          </section>
+
+
+
+
+        </div>
+        <!-- // MAIN CONTENT -->
+        <div class="space40 visible-xs"></div>
+        <!-- SIDEBAR -->
+        <div class="col-xs-12 col-sm-12 col-md-3">
+          <aside class="sidebar">
+
+            <!-- ARCHIVE WIDGET -->
+            <div class="widget widget-filter">
+              <div class="block_content">
+                <div class="list-group-heading">
+                  <span class="list-group-heading-inner">
+                    <span style="font-family: all;">Quản lý tài khoản</span>
+                  </span>
+                </div>
+                <div class="list-content">
+                  <ul>
+                    <li>
+                      <a href="/profile">Thông tin cá nhân</a>
+                    </li>
+                    <li>
+                      <a href="/profile/doimatkhau">Đổi mật khẩu</a>
+                    </li>
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- OUR SOCIAL NETWORK WIDGET -->
+            <div class="widget widget-social">
+              <h3 class="widget-title">
+                <span>OUR SOCIAL NETWORK</span>
+              </h3>
+              <ul class="unstyled clearfix social-team">
+                <li>
+                  <a target="_blank" href="http://fb.com/#">
+                    <i class="fa fa-facebook"></i>
+                  </a>
+                </li>
+                <li>
+                  <a target="_blank" href="http://twitter.com/#">
+                    <i class="fa fa-twitter"></i>
+                  </a>
+                </li>
+                <li>
+                  <a target="_blank" href="http://plus.google.com/#">
+                    <i class="fa fa-google"></i>
+                  </a>
+                </li>
+                <li>
+                  <a target="_blank" href="http://youtube.com/#">
+                    <i class="fa fa-youtube"></i>
+                  </a>
+                </li>
+                <li>
+                  <a target="_blank" href="http://rss.com/#">
+                    <i class="fa fa-rss"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <!-- // TAGS WIDGET -->
+
+          </aside>
+        </div>
+
+
+      </div>
+    </div>
+  </main>
+  {{/with}}
+
+</body>
+
+</html>

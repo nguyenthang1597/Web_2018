@@ -1,0 +1,53 @@
+ {{#section 'title'}} Thông tin cá nhân {{/section}} {{#section 'css'}}
+<script type="text/javascript" src="./assets/user/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="dialog.js"></script>
+<link href="./assets/user/css/master.css" rel="stylesheet">
+<script type="text/css" src="./assets/user/css/profile.css"></script> {{/section}} {{!-- BODY --}} {{#with user}}
+<main id="main" class="section">
+
+  <div class="container">
+    <div class="row">
+      <!-- MAIN CONTENT -->
+      <div class="col-xs-12 col-sm-12 col-md-6 col-md-push-3">
+
+        <form action="" method="POST" role="form">
+          <legend>Thông tin cá nhân</legend>
+
+          <div class="form-group">
+            <label for="">Họ Tên</label>
+            <input type="text" class="form-control" name="Ten" id="" value="{{Ten}}" placeholder="Input field">
+          </div>
+
+          <div class="form-group">
+            <label for="">Số điện thoại</label>
+            <input type="text" class="form-control" name="SDT" value="{{SDT}}" id="" placeholder="Input field">
+          </div>
+
+          <div class="form-group">
+            <label for="">Số CMND/ Hộ Chiếu</label>
+            <input type="text" class="form-control" name="CMND" value="{{CMND}}" id="" placeholder="Input field">
+          </div>
+
+          <div class="form-group">
+            <label for="">Email</label>
+            <input type="text" class="form-control" name="Email" value="{{Email}}" id="" placeholder="Input field">
+          </div>
+
+          <div class="form-group">
+            <label for="">Ngày Sinh</label>
+            <input type="date" class="form-control" name="NgaySinh" value="{{NgaySinh}}" id="" placeholder="Input field">
+          </div>
+
+          <div class="form-group">
+            <label for="">Địa Chỉ</label>
+            <input type="text" class="form-control" name="DiaChi" value="{{DiaChi}}" id="" placeholder="Input field">
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width:70px;margin-left: auto;margin-right:  auto;display:  block;">Cập nhật</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
+
+{{/with}}

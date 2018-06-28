@@ -70,7 +70,6 @@ router.get('/timkiem', (req, res) => {
 })
 router.get("/", (req, res) => {
 	SP.loadAll().then(rows => {
-		console.log(rows);
 		var vm = {
 			moinhat: rows[0],
 			phobien: rows[1],
@@ -121,7 +120,7 @@ router.get('/HangXe/:Id', (req, res) => {
 })
 router.get('/XemChiTiet/:Id', (req, res) => {
 	var id = req.params.Id;
-	let CungLoai, CungHang, SanPham, pic, subPic;
+	let CungLoai, CungHang, SanPham, pic;
 	SP.getById(id).then(rows => {
 		SanPham = rows[0];
 		return SP.loadpic(SanPham.Id)
@@ -132,16 +131,15 @@ router.get('/XemChiTiet/:Id', (req, res) => {
 		CungLoai = rows;
 		return SP.LoadHangXe(SanPham.HangXe, 0)
 	}).then(rows => {
+		CungHang = rows;
 		return Picture.getById(req.params.Id)
 	})
 	.then(rows => {
-		subPic = rows;
-		console.log(subPic);
 		var vm = {
 			sp: SanPham,
 			SPLoai: CungLoai,
-			SPNSX: rows,
-			img: subPic,
+			SPNSX: CungHang,
+			img: rows,
 		}
 		res.render('user/xemchitiet', vm);
 	})
@@ -168,5 +166,12 @@ router.get('/chitietdonhang/:id', mw.isLoggedInUser, (req, res) => {
 		};
 		res.render('user/chitietdonhang', vm);
 	});
+})
+
+router.get('/about',(req,res)=> {
+	var vm = {
+		layout: false
+	};
+	res.render('user/about',vm);
 })
 module.exports = router;

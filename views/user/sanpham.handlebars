@@ -20,7 +20,9 @@
           <div class = "col-md-4 li">
             <div class ="media">
               <a href="/XemChiTiet/{{Id}}">
-                <img src="/img/{{HinhAnh}}" width="369" height="200" alt="alt" />
+
+                <img src="/upload/product/{{HinhAnh}}" width="350" height="200" alt="alt" />
+
               </a>
               <div class="carousel-item-content">
                 <div class="text-right">
@@ -35,7 +37,9 @@
             <div class="product-box">
               <a class="btn btn-default btn-black ">
                 <i class="fa fa-money"></i>
-                <span>{{GiaBan}}</span>
+
+                <span>$ {{number_format GiaBan}}</span>
+
               </a>
               {{#if ../user}}
               <a href="" class="btn btn-danger ">

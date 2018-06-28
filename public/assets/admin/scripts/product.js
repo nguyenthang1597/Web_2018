@@ -40,20 +40,6 @@ $(document).ready(function(){
 		}
 	})
 
-	$('img.subImages').on('click', function(){
-		let url = $(this).attr('src');
-		$.ajax({
-			url: '/admin/product/deleteImages',
-			type: 'POST',
-			data: {
-				url: url
-			},
-			success: function(data) {
-
-			}
-		})
-		$(this).remove();		
-	})
     
 
 })

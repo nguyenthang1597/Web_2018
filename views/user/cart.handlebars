@@ -1,0 +1,256 @@
+{{#section 'title'}} Giỏ hàng {{/section}} {{#section 'css'}}
+<script type="text/javascript" src="/assets/user/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="dialog.js"></script>
+<link href="/assets/user/css/master.css" rel="stylesheet">
+<script type="text/css" src="/assets/user/css/profile.css"></script> {{/section}} {{!-- BODY --}}
+<main id="main" class="section">
+    <div class="container">
+        <div class="row">
+            <!-- MAIN CONTENT -->
+            <div class="col-xs-12 col-sm-12 col-md-9">
+                <section class="main-content" role="main">
+                    <ul class="list-group catalog-product-list">
+
+                    </ul>
+                </section>
+            </div>
+            <!-- // MAIN CONTENT -->
+            <div class="space40 visible-xs"></div>
+            <!-- SIDEBAR -->
+            <div class="col-xs-12 col-sm-12 col-md-3">
+                <aside class="sidebar">
+
+                    <!-- ARCHIVE WIDGET -->
+                    <div class="widget widget-filter">
+                        <div class="block_content">
+
+
+                            <div class="list-group-heading">
+                                <span class="list-group-heading-inner">
+                                    <span>Thông tin đơn hàng</span>
+                                </span>
+                            </div>
+
+                            <div class="list-content">
+                                <ul class="check-list">
+                                    <li>
+                                        <input type="text" placeholder="Nhập mã giảm giá" size="13">
+                                        <button type="submit">Submit</button>
+                                    </li>
+                                    <li>
+                                        <label>Phí giao hàng:
+                                            <span style="display:inline-block; width: 15px;"></span>
+                                            <input type="text" placeholder="$15" size="8">
+                                        </label>
+                                    </li>
+
+                                    <li>
+                                        <label>Tạm tính:
+                                            <span style="display:inline-block; width: 46px;"></span>
+                                            <input type="text" id="TONGTIEN" value="0" placeholder="" size="8">
+                                        </label>
+                                    </li>
+                                </ul>
+
+
+                            </div>
+
+                            <div class="list-group-heading">
+                                <span class="list-group-heading-inner">
+                                    <span>Chọn hình thức thanh toán</span>
+                                </span>
+                            </div>
+                            <div class="list-content">
+                                <ul class="check-list">
+                                    <li>
+                                        <div class="roundedOne">
+                                            <input type="checkbox" name="check" id="roundedOne" value="None">
+                                            <label for="roundedOne"></label>
+                                        </div>
+                                        <label>Giao hàng tận nhà, trả tiền</label>
+                                    </li>
+
+                                    <li>
+                                        <div class="roundedOne">
+                                            <input type="checkbox" name="check" id="roundedOne2" value="None">
+                                            <label for="roundedOne2"></label>
+                                        </div>
+                                        <label>Đến đại lý nhận xe</label>
+                                        <label> và thanh toán bằng tiền mặt</label>
+                                    </li>
+
+                                    <li>
+                                        <div class="roundedOne">
+                                            <input type="checkbox" name="check" id="roundedOne2" value="None">
+                                            <label for="roundedOne2"></label>
+                                        </div>
+                                        <label>Thanh toán thông qua</label>
+                                        <label> tài khoản Internet banking</label>
+                                    </li>
+                                    <li>
+                                        <div class="roundedOne">
+                                            <input type="checkbox" name="check" id="roundedOne3" value="None">
+                                            <label for="roundedOne3"></label>
+                                        </div>
+                                        <label>Thanh toán bằng thẻ </label>
+                                        <label> quốc tế (VISA, Master Card,...)</label>
+                                    </li>
+
+                                </ul>
+                            </div>
+
+
+                            <h3 class="widget-sub-title">
+                                <span>Thanh toán</span>
+                            </h3>
+                        </div>
+                    </div>
+
+                </aside>
+            </div>
+            <!-- // SIDEBAR -->
+
+            {{!-- <div class="row">
+                <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+                    <ul class="pagination">
+                        <li>
+                            <a href="#">&laquo;</a>
+                        </li>
+                        <li>
+                            <a href="#">1</a>
+                        </li>
+                        <li>
+                            <a href="#">2</a>
+                        </li>
+                        <li>
+                            <a href="#">3</a>
+                        </li>
+                        <li>
+                            <a href="#">4</a>
+                        </li>
+                        <li>
+                            <a href="#">5</a>
+                        </li>
+                        <li>
+                            <a href="#">&raquo;</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+ --}}
+
+        </div>
+    </div>
+</main>
+
+
+
+
+{{#section 'scripts'}}
+<script type="text/javascript" src="/assets/user/js/jquery-1.11.1.min.js"></script>
+<script src="/assets/user/js/jquery-migrate-1.2.1.js"></script>
+<script src="/assets/user/js/bootstrap-3.1.1.min.js"></script>
+<script src="/assets/user/js/modernizr.custom.js"></script>
+<script src="/assets/user/js/classie.js"></script>
+<script src="/assets/user/js/pathLoader.js"></script>
+<script src="/assets/user/js/waypoints.min.js"></script>
+<script src="/assets/user/js/loader.js"></script>
+<script src="/assets/user/js/jflickrfeed.min.js"></script>
+<script src="/assets/user/plugins/selectbox/jquery.selectbox-0.2.js"></script>
+<script src="/assets/user/plugins/backstretch/backstretch-2.0.4.min.js"></script>
+<script src="/assets/user/plugins/camera-slider/camera-slider-1.3.4.min.js"></script>
+<script src="/assets/user/plugins/camera-slider/easing-1.3.min.js"></script>
+<script src="/assets/user/plugins/fancybox/fancybox-1.3.4.pack.js"></script>
+<script src="/assets/user/plugins/fancybox/klass-1.0.min.js"></script>
+<script src="/assets/user/plugins/fancybox/photoswipe-3.0.5.min.js"></script>
+<script src="/assets/user/plugins/hover-animations/transform2d.min.js"></script>
+<script src="/assets/user/plugins/hover-animations/hover-animations-1.0.min.js"></script>
+<script src="/assets/user/js/smart-menu.js"></script>
+<script src="/assets/user/js/cssua.min.js"></script>
+<script src="/assets/user/plugins/bxslider/jquery.bxslider.min.js"></script>
+<script src="/assets/user/plugins/nouislider/jquery.nouislider.min.js"></script>
+<script src="/assets/user/plugins/flexslider/jquery.flexslider.js"></script>
+<script src="/assets/user/js/custom.js"></script>
+
+<script>
+
+    let array = sessionStorage.getItem('list');
+    let list = array.split(',').map(item => {
+        if (item != "null") {
+            var tmp = parseInt(item, 10);
+            if (!isNaN(tmp)) {
+                console.log(tmp);
+                return tmp;
+            }
+        }
+
+    })
+    $.ajax({
+        type: "POST",
+        url: '/cart/get',
+        data: {
+            list: list
+        },
+        dataType: 'json',
+        success: function (data) {
+            let a = $('.list-group')
+            let listIten = '';
+            let product;
+            let i = 0;
+            data.forEach(element => {
+                if (element.length > 0) {
+                    let item = ` <li class="list-group-item    animated" data-animation="bounceInLeft">
+                            <div class="media col-md-5  col-sm-5 col-xs-12">
+                                <figure class="pull-left">
+                                    <a href="#">
+                                        <img width="369" height="200" src="/upload/product/${element[0]['HinhAnh']}" alt="alt">
+                                    </a>
+                                </figure>
+                            </div>
+                            <div class="col-md-7 col-xs-12  col-sm-7 list-group-item-content">
+                                <h4 class="list-group-item-heading"> ${element[0]['TenHangXe']}
+                                    <span class="seller">By:
+                                        <a href="#">AutoMaker</a>
+                                    </span>
+                                </h4>
+                                <div class="price">
+                                    <h2 class="GIA">${element[0]['GiaBan']}</h2>
+                                </div>
+                                <p class="list-group-item-text"> Lorem ipsum dolor sit amet, iusto elitr an est. Sea graeco alterum an. Appareat sensibus
+                                    vis ei, iusto commune mentitum no vim, has graeco noluisse conclusionemque ut. Ut sumo
+                                    audiam impedit nec, epicuri lobortis pro te, qui ad possim molestie. Cu doming consetetur
+                                    ius. </p>
+                                <div class="product-box">
+                                    <div class="btn-group">
+
+                                        <a href="#l" class="btn btn-default btn-black ">
+                                            <i class="fa fa-minus"></i>
+                                        </a>
+                                        <div class="btn btn-default">1</div>
+                                        <a href="#" class="btn btn-default btn-black ">
+                                            <i class="fa fa-plus"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>`
+                    a.append(item);
+
+                }
+
+            })
+        }
+    })
+    $(document).ready(function () {
+
+        let a = $('h2.GIA');
+        let sum = 0;
+        for(i=0;i<a.length;i++){
+            sum = parseInt(sum) + parseInt(a[i].innerText)
+            $('#TONGTIEN').val(sum )
+        } 
+       
+
+    })
+
+</script> {{/section}}

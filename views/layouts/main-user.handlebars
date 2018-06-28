@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Trang chủ</title>
-  <link rel="stylesheet"type="text/css" href="/assets/user/css/master.css">
-  {{{_sections.style}}}
+  <link rel="stylesheet" type="text/css" href="/assets/user/css/master.css"> {{{_sections.style}}}
 </head>
+
 <body class="home inner-page">
   <!-- HEADER -->
   <header id="main-header">
@@ -18,14 +19,14 @@
       <nav id="cd-main-nav">
 
         <ul class="has-transitions">
-          <h1 style="font-family: all;">Hello {{user.username}}</h1>
+          <h1 style="font-family: all;">Hello {{user.Ten}}</h1>
           <li>
-            <a href="thong_tin_ca_nhan.html">
+            <a href="/thong_tin_ca_nhan">
               <span style="font-family: all;">Thông tin cá nhân</span>
             </a>
           </li>
           <li>
-            <a href="gio_hang.html">
+            <a href="/gio_hang">
               <span style="font-family: all;">Giỏ hàng</span>
             </a>
           </li>
@@ -47,47 +48,101 @@
     <div class="container ">
       <div class="row">
         <div class="col-md-3 spacer"> </div>
-        <div class="col-md-6"> 
+        <div class="col-md-6">
           <!-- NAVIGATION -->
           <div class="navbar navbar-default navbar-top ">
             <div class="navbar-collapse">
               <ul class="nav navbar-nav nav-justified">
-                <li class="current"><a><span>HOME</span></a></li>
-                <li><a href="#"><span>ABOUT</span></a></li>
-                <li><a href="#"><span>CONTACT</span></a></li>
+                <li class="current">
+                  <a>
+                    <span>HOME</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/about">
+                    <span>ABOUT</span>
+                  </a>
+                </li>
                 {{#if user}}
-                <li><a href="/logout"><span>LOGOUT</span></a></li>
                 {{else}}
-                <li><a href="/login"><span>LOGIN</span></a></li>
-                <li><a href="/signup"><span>SIGNUP</span></a></li>
+                <li>
+                  <a href="#">
+                    <span>CONTACT</span>
+                  </a>
+                </li>
+                {{/if}}
+                {{#if user}}
+                <li>
+                  <a href="/profile">
+                    <span>PROFILE</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/cart">
+                    <span>CART</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/logout">
+                    <span>LOGOUT</span>
+                  </a>
+                </li>
+                {{else}}
+                <li>
+                  <a href="/login">
+                    <span>LOGIN</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/signup">
+                    <span>SIGNUP</span>
+                  </a>
+                </li>
                 {{/if}}
               </ul>
             </div>
           </div>
         </div>
-        <div class="col-md-4"> 
+        <div class="col-md-4">
           <!-- LOGO -->
-          <div id="logo" > <span class="bglogo1 transform-please-2"><a href="/"><img src="/assets/user/img/logo.png"  alt="logo"/></a></span> <span class="bglogo2 transform-please-2"></span> <span class="bglogo3 transform-please-2"></span> <span class="bglogo4 transform-please-2"></span> </div>
+          <div id="logo">
+            <span class="bglogo1 transform-please-2">
+              <a href="/">
+                <img src="/assets/user/img/logo.png" alt="logo" />
+              </a>
+            </span>
+            <span class="bglogo2 transform-please-2"></span>
+            <span class="bglogo3 transform-please-2"></span>
+            <span class="bglogo4 transform-please-2"></span>
+          </div>
         </div>
       </div>
     </div>
     <div class="container">
-      <nav id="main-nav" >
+      <nav id="main-nav">
         <div class="row">
-          <div class="col-md-12"> 
+          <div class="col-md-12">
             <!-- NAVIGATION -->
             <div class="navbar navbar-default" role="navigation">
               <div class="navbar-header"> </div>
               <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav nav-justified">
                   {{#each layoutVM.LoaiXe}}
-                  <li><a href="/LoaiXe/{{Id}}"><span>{{TenLoai}}</span></a></li>
+                  <li>
+                    <a href="/LoaiXe/{{Id}}">
+                      <span>{{TenLoai}}</span>
+                    </a>
+                  </li>
                   {{/each}}
                 </ul>
               </div>
               <div class="mini-search-top">
-                <form class="form-mini-search" >
-                  <a href="/timkiem" class="arrow-link submit-link"> <span class="icon-transform transform-please"><i class="fa fa-search"></i></span></a>
+                <form class="form-mini-search">
+                  <a href="/timkiem" class="arrow-link submit-link">
+                    <span class="icon-transform transform-please">
+                      <i class="fa fa-search"></i>
+                    </span>
+                  </a>
                 </form>
               </div>
             </div>
@@ -96,7 +151,7 @@
       </nav>
     </div>
   </header>
-  <!-- HEADER END --> 
+  <!-- HEADER END -->
 
   <!-- HOME SLIDER -->
   <div id="slider">
@@ -107,15 +162,19 @@
       <div data-thumb="/assets/user/media/slider/4.jpg" data-src="/assets/user/media/slider/4.jpg"> </div>
     </div>
   </div>
-  <!-- HOME SLIDER END --> 
+  <!-- HOME SLIDER END -->
 
   <!-- SECTION -->
   <div class="brandslider bg-overlay overlay-bot">
     <div class="container">
-      <div  class="row" >
+      <div class="row">
         <ul>
           {{#each layoutVM.HangXe}}
-          <li><a href="/HangXe/{{Id}}"><img src="/assets/user/media/brand/{{Pic}}"  alt="brand" /></a></li>
+          <li>
+            <a href="/HangXe/{{Id}}">
+              <img src="/upload/catalog/{{Pic}}" alt="brand" />
+            </a>
+          </li>
           {{/each}}
         </ul>
       </div>
@@ -130,70 +189,79 @@
       <div class="row">
         <div class="foot-top-line"></div>
         <div class="foot-bot-line"></div>
-        <a class="scroll-top" href="#"><i class="fa fa-angle-up"></i> </a> </div>
-      </div>
-      <div class="container fot-container">
-        <div class="row">
-          <ul class="nav-footer">
-            <li><a href="./index.html"><span>HOME</span></a></li>
-            <li><a href="#"><span>ABOUT</span></a></li>
-            <li class="current"><a href="#"><span>CONTACT</span></a></li>
-            {{#if user}}
-            <li><a href="/logout"><span>LOGOUT</span></a></li>
-            {{else}}
-            <li><a href="/login"><span>LOGIN</span></a></li>
-            <li><a href="/signup"><span>SIGNUP</span></a></li>
-            {{/if}}
-          </ul>
-        </div>
+        <a class="scroll-top" href="#">
+          <i class="fa fa-angle-up"></i>
+        </a>
       </div>
     </div>
-    <!-- END --> 
-
-    <!-- ABSOLUTE FOOTER -->
-    <div class="copyright-block">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 col-sm-12 col-xs-12 left">
-            <ul class="unstyled clearfix social-team">
-              <li><a href="http://fb.com/#" target="_blank"><i class="fa fa-facebook"></i></a></li>
-              <li><a href="http://twitter.com/#" target="_blank"><i class="fa fa-twitter"></i></a></li>
-              <li><a href="http://plus.google.com/#" target="_blank"><i class="fa fa-google"></i></a></li>
-              <li><a href="http://youtube.com/#" target="_blank"><i class="fa fa-youtube"></i></a></li>
-              <li><a href="http://rss.com/#" target="_blank"><i class="fa fa-rss"></i></a></li>
-            </ul>
-          </div>
-        </div>
+    <div class="container fot-container">
+      <div class="row">
+        <ul class="nav-footer">
+          <li>
+            <a href="/">
+              <span>HOME</span>
+            </a>
+          </li>
+          <li>
+            <a href="/about">
+              <span>ABOUT</span>
+            </a>
+          </li>
+          <li class="current">
+            <a href="#">
+              <span>CONTACT</span>
+            </a>
+          </li>
+          {{#if user}}
+          <li>
+            <a href="/logout">
+              <span>LOGOUT</span>
+            </a>
+          </li>
+          {{else}}
+          <li>
+            <a href="/login">
+              <span>LOGIN</span>
+            </a>
+          </li>
+          <li>
+            <a href="/signup">
+              <span>SIGNUP</span>
+            </a>
+          </li>
+          {{/if}}
+        </ul>
       </div>
     </div>
-    <!-- END --> 
+  </div>
+  <!-- END -->
 
-    <!-- SCRIPTS --> 
-    <script src="/assets/admin/js/datatables/datatables.js"></script>
-    <script type="text/javascript" src="/assets/user/js/jquery-1.11.1.min.js"></script>  
-     {{{_sections.scripts}}}
-    <script type="text/javascript" src="/assets/user/js/jquery-migrate-1.2.1.js" ></script> 
-    <script type="text/javascript" src="/assets/user/js/bootstrap-3.1.1.min.js"></script> 
-    <script type="text/javascript" src="/assets/user/js/modernizr.custom.js"></script> 
-    <script type="text/javascript" src="/assets/user/js/classie.js"></script> 
-    <script type="text/javascript" src="/assets/user/js/pathLoader.js"></script> 
-    <script type="text/javascript" src="/assets/user/js/waypoints.min.js"></script> 
-    <script type="text/javascript" src="/assets/user/js/loader.js"></script> 
-    <script type="text/javascript" src="/assets/user/js/jflickrfeed.min.js"></script> 
-    <script type="text/javascript" src="/assets/user/plugins/selectbox/jquery.selectbox-0.2.js"></script> 
-    <script type="text/javascript" src="/assets/user/plugins/backstretch/backstretch-2.0.4.min.js"></script> 
-    <script type="text/javascript" src="/assets/user/plugins/camera-slider/camera-slider-1.3.4.min.js"></script> 
-    <script type="text/javascript" src="/assets/user/plugins/camera-slider/easing-1.3.min.js"></script> 
-    <script type="text/javascript" src="/assets/user/plugins/fancybox/fancybox-1.3.4.pack.js"></script> 
-    <script type="text/javascript" src="/assets/user/plugins/fancybox/klass-1.0.min.js"></script> 
-    <script type="text/javascript" src="/assets/user/plugins/fancybox/photoswipe-3.0.5.min.js"></script> 
-    <script type="text/javascript" src="/assets/user/plugins/hover-animations/transform2d.min.js"></script> 
-    <script type="text/javascript" src="/assets/user/plugins/hover-animations/hover-animations-1.0.min.js"></script> 
-    <script type="text/javascript" src="/assets/user/js/smart-menu.js"></script> 
-    <script type="text/javascript" src="/assets/user/js/cssua.min.js"></script> 
-    <script type="text/javascript" src="/assets/user/plugins/bxslider/jquery.bxslider.min.js"></script> 
-    <script type="text/javascript" src="/assets/user/plugins/nouislider/jquery.nouislider.min.js"></script> 
-    <script type="text/javascript" src="/assets/user/plugins/flexslider/jquery.flexslider.js"></script> 
-    <script type="text/javascript" src="/assets/user/js/custom.js"></script>
-  </body>
-  </html>
+  <!-- SCRIPTS -->
+  <script src="/assets/admin/js/datatables/datatables.js"></script>
+  <script type="text/javascript" src="/assets/user/js/jquery-1.11.1.min.js"></script> {{{_sections.scripts}}}
+  <script type="text/javascript" src="/assets/user/js/jquery-migrate-1.2.1.js"></script>
+  <script type="text/javascript" src="/assets/user/js/bootstrap-3.1.1.min.js"></script>
+  <script type="text/javascript" src="/assets/user/js/modernizr.custom.js"></script>
+  <script type="text/javascript" src="/assets/user/js/classie.js"></script>
+  <script type="text/javascript" src="/assets/user/js/pathLoader.js"></script>
+  <script type="text/javascript" src="/assets/user/js/waypoints.min.js"></script>
+  <script type="text/javascript" src="/assets/user/js/loader.js"></script>
+  <script type="text/javascript" src="/assets/user/js/jflickrfeed.min.js"></script>
+  <script type="text/javascript" src="/assets/user/plugins/selectbox/jquery.selectbox-0.2.js"></script>
+  <script type="text/javascript" src="/assets/user/plugins/backstretch/backstretch-2.0.4.min.js"></script>
+  <script type="text/javascript" src="/assets/user/plugins/camera-slider/camera-slider-1.3.4.min.js"></script>
+  <script type="text/javascript" src="/assets/user/plugins/camera-slider/easing-1.3.min.js"></script>
+  <script type="text/javascript" src="/assets/user/plugins/fancybox/fancybox-1.3.4.pack.js"></script>
+  <script type="text/javascript" src="/assets/user/plugins/fancybox/klass-1.0.min.js"></script>
+  <script type="text/javascript" src="/assets/user/plugins/fancybox/photoswipe-3.0.5.min.js"></script>
+  <script type="text/javascript" src="/assets/user/plugins/hover-animations/transform2d.min.js"></script>
+  <script type="text/javascript" src="/assets/user/plugins/hover-animations/hover-animations-1.0.min.js"></script>
+  <script type="text/javascript" src="/assets/user/js/smart-menu.js"></script>
+  <script type="text/javascript" src="/assets/user/js/cssua.min.js"></script>
+  <script type="text/javascript" src="/assets/user/plugins/bxslider/jquery.bxslider.min.js"></script>
+  <script type="text/javascript" src="/assets/user/plugins/nouislider/jquery.nouislider.min.js"></script>
+  <script type="text/javascript" src="/assets/user/plugins/flexslider/jquery.flexslider.js"></script>
+  <script type="text/javascript" src="/assets/user/js/custom.js"></script>
+</body>
+
+</html>

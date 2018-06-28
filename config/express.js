@@ -1,4 +1,4 @@
-module.exports = function (app, express, session, hbs, logger, cookieParser, bodyParser, passport,flash) {
+module.exports = function (app, express, session, hbs, logger, cookieParser, bodyParser, passport,flash,handleLayoutMDW) {
 	app.engine('handlebars', hbs.engine);
 	app.set('view engine', 'handlebars');
 	app.set('views', 'views');
@@ -27,4 +27,5 @@ module.exports = function (app, express, session, hbs, logger, cookieParser, bod
 		});
 		return next();
 	})
+	app.use(handleLayoutMDW);
 }
