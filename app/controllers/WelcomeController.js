@@ -120,7 +120,7 @@ router.get('/HangXe/:Id', (req, res) => {
 })
 router.get('/XemChiTiet/:Id', (req, res) => {
 	var id = req.params.Id;
-	let CungLoai, CungHang, SanPham, pic, subPic;
+	let CungLoai, CungHang, SanPham, pic;
 	SP.getById(id).then(rows => {
 		SanPham = rows[0];
 		return SP.loadpic(SanPham.Id)
@@ -131,15 +131,15 @@ router.get('/XemChiTiet/:Id', (req, res) => {
 		CungLoai = rows;
 		return SP.LoadHangXe(SanPham.HangXe, 0)
 	}).then(rows => {
+		CungHang = rows;
 		return Picture.getById(req.params.Id)
 	})
 	.then(rows => {
-		subPic = rows;
 		var vm = {
 			sp: SanPham,
 			SPLoai: CungLoai,
-			SPNSX: rows,
-			img: subPic,
+			SPNSX: CungHang,
+			img: rows,
 		}
 		res.render('user/xemchitiet', vm);
 	})

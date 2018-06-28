@@ -21,7 +21,7 @@ var server = http.createServer(app);
 
 //config Express
 
-require('./config/express')(app, express, session, hbs, logger, cookieParser, bodyParser, passport, flash);
+require('./config/express')(app, express, session, hbs, logger, cookieParser, bodyParser, passport, flash,handleLayoutMDW);
 
 //config Route
 require('./routes/routes')(app);
