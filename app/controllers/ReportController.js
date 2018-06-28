@@ -11,5 +11,14 @@ router.get('/catalog', (req, res) => {
     })
 })
 
+router.get('/category', (req, res) => {
+    Report.countByCategory((err, result) => {
+        if(err)
+            res.end();
+        else
+            res.send(result);
+    })
+})
+
 
 module.exports = router;
