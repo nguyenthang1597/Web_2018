@@ -63,7 +63,8 @@ router.get('/timkiem', (req, res) => {
 		var vm = {
 			sp: pRows,
 			noProducts: pRows.length === 0,
-			page_numbers: numbers
+			page_numbers: numbers,
+			title: 'Tiềm kiếm'
 		}
 		res.render('user/timkiem', vm);
 	})
@@ -74,6 +75,7 @@ router.get("/", (req, res) => {
 			moinhat: rows[0],
 			phobien: rows[1],
 			xemnhieu: rows[2],
+			title: 'Trang chủ'
 		};
 		res.render('index', vm);
 	});
@@ -93,7 +95,8 @@ router.get('/LoaiXe/:Id', (req, res) => {
 		var vm = {
 			sanpham: pRows,
 			noProducts: pRows.length === 0,
-			page_numbers: numbers
+			page_numbers: numbers,
+			title: 'Loại xe'
 		};
 		res.render('user/sanpham', vm);
 	});
@@ -113,7 +116,8 @@ router.get('/HangXe/:Id', (req, res) => {
 		var vm = {
 			sanpham: pRows,
 			noProducts: pRows.length === 0,
-			page_numbers: numbers
+			page_numbers: numbers,
+			title: 'Hãng xe'
 		};
 		res.render('user/sanpham', vm);
 	});
@@ -140,6 +144,7 @@ router.get('/XemChiTiet/:Id', (req, res) => {
 			SPLoai: CungLoai,
 			SPNSX: CungHang,
 			img: rows,
+			title: 'Chi tiết xe'
 		}
 		res.render('user/xemchitiet', vm);
 	})
@@ -151,6 +156,7 @@ router.get('/lichsu', mw.isLoggedInUser, (req, res) => {
 	SP.loadhoadon(req.user.id).then(rows => {
 		var vm = {
 			hoadon: rows,
+			title: 'Lịch sử'
 		}
 		res.render('user/lichsu', vm);
 	})
@@ -163,6 +169,7 @@ router.get('/chitietdonhang/:id', mw.isLoggedInUser, (req, res) => {
 		var vm = {
 			sp: row1,
 			hoadon: row2[0],
+			title: 'Chi tiết đơn hàng'
 		};
 		res.render('user/chitietdonhang', vm);
 	});
@@ -170,7 +177,8 @@ router.get('/chitietdonhang/:id', mw.isLoggedInUser, (req, res) => {
 
 router.get('/about',(req,res)=> {
 	var vm = {
-		layout: false
+		layout: false,
+		title: 'Thông tin về chúng tôi'
 	};
 	res.render('user/about',vm);
 })

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
   <section class="main-content " role="main">
     <div class="bg-overlay overlay-top">
       <div class="container">
@@ -89,7 +88,7 @@
               {{#if user}}
               <div class="btn-set-middle">
                 <hr>
-                <a href="" class="btn-call"> <span> BUY THIS CAR </span></a> <a href="#" class="btn-email"> <span> MAIL US ABOUT THIS CAR </span></a>
+                <a href="/cart" class="btn-call"> <span> BUY THIS CAR </span></a> <a href="#" class="btn-email"> <span> MAIL US ABOUT THIS CAR </span></a>
               </div>
               {{/if}}
             </section>
@@ -102,173 +101,22 @@
               <ul>
                 {{#each SPLoai}}
                 <li><a href="/XemChiTiet/{{Id}}"><img alt="alt" src="/upload/product/{{HinhAnh}}" width="170" height="120"></a>
-=======
-<section class="main-content " role="main">
-  <div class="bg-overlay overlay-top">
-    <div class="container">
-      <div class="row">
-        <div class="page-title col-xs-12 col-sm-12 col-md-12 col-lg-12">
-          <!-- Tên xe hơi -->
-          <h3>{{sp.TenSP}}</h3>
-          <div class="line transform-please-2"></div>
-        </div>
-        <div class="pb-left-column col-xs-12 col-sm-12 col-md-7 col-lg-7">
-          <div class="clearfix" id="image-block">
-            <div id="slider-product" class="flexslider">
-              <ul class="slides">
-                <li>
-                  <a href="/upload/product/{{sp.HinhAnh}}">
-                    <img src="/upload/product/{{sp.HinhAnh}}" alt="alt" />
-                  </a>
-                </li>
-                {{#each img}}
-                <li>
-                  <a href="/upload/product/{{picture}}">
-                    <img src="/upload/product/{{picture}}" alt="alt" />
-                  </a>
-                </li>
-                {{/each}}
-              </ul>
-            </div>
-            <div id="carousel" class="flexslider">
-              <ul class="slides">
-                {{#each img}}
-                <li>
-                  <img src="/upload/product/{{picture}}" alt="alt" /> </li>
-                {{/each}}
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="pb-center-column col-xs-12 col-sm-12 col-md-5 col-lg-5">
-          <div class="price-line">
-
-            <div class="price-box transform-please">
-              <span>$ {{number_format sp.GiaBan}} </span>
-            </div>
-
-          </div>
-          <div class="product-featured" style="font-family: all;">
-            <div class="featured-box">
-              <ul class="featured-title">
-                <li>Ngày Nhập</li>
-              </ul>
-              <div class="featured-content" style="font-family: all;">{{sp.NgayNhap}}</div>
-            </div>
-            <div class="featured-box">
-              <ul class="featured-title">
-                <li>Xuất xứ</li>
-              </ul>
-              <div class="featured-content" style="font-family: all;">{{sp.XuatXu}}</div>
-            </div>
-            <div class="featured-box">
-              <ul class="featured-title">
-                <li>Loại Xe</li>
-              </ul>
-              <div class="featured-content" style="font-family: all;">{{sp.TenLoai}}</div>
-            </div>
-            <div class="featured-box">
-              <ul class="featured-title">
-                <li>NSX</li>
-              </ul>
-              <div class="featured-content" style="font-family: all;">{{sp.TenHang}}</div>
-            </div>
-            <div class="featured-box">
-              <ul class="featured-title">
-                <li>Chi Tiết</li>
-              </ul>
-              <div class="featured-content" style="font-family: all;">{{{sp.ChiTiet}}}</div>
-            </div>
-            <div class="desc">
-              <ul class="featured-title">
-
-                <li>Số lượt xem:
-                  <span>{{number_format sp.LuotXem}}</span>
-                </li>
-                <li>Số lượng bán:
-                  <span>{{number_format sp.SLBan}}</span>
-                </li>
-              </ul>
-            </div>
-            <div class="offer_specification"> </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-          <div class="product-tab">
-            <ul class="nav nav-tabs">
-              <li class="active">
-                <a data-toggle="tab" href="#tab1" data-loading-text="Loading..." style="font-family: all;">Thông tin chi tiết</a>
-              </li>
-            </ul>
-            <br>
-            <br>
-            <p>{{{sp.MoTa}}}</p>
-          </div>
-          <section class="btn-set-section">
-            {{#if user}}
-            <div class="btn-set-middle">
-              <hr>
-              <a href="/cart" class="btn-call">
-                <span> BUY THIS CAR </span>
-              </a>
-              <a href="#" class="btn-email">
-                <span> MAIL US ABOUT THIS CAR </span>
-              </a>
-            </div>
-            {{/if}}
-          </section>
-
-          <div class="cungLoai">
-            <section class="carousel-3">
-              <div class="carousel-title ">
-                <div class="transform-please-2 ">
-                  <span style="font-family: all;">CÙNG LOẠI</span>
-                </div>
-              </div>
-              <ul>
-                {{#each SPLoai}}
-                <li>
-                  <a href="/XemChiTiet/{{Id}}">
-                    <img alt="alt" src="/upload/product/{{HinhAnh}}" width="170" height="120">
-                  </a>
->>>>>>> origin/Thang_CK
                   <h3>{{TenSP}}</h3>
                 </li>
                 {{/each}}
               </ul>
-<<<<<<< HEAD
             </section> 
-=======
-            </section>
->>>>>>> origin/Thang_CK
           </div>
           <!-- End cùng loại sp -->
 
           <div class="cungHang">
             <section class="carousel-3">
               <div class="carousel-title ">
-<<<<<<< HEAD
                 <div class="transform-please-2 "> <span style="font-family: all;">CÙNG NSX</span> </div>
               </div>
               <ul>
                 {{#each SPNSX}}
                 <li><a href="/XemChiTiet/{{Id}}"><img alt="alt" src="/upload/product/{{HinhAnh}}" width="170" height="120"></a>
-=======
-                <div class="transform-please-2 ">
-                  <span style="font-family: all;">CÙNG NSX</span>
-                </div>
-              </div>
-              <ul>
-                {{#each SPNSX}}
-                <li>
-                  <a href="/XemChiTiet/{{Id}}">
-                    <img alt="alt" src="/upload/product/{{HinhAnh}}" width="170" height="120">
-                  </a>
->>>>>>> origin/Thang_CK
                   <h3>{{TenSP}}</h3>
                 </li>
                 {{/each}}
@@ -279,9 +127,6 @@
         </div>
       </div>
     </div>
-<<<<<<< HEAD
-  </section>
-=======
 </section>
 
 {{#section 'scripts'}}
@@ -296,4 +141,3 @@
     sessionStorage.setItem('list', list);
   })
 </script> {{/section}}
->>>>>>> origin/Thang_CK

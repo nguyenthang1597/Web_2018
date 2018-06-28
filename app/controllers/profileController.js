@@ -13,7 +13,8 @@ router.get('/', mw.isLoggedInUser, (req, res) => {
             let vm = {
                 user: result[0],
                 successMessage: req.flash('successMessage')[0],
-                errorMessage: req.flash('errorMessage')[0]
+                errorMessage: req.flash('errorMessage')[0],
+                title: 'Thông tin cá nhân'
             }
             res.render('user/profile', vm)
         })
@@ -49,7 +50,8 @@ router.post('/', mw.isLoggedInUser, (req, res) => {
 router.get('/ChangePassword', mw.isLoggedInUser, (req, res) => {
     let vm = {
         successMessage: req.flash('successMessage')[0],
-        errorMessage: req.flash('errorMessage')[0]
+        errorMessage: req.flash('errorMessage')[0],
+        title: 'Đổi mật khẩu'
     }
     res.render('user/doimatkhau', vm);
 });
@@ -70,7 +72,7 @@ router.post('/ChangePassword', mw.isLoggedInUser, (req, res) => {
     }
     Account.loadUserById(id).then(row => {
         console.log(row[0]);
-        console.log(req.body.oldPassword + "   " + req.body.newPassword +"  " + req.body.reNewPassword)
+        console.log(req.body.oldPassword + "   " + req.body.newPassword + "  " + req.body.reNewPassword)
         if (row[0].password !== sha256(req.body.oldPassword).toString()) {
             req.flash('errorMessage', 'Mật khẩu không chính xác.')
             res.redirect('/profile/ChangePassword');
