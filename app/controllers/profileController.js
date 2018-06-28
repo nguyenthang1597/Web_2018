@@ -46,15 +46,15 @@ router.post('/',mw.isLoggedInUser,(req,res)=> {
 })
 
 
-router.get('/doimatkhau', mw.isLoggedInUser, (req, res) => {
+router.get('/ChangePassword', mw.isLoggedInUser, (req, res) => {
     res.render('user/doimatkhau');
 });
 
-router.post('/doimatkhau', mw.isLoggedInUser, (req, res) => {
+router.post('/ChangePassword', mw.isLoggedInUser, (req, res) => {
     let currentUsername = req.session.user.username;
     accountModel.loadUserByUsername(currentUsername).then(row => {
         if (row[0].password !== sha256(req.body.oldPassword).toString()) {
-            res.redirect('/profile/doimatkhau');
+            res.redirect('/profile/ChangePassword');
         } else {
             console.log(req.body.newPassword);
             if ((req.body.newPassword === req.body.reNewPassword) && (req.body.newPassword !== req.body.oldPassword)) {
@@ -64,7 +64,7 @@ router.post('/doimatkhau', mw.isLoggedInUser, (req, res) => {
                     res.redirect('/login');
                 })
             } else {
-                res.redirect('/profile/doimatkhau');
+                res.redirect('/profile/ChangePassword');
             }
         }
     })
