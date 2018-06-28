@@ -33,9 +33,9 @@ function getList(list, cb) {
 
 router.post('/get', (req, res) => {
     let list = req.body['list[]'];
-    console.log(list);
+    //console.log(list);
     getList(list, (car => {
-        console.log(car);
+        //console.log(car);
         res.send(JSON.stringify(car));
     }))
 

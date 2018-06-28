@@ -29,7 +29,7 @@
           <div class="pb-center-column col-xs-12 col-sm-12 col-md-5 col-lg-5">
             <div class="price-line">
 
-              <div class="price-box transform-please"><span>$ {{number_format sp.GiaBan}} </span></div>
+              <div class="price-box transform-please"><span>{{number_format sp.GiaBan}} VND</span></div>
 
             </div>
             <div class="product-featured" style="font-family: all;">
@@ -87,8 +87,7 @@
             <section class="btn-set-section">
               {{#if user}}
               <div class="btn-set-middle">
-                <hr>
-                <a href="/cart" class="btn-call"> <span> BUY THIS CAR </span></a> <a href="#" class="btn-email"> <span> MAIL US ABOUT THIS CAR </span></a>
+                <a href="/cart" class="btn btn-primary btn-call"> <span> MUA XE </span></a>
               </div>
               {{/if}}
             </section>
@@ -136,6 +135,7 @@
     list = '';
   $('a.btn-call').on('click', function () {
     let href = window.location.href;
+    console.log(href);
     let id = href.substr(href.lastIndexOf('/') + 1, href.length - href.lastIndexOf('/'));
     list = list + ',' + id;
     sessionStorage.setItem('list', list);

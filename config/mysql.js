@@ -5,8 +5,8 @@ module.exports = (sql) => {
 		const cn = mysql.createConnection({
 			host: 'localhost',
 			user: 'root',
-			password: 'Hieu19091997',
-			database: 'banoto',
+			password: '',
+			database: 'web',
 			dateStrings: 'date',
 			multipleStatements: true
 		})

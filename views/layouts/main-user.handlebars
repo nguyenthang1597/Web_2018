@@ -6,8 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{title}}</title>
   <script type="text/javascript" src="/assets/user/js/jquery-1.11.1.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="/assets/user/css/master.css"> 
-  {{{_sections.style}}}
+  <link rel="stylesheet" type="text/css" href="/assets/user/css/master.css"> {{{_sections.style}}}
 </head>
 
 <body class="home inner-page">
@@ -64,15 +63,13 @@
                     <span>ABOUT</span>
                   </a>
                 </li>
-                {{#if user}}
-                {{else}}
+                {{#if user}} {{else}}
                 <li>
                   <a href="#">
                     <span>CONTACT</span>
                   </a>
                 </li>
-                {{/if}}
-                {{#if user}}
+                {{/if}} {{#if user}}
                 <li>
                   <a href="/profile">
                     <span>PROFILE</span>
@@ -107,11 +104,12 @@
         <div class="col-md-4">
           <!-- LOGO -->
           <div id="logo">
-            <span class="bglogo1 transform-please-2">
-              <a href="/">
+            <a href="/">
+              <span class="bglogo1 transform-please-2">
                 <img src="/assets/user/img/logo.png" alt="logo" />
-              </a>
-            </span>
+              </span>
+            </a>
+
             <span class="bglogo2 transform-please-2"></span>
             <span class="bglogo3 transform-please-2"></span>
             <span class="bglogo4 transform-please-2"></span>
@@ -239,7 +237,7 @@
 
   <!-- SCRIPTS -->
   <script src="/assets/admin/js/datatables/datatables.js"></script>
-  <script type="text/javascript" src="/assets/user/js/jquery-1.11.1.min.js"></script> 
+  <script type="text/javascript" src="/assets/user/js/jquery-1.11.1.min.js"></script>
   <script type="text/javascript" src="/assets/user/js/jquery-migrate-1.2.1.js"></script>
   <script type="text/javascript" src="/assets/user/js/bootstrap-3.1.1.min.js"></script>
   <script type="text/javascript" src="/assets/user/js/modernizr.custom.js"></script>
@@ -262,8 +260,7 @@
   <script type="text/javascript" src="/assets/user/plugins/bxslider/jquery.bxslider.min.js"></script>
   <script type="text/javascript" src="/assets/user/plugins/nouislider/jquery.nouislider.min.js"></script>
   <script type="text/javascript" src="/assets/user/plugins/flexslider/jquery.flexslider.js"></script>
-  <script type="text/javascript" src="/assets/user/js/custom.js"></script>
-  {{{_sections.scripts}}}
+  <script type="text/javascript" src="/assets/user/js/custom.js"></script> {{{_sections.scripts}}}
 </body>
 
 </html>

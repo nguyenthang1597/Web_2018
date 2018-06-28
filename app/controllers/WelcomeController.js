@@ -123,7 +123,7 @@ router.get('/HangXe/:Id', (req, res) => {
 	});
 })
 router.get('/XemChiTiet/:Id', (req, res) => {
-	var id = req.params.Id;
+	let id = req.params.Id;
 	let CungLoai, CungHang, SanPham, pic;
 	SP.getById(id).then(rows => {
 		SanPham = rows[0];

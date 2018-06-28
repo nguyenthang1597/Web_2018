@@ -14,7 +14,7 @@ module.exports = function (app, express, session, hbs, logger, cookieParser, bod
 		resave: false,
 		saveUninitialized: true,
 		cookie: {
-			maxAge: 1000*60*10 //Tồn tại 10 phút
+			maxAge: 1000000000000000000000*1000*60*10 //Tồn tại 10 phút
 		}
 	}));
 
