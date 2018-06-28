@@ -1,18 +1,24 @@
 const express = require('express');
 const restrict = require('../../middle-wares/restrict.js');
 const mw = require('../../middle-wares/middlewares')
-const accountModel = require('../Model/Account');
+const Account = require('../Model/Account');
 var db = require('../../config/mysql');
 const sha256 = require('sha256');
 const router = express.Router();
 
 router.get('/', mw.isLoggedInUser, (req, res) => {
-    let username = req.session.user.username;
-    accountModel.loadUserByUsername(username).then(row => {
+    let id = req.user.id;
+    Account.loadProfileUserById(id).then(result => {
+        console.log(result[0]);
         let vm = {
-            user: row[0]
+            user: result[0]
         }
-        res.render('user/profile', vm);
+        res.render('user/profile',vm)
+    })
+    .catch(err => {
+        console.log("ERR: " + err);
+        req.user = null;
+        res.redirect('/');
     })
 });
 

@@ -12,5 +12,8 @@ module.exports = {
     },
     deleteById: (id)=> {
         return db(`delete from account where id = ${id}`);
+    },
+    loadProfileUserById: (id) => {
+        return db(`select * from khachhang where id = ${id}`);
     }
 }
