@@ -37,8 +37,8 @@
                         <i class="fa fa-car"></i>
                         <span>View more</span>
                       </a>
-                     {{#if ../user}}
-                      <a href="#" class="btn btn-danger ">
+                      {{#if ../user}}
+                      <a href="/cart" class="btn btn-danger btn-call" value="{{Id}}">
                         <i class="fa fa-shopping-cart"></i>
                         <span>Buy</span>
                       </a>
@@ -96,42 +96,54 @@
                       <div class="list-content">
                         <select name="tenloai">
 
-                           <option value="0" >Loại xe</option>
-                          {{#each layoutVM.LoaiXe}}
-                          <option value="{{{Id}}}" >{{TenLoai}}</option>
-                          {{/each}}
-                        </select>
-                      </div>
-                      <div class="list-group-heading">
-                        <span class="list-group-heading-inner">
-                          <span style="font-family: all;">Hãng xe</span>
-                        </span>
-                      </div>
-                      <div class="list-content">
-                        <select name ="hangxe">
+                         <option value="0" >Loại xe</option>
+                         {{#each layoutVM.LoaiXe}}
+                         <option value="{{{Id}}}" >{{TenLoai}}</option>
+                         {{/each}}
+                       </select>
+                     </div>
+                     <div class="list-group-heading">
+                      <span class="list-group-heading-inner">
+                        <span style="font-family: all;">Hãng xe</span>
+                      </span>
+                    </div>
+                    <div class="list-content">
+                      <select name ="hangxe">
 
-                          <option value="0">Hãng xe</option>
+                        <option value="0">Hãng xe</option>
 
-                          {{#each layoutVM.HangXe}}
-                          <option value="{{Id}}">{{TenHang}}</option>
-                          {{/each}}
-                        </select>
-                      </div>
-                      <div class="list-group-heading">
-                        <span class="list-group-heading-inner">
-                          <span style="font-family: all;">Giá bán</span>
-                        </span>
-                      </div><br><br>
-                      <input type="number" min="0" placeholder="Tối thiểu" value pattern="[0-9]*" name="min"></input><br><br>
-                      <input type="number" min="0" placeholder="Tối đa" value pattern="[0-9]*" name = "max"></input><br><br>
-                      <button type="summit" class="btn btn-primary center-block">Tìm</button>
-                    </form>
-                  </div>
+                        {{#each layoutVM.HangXe}}
+                        <option value="{{Id}}">{{TenHang}}</option>
+                        {{/each}}
+                      </select>
+                    </div>
+                    <div class="list-group-heading">
+                      <span class="list-group-heading-inner">
+                        <span style="font-family: all;">Giá bán</span>
+                      </span>
+                    </div><br><br>
+                    <input type="number" min="0" placeholder="Tối thiểu" value pattern="[0-9]*" name="min"></input><br><br>
+                    <input type="number" min="0" placeholder="Tối đa" value pattern="[0-9]*" name = "max"></input><br><br>
+                    <button type="summit" class="btn btn-primary center-block">Tìm</button>
+                  </form>
                 </div>
               </div>
+            </div>
 
-            </aside>
-          </div>
+          </aside>
         </div>
       </div>
-    </main>
+    </div>
+  </main>
+  {{#section 'scripts'}}
+  <script>
+  let list = sessionStorage.getItem('list');
+  if (list == 'null')
+    list = '';
+  $('a.btn-call').on('click', function () {
+    let href = window.location.href;
+    let id = ${'a.btn-call'}.attr("value");
+    list = list + ',' + id;
+    sessionStorage.setItem('list', list);
+  })
+</script> {{/section}}
