@@ -42,7 +42,7 @@
 
               </a>
               {{#if ../user}}
-              <a href="" class="btn btn-danger ">
+              <a href="/cart" class="btn btn-danger btn-call" value="{{Id}}">
                 <i class="fa fa-shopping-cart"></i>
                 <span>Add to cart</span>
               </a>
@@ -72,3 +72,15 @@
     </div>
   </div>
 </div>
+{{#section 'scripts'}}
+<script>
+  let list = sessionStorage.getItem('list');
+  if (list == 'null')
+    list = '';
+  $('a.btn-call').on('click', function () {
+    let href = window.location.href;
+    let id = ${'a.btn-call'}.attr("value");
+    list = list + ',' + id;
+    sessionStorage.setItem('list', list);
+  })
+</script> {{/section}}

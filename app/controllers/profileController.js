@@ -9,7 +9,6 @@ const router = express.Router();
 router.get('/', mw.isLoggedInUser, (req, res) => {
     let id = req.user.id;
     Account.loadProfileUserById(id).then(result => {
-            console.log(result[0]);
             let vm = {
                 user: result[0],
                 successMessage: req.flash('successMessage')[0],
