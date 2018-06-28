@@ -1,8 +1,15 @@
- {{#section 'title'}} Thông tin cá nhân {{/section}} {{#section 'css'}}
+{{#section 'css'}}
 <script type="text/javascript" src="./assets/user/js/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="dialog.js"></script>
 <link href="./assets/user/css/master.css" rel="stylesheet">
-<script type="text/css" src="./assets/user/css/profile.css"></script> {{/section}} {{!-- BODY --}} {{#with user}}
+<script type="text/css" src="./assets/user/css/profile.css"></script> {{/section}} {{!-- BODY --}} 
+
+{{#if successMessage}}
+<div class="alert alert-success">{{successMessage}}</div>
+{{/if}} {{#if errorMessage}}
+<div class="alert alert-danger">{{errorMessage}}</div>
+{{/if}}
+
 <main id="main" class="section">
 
   <div class="container">
@@ -15,32 +22,32 @@
 
           <div class="form-group">
             <label for="">Họ Tên</label>
-            <input type="text" class="form-control" name="Ten" id="" value="{{Ten}}" placeholder="Input field">
+            <input type="text" class="form-control" name="Ten" id="" value="{{user.Ten}}" placeholder="Input field">
           </div>
 
           <div class="form-group">
             <label for="">Số điện thoại</label>
-            <input type="text" class="form-control" name="SDT" value="{{SDT}}" id="" placeholder="Input field">
+            <input type="text" class="form-control" name="SDT" value="{{user.SDT}}" id="" placeholder="Input field">
           </div>
 
           <div class="form-group">
             <label for="">Số CMND/ Hộ Chiếu</label>
-            <input type="text" class="form-control" name="CMND" value="{{CMND}}" id="" placeholder="Input field">
+            <input type="text" class="form-control" name="CMND" value="{{user.CMND}}" id="" placeholder="Input field">
           </div>
 
           <div class="form-group">
             <label for="">Email</label>
-            <input type="text" class="form-control" name="Email" value="{{Email}}" id="" placeholder="Input field">
+            <input type="text" class="form-control" name="Email" value="{{user.Email}}" id="" placeholder="Input field">
           </div>
 
           <div class="form-group">
             <label for="">Ngày Sinh</label>
-            <input type="date" class="form-control" name="NgaySinh" value="{{NgaySinh}}" id="" placeholder="Input field">
+            <input type="date" class="form-control" name="NgaySinh" value="{{user.NgaySinh}}" id="" placeholder="Input field">
           </div>
 
           <div class="form-group">
             <label for="">Địa Chỉ</label>
-            <input type="text" class="form-control" name="DiaChi" value="{{DiaChi}}" id="" placeholder="Input field">
+            <input type="text" class="form-control" name="DiaChi" value="{{user.DiaChi}}" id="" placeholder="Input field">
           </div>
 
           <button type="submit" class="btn btn-primary" style="width:70px;margin-left: auto;margin-right:  auto;display:  block;">Cập nhật</button>
@@ -49,5 +56,3 @@
     </div>
   </div>
 </main>
-
-{{/with}}

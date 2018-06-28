@@ -16,11 +16,7 @@ const cartController = require('../app/controllers/cartController');
 
 module.exports = (app) => {
     app.use('/admin', AdminController);
-<<<<<<< HEAD
-    app.use('/profile',mw.isLoggedInUser ,profileController);
-=======
-    app.use('/profile', profileController);
->>>>>>> origin/Thang_CK
+    app.use('/profile',profileController);
     app.use('/cart', cartController);
     app.use('/admin/catalog', mw.isLoggedInAdmin, CatalogController);
     app.use('/admin/category', mw.isLoggedInAdmin, CategoryController);
