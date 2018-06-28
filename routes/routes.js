@@ -16,11 +16,7 @@ const cartController = require('../app/controllers/cartController');
 
 module.exports = (app) => {
     app.use('/admin', AdminController);
-<<<<<<< HEAD
-    app.use('/profile', profileController);
-=======
     app.use('/profile',profileController);
->>>>>>> 23eac95a8107961684a76139e41f83bff6b4ffba
     app.use('/cart', cartController);
     app.use('/admin/catalog', mw.isLoggedInAdmin, CatalogController);
     app.use('/admin/category', mw.isLoggedInAdmin, CategoryController);
