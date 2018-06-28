@@ -11,9 +11,7 @@ router.get('/', mw.isLoggedInUser, (req, res) => {
     Account.loadProfileUserById(id).then(result => {
         console.log(result[0]);
         let vm = {
-            user: result[0],
-            successMessage: req.flash('successMessage')[0],
-            errorMessage: req.flash('errorMessage')[0]
+            user: result[0]
         }
         res.render('user/profile',vm)
     })
@@ -23,27 +21,6 @@ router.get('/', mw.isLoggedInUser, (req, res) => {
         res.redirect('/');
     })
 });
-
-router.post('/',mw.isLoggedInUser,(req,res)=> {
-    var data = {
-        id: req.user.id,
-        Ten: req.body.Ten,
-        Email: req.body.Email,
-        SDT: req.body.SDT,
-        CMND: req.body.CMND,
-        NgaySinh: req.body.NgaySinh,
-        DiaChi: req.body.DiaChi
-    }
-    Account.updateProfileUser(data).then(result => {
-        req.flash('successMessage', 'Cập nhật thành công!');
-        res.redirect('/profile');
-    })
-    .catch(err => {
-        console.log('Loi cap nhat: ', err);
-        req.flash('errorMessage', 'Chỉnh sửa không thành công!');
-        res.redirect('/profile');
-    })
-})
 
 
 router.get('/ChangePassword', mw.isLoggedInUser, (req, res) => {
