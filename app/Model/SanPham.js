@@ -40,7 +40,7 @@ exports.updateLuotXem=(id)=>{
 	return db(sql);
 }
 exports.loadhoadon=(id)=>{
-	var sql = `select * from chitiethoadon where chitiethoadon.IdKH=${id} order by chitiethoadon.NgayMua desc `;
+	var sql = `select * from hoadon where hoadon.IdKH=${id} order by hoadon.NgayBan desc `;
 	return db(sql);
 }
 exports.chitiethoadon=(id)=>{

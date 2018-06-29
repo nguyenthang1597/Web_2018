@@ -60,7 +60,7 @@ router.post('/edit/:id', (req, res) => {
         }
         Catalog.getOneById(req.params.id)
             .then(result => {
-                if (typeof req.file == undefined) {
+                if (typeof req.file === "undefined") {
                     catalog.Pic = result[0].Pic;
                 } else {
                     deleteOldPic(result.Pic);

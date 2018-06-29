@@ -32,20 +32,15 @@
                             </div>
 
                             <div class="list-content">
-                                <form action="/cart/addHoaDon" method="POST">
-                                    <input type="text" id="TONGTIEN" name="tongtien" value="0" placeholder="" size="8">
-                                    <span style="display:inline-block; width: 15px;"></span>
-                                    <button id="btnTinhTong">Tạm tính</button>
-                                    <br>
-                                    <br> {{!--
-                                    <button type="submit" class="widget-sub-title" style="color:white">Thanh toán</button> --}}
+                                <input type="text" id="TONGTIEN" name="tongtien" value="0" placeholder="" size="8">
+                                <span style="display:inline-block; width: 15px;"></span>
+                                <button type="button" id="btnTinhTong">Tạm tính</button>
 
-                                    <div class="btn">
-                                        <a href="/cart" class="btn btn-primary btn-call">
-                                            <span> THANH TOÁN </span>
-                                        </a>
-                                    </div>
-                                </form>
+                                <div class="btn">
+                                    <a href="/cart" onclick="ThanhToan()" class="btn btn-primary btn-call">
+                                        <span> THANH TOÁN </span>
+                                    </a>
+                                </div>
                             </div>
                         </div>
 
@@ -170,20 +165,23 @@
 
     });
 
-    let arrXe = sessionStorage.getItem('arrXe');
-    let arrSL = sessionStorage.getItem('arrSL');
+    function ThanhToan() {
+        let arrXe = sessionStorage.getItem('arrXe');
+        let arrSL = sessionStorage.getItem('arrSL');
 
-
-    $.ajax({
-        type: "POST",
-        url: '/cart/addHoaDon',
-        data: {
-            arrXe: arrXe,
-            arrSL: arrSL
-        },
-        dataType: 'text',
-        success: function (data) {
-            alert("Goi thanh cong data");
-        }
-    })
+        console.log(arrXe)
+        console.log(arrSL)
+        $.ajax({
+            type: "POST",
+            url: '/cart/addHoaDon',
+            data: {
+                arrXe: arrXe,
+                arrSL: arrSL
+            },
+            dataType: 'text',
+            success: function (data) {
+            }
+        })
+        sessionStorage.setItem('list', '');
+    }
 </script> {{/section}}
