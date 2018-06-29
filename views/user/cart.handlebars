@@ -1,4 +1,4 @@
-{{#section 'style'}}
+{{#section 'title'}} Giỏ hàng {{/section}} {{#section 'style'}}
 <script type="text/css" src="/assets/user/css/profile.css"></script> {{/section}}
 
 
@@ -32,84 +32,28 @@
                             </div>
 
                             <div class="list-content">
-                                <ul class="check-list">
-                                    <li>
-                                        <input type="text" placeholder="Nhập mã giảm giá" size="13">
-                                        <button type="submit">Submit</button>
-                                    </li>
-                                    <li>
-                                        <label>Phí giao hàng:
-                                            <span style="display:inline-block; width: 15px;"></span>
-                                            <input type="text" placeholder="$15" size="8">
-                                        </label>
-                                    </li>
+                                <form action="/cart/addHoaDon" method="POST">
+                                    <input type="text" id="TONGTIEN" name="tongtien" value="0" placeholder="" size="8">
+                                    <span style="display:inline-block; width: 15px;"></span>
+                                    <button id="btnTinhTong">Tạm tính</button>
+                                    <br>
+                                    <br> {{!--
+                                    <button type="submit" class="widget-sub-title" style="color:white">Thanh toán</button> --}}
 
-                                    <li>
-                                        <input type="text" id="TONGTIEN" value="0" placeholder="" size="8">
-                                        <span style="display:inline-block; width: 5px;"></span>
-                                        <button id="btnTinhTong">Tạm tính</button>
-                                    </li>
-                                </ul>
-
-
+                                    <div class="btn">
+                                        <a href="/cart" class="btn btn-primary btn-call">
+                                            <span> THANH TOÁN </span>
+                                        </a>
+                                    </div>
+                                </form>
                             </div>
-
-                            <div class="list-group-heading">
-                                <span class="list-group-heading-inner">
-                                    <span>Chọn hình thức thanh toán</span>
-                                </span>
-                            </div>
-                            <div class="list-content">
-                                <ul class="check-list">
-                                    <li>
-                                        <div class="roundedOne">
-                                            <input type="checkbox" name="check" id="roundedOne" value="None">
-                                            <label for="roundedOne"></label>
-                                        </div>
-                                        <label>Giao hàng tận nhà, trả tiền</label>
-                                    </li>
-
-                                    <li>
-                                        <div class="roundedOne">
-                                            <input type="checkbox" name="check" id="roundedOne2" value="None">
-                                            <label for="roundedOne2"></label>
-                                        </div>
-                                        <label>Đến đại lý nhận xe</label>
-                                        <label> và thanh toán bằng tiền mặt</label>
-                                    </li>
-
-                                    <li>
-                                        <div class="roundedOne">
-                                            <input type="checkbox" name="check" id="roundedOne2" value="None">
-                                            <label for="roundedOne2"></label>
-                                        </div>
-                                        <label>Thanh toán thông qua</label>
-                                        <label> tài khoản Internet banking</label>
-                                    </li>
-                                    <li>
-                                        <div class="roundedOne">
-                                            <input type="checkbox" name="check" id="roundedOne3" value="None">
-                                            <label for="roundedOne3"></label>
-                                        </div>
-                                        <label>Thanh toán bằng thẻ </label>
-                                        <label> quốc tế (VISA, Master Card,...)</label>
-                                    </li>
-
-                                </ul>
-                            </div>
-
-
-                            <h3 class="widget-sub-title">
-                                <span>Thanh toán</span>
-                            </h3>
                         </div>
-                    </div>
 
                 </aside>
-            </div>
+                </div>
 
+            </div>
         </div>
-    </div>
 </main>
 
 
@@ -180,12 +124,13 @@
                                     <h2 class="GIA">${element[0]['GiaBan']}</h2>VND
                                 </div>
                                 <p class="list-group-item-text">${element[0]['ChiTiet']}</p>
+                                
                                 <div class="product-box">
                                     <div class="btn-group">
-                                        <br><br>
                                         <input type='number' class='SOLUONG' name="soluong" min="1" value='1' style="width: 60px;" />
                                     </div>
                                 </div>
+
                             </div>
                         </li>`
                     a.append(item);
@@ -198,31 +143,47 @@
 
 
     $(document).ready(function () {
-        setTimeout(() => {
+
+        $("#btnTinhTong").click(() => {
             let giatien = $(".GIA").toArray();
             let soluong = $(".SOLUONG").toArray();
 
             let sum = 0;
-            for (i = 0; i < giatien.length; i++) {
-                sum = sum + parseInt(soluong[i].textContent) * parseInt(giatien[i].textContent);
-
-            }
-            //$('#TONGTIEN').val(sum);
-            //alert(sum);
-        }, 10);
-
-        $("#btnTinhTong").click(() => {
-            let giatien = $(".GIA").toArray();
-            //let soluong = $(".SOLUONG").val().toArray();
-            //alert(soluong);
-            var soluong = $("input[name*='soluong']").toArray();
-
-            //alert(soluong[0].val());
-            let sum = 0;
-            for (i = 0; i < giatien.length; i++) {
-                sum = sum + parseInt(giatien[i].textContent);
+            for (let i = 0; i < soluong.length; i++) {
+                sum = sum + $(soluong[i]).val() * parseInt($(giatien[i]).text());
             }
             $('#TONGTIEN').val(sum);
         });
+
+
+        // Luu section arrID va arrSL
+        setInterval(() => {
+            let soluong = $(".SOLUONG").toArray();
+            let arrSL = '';
+            for (let i = 0; i < soluong.length; i++) {
+                arrSL += $(soluong[i]).val() + ',';
+            }
+            sessionStorage.setItem('arrXe', list);
+            sessionStorage.setItem('arrSL', arrSL);
+        }, 200);
+
+
     });
+
+    let arrXe = sessionStorage.getItem('arrXe');
+    let arrSL = sessionStorage.getItem('arrSL');
+
+
+    $.ajax({
+        type: "POST",
+        url: '/cart/addHoaDon',
+        data: {
+            arrXe: arrXe,
+            arrSL: arrSL
+        },
+        dataType: 'text',
+        success: function (data) {
+            alert("Goi thanh cong data");
+        }
+    })
 </script> {{/section}}

@@ -135,7 +135,8 @@
     list = '';
   $('a.btn-call').on('click', function () {
     let href = window.location.href;
-    console.log(href);
+    alert(href);
+    //console.log(href);
     let id = href.substr(href.lastIndexOf('/') + 1, href.length - href.lastIndexOf('/'));
     list = list + ',' + id;
     sessionStorage.setItem('list', list);

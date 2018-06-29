@@ -26,6 +26,17 @@ var Bill = {
     },
     updateTinhTrang: (id,tinhtrang) =>{
         return db(`update chitiethoadon set TinhTrang = '${tinhtrang}' where MaHoaDon = '${id}'`)
+    },
+    getMaxIdBill: () => {
+        return db(`SELECT MAX(MaHoaDon) FROM hoadon`);
+    },
+    addBill: (MaHoaDon, IdSP) => {
+        return db(`INSERT INTO hoadon (MaHoaDon, IdKH)
+                    VALUES ('${MaHoaDon}', '${IdKH}')`);
+    },
+    addBillDetail: (MaHoaDon, IdSP, TongTien, TinhTrang, NgayMua, SoLuong, DonGia) => {
+        return db(`INSERT INTO chitiethoadon (MaHoaDon, IdSP, TongTien, TinhTrang, NgayMua, SoLuong, DonGia)
+                    VALUES ('${MaHoaDon}', '${IdSP}', '${TongTien}', '${TinhTrang}', '${NgayMua}', '${SoLuong}', '${DonGia}')`);
     }
 }
 
